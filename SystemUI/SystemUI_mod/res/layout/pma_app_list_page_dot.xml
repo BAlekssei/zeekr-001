@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/img_dot" android:layout_width="18.0px" android:layout_height="6.0px" android:src="@drawable/pma_app_list_page_selected_night" />
+</LinearLayout>

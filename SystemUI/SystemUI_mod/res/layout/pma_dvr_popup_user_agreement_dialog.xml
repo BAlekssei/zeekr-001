@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/dvr_agreement_content" android:layout_width="1288.0px" android:layout_height="680.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="1208.0px" android:layout_height="600.0px" android:layout_marginTop="16.0px" android:layout_marginStart="40.0px">
+        <TextView android:textSize="32.0px" android:textColor="#b4b9be" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="54.0px" android:layout_marginTop="48.0px" android:text="@string/text_id_dvr_user_agreement" />
+        <LinearLayout android:orientation="horizontal" android:paddingLeft="64.0px" android:paddingRight="64.0px" android:layout_width="match_parent" android:layout_height="298.0px" android:layout_marginTop="40.0px">
+            <TextView android:textSize="24.0px" android:textColor="#b4b9be" android:gravity="fill_horizontal" android:layout_gravity="center_horizontal" android:id="@id/tv_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/text_id_dvr_user_agreement_content" android:lineSpacingExtra="16.0px" style="@style/AgreementTextStyle" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="680.0px" android:layout_height="64.0px" android:layout_marginTop="48.0px">
+            <TextView android:textSize="24.0px" android:gravity="center" android:id="@id/btn_yes" android:layout_width="320.0px" android:layout_height="64.0px" android:text="@string/text_id_dvr_dialog_yes" />
+            <TextView android:textSize="24.0px" android:gravity="center" android:id="@id/btn_no" android:layout_width="320.0px" android:layout_height="64.0px" android:text="@string/text_id_dvr_dialog_no" android:layout_marginStart="40.0px" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

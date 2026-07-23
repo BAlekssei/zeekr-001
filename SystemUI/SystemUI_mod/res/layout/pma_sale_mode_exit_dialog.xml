@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/sale_mode_exit_content" android:layout_width="1152.0px" android:layout_height="736.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="40.0px" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:id="@id/tv_note" android:layout_width="81.0px" android:layout_height="47.0px" android:layout_marginTop="64.0px" android:text="提示" />
+    <TextView android:textSize="30.0px" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_title" android:layout_width="944.0px" android:layout_height="342.0px" android:layout_marginTop="176.0px" android:text="是否确认退出交付中心模式？" />
+    <TextView android:textSize="24.0px" android:gravity="center" android:id="@id/btn_no" android:layout_width="240.0px" android:layout_height="70.0px" android:layout_marginLeft="300.0px" android:layout_marginTop="578.0px" android:text="取消" />
+    <TextView android:textSize="24.0px" android:gravity="center" android:id="@id/btn_yes" android:layout_width="240.0px" android:layout_height="70.0px" android:layout_marginLeft="580.0px" android:layout_marginTop="578.0px" android:text="确认" />
+</FrameLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.pma.DropDownBoxViewForPMA android:id="@id/drop_down_box_view" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.statusbar.pma.DropDownBoxContentViewForPMA android:orientation="vertical" android:id="@id/drop_down_box_content" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <include android:layout_gravity="center_horizontal" android:visibility="gone" android:layout_width="@dimen/pma_search_box_width" android:layout_height="@dimen/pma_search_box_height" android:layout_marginTop="48.0px" layout="@layout/pma_search_box" />
+        <FrameLayout android:id="@id/fl_main" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+        <FrameLayout android:visibility="gone" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_marginTop="32.0px" android:layout_weight="1.0">
+            <include android:layout_gravity="center_horizontal" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_notification_view" />
+            <include android:layout_gravity="center_horizontal" android:id="@id/ecarx_notification_view" android:background="#00000000" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/layout_notification_view" />
+            <include android:layout_gravity="center_horizontal" android:visibility="gone" android:layout_width="@dimen/pma_search_box_width" android:layout_height="match_parent" layout="@layout/pma_search_view" />
+        </FrameLayout>
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/collapse_drop_down_box" android:visibility="gone" android:layout_width="@dimen/pma_collapse_dropdown_box_button_width_height" android:layout_height="@dimen/pma_collapse_dropdown_box_button_width_height" android:layout_marginTop="16.0px" android:layout_marginBottom="16.0px" android:src="@drawable/pma_icon_collapse" />
+    </com.android.systemui.statusbar.pma.DropDownBoxContentViewForPMA>
+</com.android.systemui.statusbar.pma.DropDownBoxViewForPMA>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/scene_mode_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/img_scene_mode" android:background="@drawable/pma_selector_topbar_icon_day" android:layout_width="72.0px" android:layout_height="56.0px" android:scaleType="center" />
+    </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+</LinearLayout>

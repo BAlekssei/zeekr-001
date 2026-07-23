@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/user_unlogin_content" android:layout_width="808.0px" android:layout_height="336.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="24.0px" android:textStyle="bold" android:textColor="#ffffff" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_title" android:layout_width="944.0px" android:layout_height="40.0px" android:layout_marginTop="112.0px" android:text="@string/text_id_exit_account_title" />
+    <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="680.0px" android:layout_height="64.0px" android:layout_marginTop="224.0px">
+        <TextView android:textSize="24.0px" android:gravity="center" android:layout_gravity="left" android:id="@id/btn_yes" android:layout_width="320.0px" android:layout_height="64.0px" android:text="@string/text_id_dialog_yes" />
+        <TextView android:textSize="24.0px" android:gravity="center" android:layout_gravity="right" android:id="@id/btn_no" android:layout_width="320.0px" android:layout_height="64.0px" android:text="@string/text_id_dialog_no" />
+    </FrameLayout>> </FrameLayout>

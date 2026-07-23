@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/layout_calendar" android:background="#ffffff" android:layout_width="548.0px" android:layout_height="682.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="620.0px">
+        
+        <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="410.0px" android:layout_height="78.0px" android:layout_marginTop="20.0px">
+            <ImageView android:gravity="center" android:layout_gravity="left|center" android:id="@id/pre_month" android:layout_width="78.0px" android:layout_height="78.0px" android:scaleType="center" />
+            <TextView android:textSize="26.0sp" android:gravity="center" android:layout_gravity="center|top" android:id="@id/date" android:layout_width="wrap_content" android:layout_height="44.0px" />
+            
+            <!-- ПРЯЧЕМ ЛУННУЮ ДАТУ В ШАПКЕ (добавлено visibility="gone") -->
+            <TextView android:visibility="gone" android:textSize="20.0sp" android:gravity="center" android:layout_gravity="center|bottom" android:id="@id/lunar_date" android:layout_width="wrap_content" android:layout_height="34.0px" />
+            
+            <ImageView android:gravity="center" android:layout_gravity="right|center" android:id="@id/next_month" android:layout_width="78.0px" android:layout_height="78.0px" android:scaleType="center" />
+        </FrameLayout>
+
+        <!-- НАША КАСТОМНАЯ ШАПКА ДНЕЙ НЕДЕЛИ НА РУССКОМ (заменит встроенную) -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="44.0px" android:layout_marginTop="25.0px" android:orientation="horizontal">
+            <TextView android:layout_width="0.0px" android:layout_height="match_parent" android:layout_weight="1.0" android:gravity="center" android:text="Пн" android:textSize="20.0sp" android:textColor="#ff888888" />
+            <TextView android:layout_width="0.0px" android:layout_height="match_parent" android:layout_weight="1.0" android:gravity="center" android:text="Вт" android:textSize="20.0sp" android:textColor="#ff888888" />
+            <TextView android:layout_width="0.0px" android:layout_height="match_parent" android:layout_weight="1.0" android:gravity="center" android:text="Ср" android:textSize="20.0sp" android:textColor="#ff888888" />
+            <TextView android:layout_width="0.0px" android:layout_height="match_parent" android:layout_weight="1.0" android:gravity="center" android:text="Чт" android:textSize="20.0sp" android:textColor="#ff888888" />
+            <TextView android:layout_width="0.0px" android:layout_height="match_parent" android:layout_weight="1.0" android:gravity="center" android:text="Пт" android:textSize="20.0sp" android:textColor="#ff888888" />
+            <TextView android:layout_width="0.0px" android:layout_height="match_parent" android:layout_weight="1.0" android:gravity="center" android:text="Сб" android:textSize="20.0sp" android:textColor="#ff888888" />
+            <TextView android:layout_width="0.0px" android:layout_height="match_parent" android:layout_weight="1.0" android:gravity="center" android:text="Вс" android:textSize="20.0sp" android:textColor="#ff888888" />
+        </LinearLayout>
+
+        <!-- КАЛЕНДАРЬ: скрыта встроенная шапка (week_bar_height="0.0px"), скрыт лунный текст (lunar_text_size="0.0sp"), старт с ПН (week_start_with="2") -->
+        <com.haibin.calendarview.CalendarView 
+            android:id="@id/calendar_view" 
+            android:layout_width="match_parent" 
+            android:layout_height="wrap_content" 
+            android:layout_marginTop="0.0px" 
+            app:calendar_height="96.0px" 
+            app:calendar_padding="9.0px" 
+            app:day_text_size="20.0sp" 
+            app:lunar_text_size="0.0sp" 
+            app:week_bar_height="0.0px" 
+            app:week_start_with="mon" 
+            app:week_text_size="20.0sp" />
+            
+    </LinearLayout>
+</FrameLayout>

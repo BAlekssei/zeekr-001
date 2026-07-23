@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/navi_a1_dock" android:layout_width="match_parent" android:layout_height="120.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageButton android:layout_gravity="center" android:id="@id/im_dock_app_add" android:focusable="false" android:layout_width="@dimen/pma_navigation_bar_icons_width" android:layout_height="@dimen/pma_navigation_bar_icons_width" android:src="@drawable/pma_dock_app_add" android:layout_marginStart="4.5px" />
+</LinearLayout>

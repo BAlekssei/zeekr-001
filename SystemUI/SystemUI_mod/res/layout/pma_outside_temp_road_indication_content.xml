@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="@dimen/pma_outside_temp_road_indication_content_width" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="30.0px" android:textColor="#ffffff" android:gravity="center" android:id="@id/tv_outside_temp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="--" android:singleLine="true" />
+    <TextView android:textSize="18.0px" android:textColor="#ffffff" android:gravity="center" android:id="@id/tv_outside_temp_unit" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="3.0px" android:singleLine="true" />
+    <ImageView android:layout_gravity="center_vertical" android:id="@id/img_road_indication" android:visibility="gone" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_icon_road_slip" android:scaleType="fitXY" />
+</LinearLayout>

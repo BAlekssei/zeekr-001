@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="15.0dp" android:width="16.25dp" android:autoMirrored="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:name="in" />
+    <path android:name="out" />
+</vector>

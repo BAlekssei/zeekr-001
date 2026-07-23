@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/notification_view" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:id="@id/car_notification_view" android:visibility="gone" android:layout_width="@dimen/pma_notification_view_width" android:layout_height="match_parent" android:layout_marginStart="8.0px" android:layout_marginEnd="8.0px">
+        <TextView android:textSize="30.0px" android:textColor="#ffffff" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="35.0px" android:text="Car notifications" />
+        <android.support.v7.widget.RecyclerView android:id="@id/car_notification_content" android:layout_width="match_parent" android:layout_height="0.0dp" android:layout_weight="1.0" />
+    </LinearLayout>
+    <LinearLayout android:layout_gravity="center" android:id="@id/native_notification_content" android:visibility="gone" android:layout_width="@dimen/pma_notification_view_width" android:layout_height="match_parent" android:layout_marginStart="8.0px" android:layout_marginEnd="8.0px">
+        <TextView android:textSize="30.0px" android:textColor="#ffffff" android:gravity="center" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="35.0px" android:text="Application notifications" />
+    </LinearLayout>
+</LinearLayout>

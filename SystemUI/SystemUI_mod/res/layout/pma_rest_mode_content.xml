@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="left" android:layout_gravity="top" android:orientation="vertical" android:id="@id/rest_mode_content" android:background="@drawable/pma_rest_mode_day" android:layout_width="432.0px" android:layout_height="156.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="24.0px" android:textColor="#000000" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_rest_mode_left_time" android:layout_width="match_parent" android:layout_height="match_parent" android:singleLine="false" />
+</LinearLayout>

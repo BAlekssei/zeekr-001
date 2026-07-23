@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="420.0px" android:layout_height="64.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/mute_btn" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/iv_mute_icon" android:layout_width="36.0px" android:layout_height="36.0px" android:layout_marginLeft="36.0px" android:scaleType="fitCenter" android:layout_marginStart="136.0px" />
+        <TextView android:textSize="24.0px" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/tv_mute" android:layout_width="96.0px" android:layout_height="40.0px" android:text="@string/pma_volume_mute_btn_text" android:layout_marginStart="188.0px" />
+    </FrameLayout>
+</FrameLayout>

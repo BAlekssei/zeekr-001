@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="center_vertical" android:id="@id/user_item_content" android:layout_width="140.0px" android:layout_height="123.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.statusbar.pma.CircleImage android:layout_gravity="center_horizontal" android:id="@id/user_photo" android:layout_width="72.0px" android:layout_height="72.0px" android:layout_marginTop="10.0px" android:scaleType="centerCrop" />
+    <ImageView android:layout_gravity="center_horizontal" android:id="@id/user_lebal" android:layout_width="72.0px" android:layout_height="72.0px" android:layout_marginTop="10.0px" />
+    <TextView android:textSize="20.0px" android:textColor="#ffffff" android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/user_name" android:layout_width="120.0px" android:layout_height="34.0px" android:layout_marginTop="84.0px" android:singleLine="true" />
+</FrameLayout>

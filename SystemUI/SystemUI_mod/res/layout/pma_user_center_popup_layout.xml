@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="548.0px" android:layout_height="1000.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/user_center_popup_bg" android:layout_width="match_parent" android:layout_height="489.0px">
+        <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+            <LinearLayout android:layout_gravity="center_horizontal" android:orientation="vertical" android:id="@id/current_user_content" android:visibility="visible" android:layout_width="460.0px" android:layout_height="316.0px" android:layout_marginTop="10.0px">
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:id="@id/current_user_info" android:layout_width="460.0px" android:layout_height="96.0px">
+                    <FrameLayout android:layout_width="96.0px" android:layout_height="96.0px">
+                        <com.android.systemui.statusbar.pma.CircleImage android:layout_gravity="center" android:id="@id/user_photo" android:layout_width="72.0px" android:layout_height="72.0px" android:scaleType="centerCrop" />
+                        <ImageView android:layout_gravity="center" android:id="@id/user_lebal" android:layout_width="72.0px" android:layout_height="72.0px" />
+                    </FrameLayout>
+                    <TextView android:textSize="20.0px" android:textStyle="bold" android:textColor="#ffffff" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/user_name" android:layout_width="300.0px" android:layout_height="wrap_content" android:layout_marginLeft="8.0px" android:maxEms="5" android:singleLine="true" />
+                    <ImageView android:id="@id/user_check" android:layout_width="28.0px" android:layout_height="28.0px" android:layout_marginTop="34.0px" android:layout_marginBottom="12.0px" android:layout_marginStart="16.0px" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:id="@id/user_habit_one" android:visibility="visible" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="12.0px">
+                    <TextView android:textSize="20.0px" android:textColor="#383a3d" android:ellipsize="end" android:gravity="left|center" android:id="@id/user_habit_tv_one" android:layout_width="296.0px" android:layout_height="40.0px" android:layout_marginLeft="20.0px" android:text="@string/text_user_habit_one" android:maxEms="7" android:singleLine="true" />
+                    <TextView android:textSize="20.0px" android:textColor="#ffffff" android:gravity="center" android:id="@id/tv_default_preference_one" android:background="@drawable/pma_user_default_preference_day" android:visibility="visible" android:layout_width="104.0px" android:layout_height="34.0px" android:text="@string/text_default_user_habit" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:id="@id/user_habit_two" android:visibility="visible" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="8.0px">
+                    <TextView android:textSize="20.0px" android:textColor="#383a3d" android:ellipsize="end" android:gravity="left|center" android:id="@id/user_habit_tv_two" android:layout_width="296.0px" android:layout_height="40.0px" android:layout_marginLeft="20.0px" android:text="@string/text_user_habit_two" android:maxEms="7" android:singleLine="true" />
+                    <TextView android:textSize="20.0px" android:textColor="#ffffff" android:gravity="center" android:id="@id/tv_default_preference_two" android:background="@drawable/pma_user_default_preference_day" android:visibility="gone" android:layout_width="104.0px" android:layout_height="34.0px" android:text="@string/text_default_user_habit" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_horizontal" android:id="@id/user_habit_three" android:visibility="visible" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="8.0px">
+                    <TextView android:textSize="20.0px" android:textColor="#383a3d" android:ellipsize="end" android:gravity="left|center" android:id="@id/user_habit_tv_three" android:layout_width="296.0px" android:layout_height="40.0px" android:layout_marginLeft="20.0px" android:text="@string/text_user_habit_three" android:maxEms="7" android:singleLine="true" />
+                    <TextView android:textSize="20.0px" android:textColor="#ffffff" android:gravity="center" android:id="@id/tv_default_preference_three" android:background="@drawable/pma_user_default_preference_day" android:visibility="gone" android:layout_width="104.0px" android:layout_height="34.0px" android:text="@string/text_default_user_habit" />
+                </LinearLayout>
+            </LinearLayout>
+            <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/user_family" android:visibility="gone" android:layout_width="480.0px" android:layout_height="178.0px">
+                <TextView android:textSize="20.0px" android:gravity="center" android:id="@id/history" android:layout_width="80.0px" android:layout_height="23.0px" android:layout_marginTop="22.0px" android:text="历史账号" android:layout_marginStart="22.0px" />
+                <FrameLayout android:layout_gravity="right|top" android:id="@id/expand_history" android:layout_width="72.0px" android:layout_height="55.0px">
+                    <ImageView android:layout_gravity="center_horizontal" android:id="@id/img_expand_history" android:layout_width="28.0px" android:layout_height="28.0px" android:layout_marginTop="20.0px" android:scaleType="center" />
+                </FrameLayout>
+                <com.android.systemui.statusbar.pma.UserRecyclerView android:layout_gravity="center_horizontal" android:id="@id/user_family_list" android:layout_width="436.0px" android:layout_height="wrap_content" android:layout_marginTop="55.0px" />
+            </FrameLayout>
+            <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/user_button_content" android:visibility="gone" android:layout_width="436.0px" android:layout_height="152.0px" android:layout_marginTop="15.0px" android:layout_marginBottom="22.0px">
+                <TextView android:textSize="24.0px" android:textColor="#383a3d" android:gravity="center" android:id="@id/go_user_center" android:layout_width="436.0px" android:layout_height="64.0px" android:text="@string/text_id_user_center" />
+                <TextView android:textSize="24.0px" android:textColor="#383a3d" android:gravity="center" android:layout_gravity="left|bottom" android:id="@id/get_other_user" android:layout_width="208.0px" android:layout_height="64.0px" android:text="@string/text_id_other_account" />
+                <TextView android:textSize="24.0px" android:textColor="#383a3d" android:gravity="center" android:layout_gravity="right|bottom" android:id="@id/exit_user" android:layout_width="208.0px" android:layout_height="64.0px" android:text="@string/text_id_exit_account" />
+            </FrameLayout>
+            <TextView android:textSize="24.0px" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/login_user" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="15.0px" android:layout_marginBottom="22.0px" android:text="@string/text_id_login_account" />
+        </LinearLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/exit_dialog" android:layout_width="match_parent" android:layout_height="match_parent" />
+</LinearLayout>

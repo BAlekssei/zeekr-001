@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.pma.applist.AppItemView android:layout_width="230.0px" android:layout_height="208.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="130.0px" android:layout_height="208.0px" />
+    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/app_icon_background" android:layout_width="130.0px" android:layout_height="208.0px">
+        <TextView android:textSize="24.0px" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center|top" android:id="@id/tv_app_delete" android:background="@drawable/pma_app_delete_background" android:visibility="invisible" android:layout_width="100.0px" android:layout_height="48.0px" android:text="卸载" />
+        <FrameLayout android:layout_gravity="center|top" android:layout_width="130.0px" android:layout_height="130.0px" android:layout_marginTop="47.0px">
+            <FrameLayout android:layout_gravity="center" android:id="@id/frame_app_icon" android:layout_width="104.0px" android:layout_height="104.0px">
+                <ImageView android:layout_gravity="center" android:id="@id/img_app_icon" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/pma_app_icon_none" />
+                <ImageView android:layout_gravity="center" android:id="@id/img_prepare_download" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:src="@drawable/pma_prepare_download" />
+            </FrameLayout>
+        </FrameLayout>
+    </FrameLayout>
+    <LinearLayout android:layout_gravity="center|top" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="34.0px" android:layout_marginTop="180.0px">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/img_new" android:visibility="gone" android:layout_width="8.0px" android:layout_height="8.0px" android:src="@drawable/pma_new_app_day" android:layout_marginEnd="4.0px" />
+        <TextView android:textSize="20.0px" android:gravity="center" android:id="@id/tv_app_name" android:layout_width="wrap_content" android:layout_height="34.0px" />
+    </LinearLayout>
+    <ImageView android:textSize="28.0px" android:textColor="#ffffffff" android:gravity="center" android:id="@id/tv_p_status" android:background="@drawable/pma_app_p_day" android:visibility="invisible" android:layout_width="42.0px" android:layout_height="42.0px" android:layout_marginTop="136.0px" android:text="P" android:layout_marginStart="139.0px" />
+</com.android.systemui.statusbar.pma.applist.AppItemView>

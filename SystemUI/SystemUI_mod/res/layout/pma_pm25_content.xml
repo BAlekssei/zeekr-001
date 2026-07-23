@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_gravity="top" android:orientation="vertical" android:id="@id/pm25_content" android:background="@drawable/pma_dialog_background_day" android:layout_width="548.0px" android:layout_height="736.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="674.0px">
+        <TextView android:textSize="26.0px" android:textStyle="bold" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_air_quality" android:layout_width="104.0px" android:layout_height="30.0px" android:layout_marginTop="30.0px" android:text="@string/pma_pm25_air_quality" />
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="368.0px" android:layout_height="438.0px" android:layout_marginTop="42.0px">
+            <FrameLayout android:layout_width="208.0px" android:layout_height="446.0px">
+                <ImageView android:layout_gravity="center" android:id="@id/car_bg" android:layout_width="208.0px" android:layout_height="wrap_content" />
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+                    <ImageView android:layout_gravity="center" android:id="@id/front_arrows_level" android:layout_width="110.0px" android:layout_height="82.0px" android:layout_marginTop="23.0px" android:src="@drawable/pma_front_arrows_level_work" />
+                    <ImageView android:id="@id/front_vent" android:layout_width="110.0px" android:layout_height="219.0px" android:layout_marginTop="45.0px" android:src="@drawable/pma_air_vent_green" />
+                </LinearLayout>
+            </FrameLayout>
+            <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="120.0px" android:layout_height="match_parent" android:layout_marginLeft="40.0px" android:layout_marginTop="8.0px">
+                <FrameLayout android:gravity="center_horizontal" android:layout_width="120.0px" android:layout_height="wrap_content" android:layout_marginTop="8.0px">
+                    <ImageView android:id="@id/icon_aqs_green" android:layout_width="120.0px" android:layout_height="120.0px" android:src="@drawable/pma_aqs_leafs_not_working_day" android:scaleType="fitXY" />
+                    <TextView android:textSize="18.0px" android:textColor="#99383a3d" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_aqs" android:layout_width="wrap_content" android:layout_height="30.0px" android:layout_marginTop="108.0px" android:text="AQS" />
+                    <TextView android:textSize="24.0px" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_aqs_content" android:layout_width="120.0px" android:layout_height="40.0px" android:layout_marginTop="140.0px" />
+                    <ImageView android:id="@id/img_aqs_content" android:layout_width="20.0px" android:layout_height="20.0px" android:layout_marginTop="150.0px" />
+                </FrameLayout>
+                <RelativeLayout android:id="@id/pm25_inside" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0px">
+                    <com.android.systemui.statusbar.pma.Pm25ViewForPMA android:id="@id/bg_path" android:layout_width="120.0px" android:layout_height="120.0px" />
+                    <com.android.systemui.statusbar.pma.ArcDragViewForPMA android:id="@id/pma_handle_new" android:layout_width="120.0px" android:layout_height="120.0px" />
+                    <TextView android:textSize="22.0px" android:textColor="#000000" android:gravity="center" android:id="@id/tv_pm25" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="26.0px" android:layout_marginTop="48.0px" android:text="- -" android:layout_centerHorizontal="true" />
+                    <com.android.systemui.statusbar.pma.PmaLoadingIndicatorView2 android:id="@id/img_pm25" android:visibility="visible" android:layout_width="45.0px" android:layout_height="30.0px" android:layout_marginTop="50.0px" android:layout_marginStart="45.0px" />
+                    <TextView android:textSize="11.0px" android:textColor="#484848" android:gravity="center" android:id="@id/tv_μg" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="17.0px" android:layout_marginTop="73.0px" android:text="μg/m3" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <TextView android:textSize="18.0px" android:textColor="#424242" android:gravity="center|top" android:id="@id/tv_pm25_inside" android:layout_width="wrap_content" android:layout_height="24.0px" android:text="@string/pma_pm25_Inside_Text" android:singleLine="true" />
+                <TextView android:textSize="24.0px" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_pm25_content" android:layout_width="120.0px" android:layout_height="40.0px" android:layout_marginTop="4.0px" />
+            </LinearLayout>
+        </LinearLayout>
+        <Button android:textSize="24.0px" android:layout_gravity="center_horizontal" android:id="@id/openClimate" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="48.0px" android:text="@string/pma_pm25_open_climate" android:textAllCaps="false" />
+    </LinearLayout>
+</FrameLayout>

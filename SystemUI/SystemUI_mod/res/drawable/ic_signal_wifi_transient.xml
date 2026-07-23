@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:name="ic_signal_wifi_transient" android:height="48.0dp" android:width="48.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="ic_signal_wifi_4_bar_48px_2">
+        <group android:name="ic_signal_wifi_4_bar_48px_2_pivot">
+            <group android:name="wifi_2">
+                <path android:name="wifi" />
+            </group>
+            <group android:name="wifi_0">
+                <path android:name="wifi_1" />
+            </group>
+        </group>
+    </group>
+</vector>

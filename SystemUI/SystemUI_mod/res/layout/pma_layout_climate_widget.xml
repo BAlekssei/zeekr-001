@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="440.0px" android:layout_height="@dimen/pma_dock_icon_widget_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/layout_driver_temp_left_arrow" android:layout_width="56.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="right|center" android:id="@id/img_driver_temp_left_arrow" android:focusable="false" android:layout_width="24.0px" android:layout_height="24.0px" android:src="@drawable/pma_day_ic_left_normal_24" />
+    </FrameLayout>
+    <com.android.systemui.statusbar.pma.TemperatureTextView android:textSize="36.0px" android:textStyle="bold" android:gravity="center" android:id="@id/tv_driver_temp" android:focusable="false" android:layout_width="72.0px" android:layout_height="43.0px" android:layout_toRightOf="@id/layout_driver_temp_left_arrow" android:layout_centerVertical="true" android:paddingStart="0.0px" android:layout_marginStart="4.0px" />
+    <FrameLayout android:id="@id/layout_driver_temp_right_arrow" android:layout_width="36.0px" android:layout_height="match_parent" android:layout_toRightOf="@id/tv_driver_temp" android:layout_marginStart="4.0px">
+        <ImageView android:layout_gravity="left|center" android:id="@id/img_driver_temp_right_arrow" android:focusable="false" android:layout_width="24.0px" android:layout_height="24.0px" android:src="@drawable/pma_day_ic_right_normal_24" />
+    </FrameLayout>
+    <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:layout_centerInParent="true">
+        <ImageView android:layout_gravity="center" android:id="@id/img_open_climate" android:focusable="false" android:layout_width="80.0px" android:layout_height="80.0px" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <FrameLayout android:id="@id/layout_passenger_temp_left_arrow" android:layout_width="36.0px" android:layout_height="match_parent" android:layout_toLeftOf="@id/tv_passenger_temp" android:layout_marginEnd="4.0px">
+        <ImageView android:layout_gravity="right|center" android:id="@id/img_passenger_temp_left_arrow" android:focusable="false" android:layout_width="24.0px" android:layout_height="24.0px" android:src="@drawable/pma_day_ic_left_normal_24" />
+    </FrameLayout>
+    <com.android.systemui.statusbar.pma.TemperatureTextView android:textSize="36.0px" android:textStyle="bold" android:gravity="center" android:id="@id/tv_passenger_temp" android:focusable="false" android:layout_width="72.0px" android:layout_height="43.0px" android:layout_toLeftOf="@id/layout_passenger_temp_right_arrow" android:layout_centerVertical="true" android:paddingStart="0.0px" android:layout_marginEnd="4.0px" />
+    <FrameLayout android:gravity="end" android:id="@id/layout_passenger_temp_right_arrow" android:layout_width="56.0px" android:layout_height="match_parent" android:layout_alignParentRight="true">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/img_passenger_temp_right_arrow" android:focusable="false" android:layout_width="24.0px" android:layout_height="24.0px" android:src="@drawable/pma_day_ic_right_normal_24" />
+    </FrameLayout>
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:name="minor_b_a" android:height="8.0dp" android:width="16.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="dot_02">
+        <group android:name="dot_group">
+            <path android:name="dot" />
+        </group>
+    </group>
+</vector>

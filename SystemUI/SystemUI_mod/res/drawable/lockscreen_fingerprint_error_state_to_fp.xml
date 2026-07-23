@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:name="ic_fingerprint_tofp" android:height="32.0dp" android:width="32.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="fingerprintwhite" android:scaleX="0.738" android:scaleY="0.738" android:rotation="180.0">
+        <group android:name="fingerprintwhite_pivot">
+            <group android:name="ridge_5">
+                <path android:name="ridge_5_path" />
+            </group>
+            <group android:name="ridge_4">
+                <path android:name="ridge_7_path" />
+            </group>
+            <group android:name="ridge_3">
+                <path android:name="ridge_6_path" />
+            </group>
+            <group android:name="ridge_2">
+                <path android:name="ridge_2_path" />
+            </group>
+            <group android:name="ridge_1">
+                <path android:name="ridge_1_path" />
+            </group>
+        </group>
+    </group>
+    <group android:name="errorcircle" android:rotation="10.0">
+        <group android:name="circle">
+            <path android:name="circlepath" />
+        </group>
+    </group>
+    <group android:name="errorexclamation">
+        <group android:name="exclamationbottom">
+            <path android:name="bottompath" />
+        </group>
+        <group android:name="exclamationtop">
+            <path android:name="toppath" />
+        </group>
+    </group>
+</vector>

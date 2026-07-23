@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/navi_center_region" android:layout_width="wrap_content" android:layout_height="@dimen/pma_dock_icon_width_height"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/frame_driver_heat_ventilation" android:layout_width="150.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/img_driver_heat_ventilation" android:focusable="false" android:visibility="invisible" android:layout_width="120.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width" android:src="@drawable/pma_icon_driver_off" android:scaleType="centerInside" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/img_driver_temp_left_arrow" android:layout_width="84.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center" android:focusable="false" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_day_ic_left_normal_24" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/tv_driver_temp_layout" android:layout_width="128.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width">
+        <com.android.systemui.statusbar.pma.TemperatureTextView android:layout_gravity="center_horizontal" android:id="@id/tv_driver_temp" android:focusable="false" android:layout_width="114.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/img_driver_temp_right_arrow" android:layout_width="84.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center" android:focusable="false" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_day_ic_right_normal_24" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/img_open_climate_layout" android:layout_width="148.0px" android:layout_height="match_parent">
+        <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/img_open_climate" android:layout_width="120.0px" android:layout_height="match_parent">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center_horizontal" android:id="@id/img_climate" android:focusable="false" android:layout_width="48.0px" android:layout_height="48.0px" android:layout_marginTop="20.0px" android:scaleType="centerInside" app:lottie_fileName="dock_climate_night.json" />
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/img_eco_auto" android:focusable="false" android:layout_width="68.0px" android:layout_height="15.0px" android:layout_marginTop="65.0px" android:scaleType="centerInside" />
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/img_climate_shift" android:focusable="false" android:layout_width="90.0px" android:layout_height="12.0px" android:layout_marginTop="84.0px" android:scaleType="centerInside" />
+        </FrameLayout>
+    </FrameLayout>
+    <FrameLayout android:id="@id/img_passenger_temp_left_arrow" android:layout_width="84.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center" android:focusable="false" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_day_ic_left_normal_24" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/tv_passenger_temp_layout" android:layout_width="128.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width">
+        <com.android.systemui.statusbar.pma.TemperatureTextView android:layout_gravity="center_horizontal" android:id="@id/tv_passenger_temp" android:focusable="false" android:layout_width="114.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/img_passenger_temp_right_arrow" android:layout_width="84.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center" android:focusable="false" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_day_ic_right_normal_24" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/frame_passenger_heat_ventilation" android:layout_width="150.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width">
+        <ImageView android:layout_gravity="center" android:id="@id/img_passenger_heat_ventilation" android:focusable="false" android:visibility="invisible" android:layout_width="120.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width" android:src="@drawable/pma_icon_passenger_off" android:scaleType="centerInside" />
+    </FrameLayout>
+</LinearLayout>

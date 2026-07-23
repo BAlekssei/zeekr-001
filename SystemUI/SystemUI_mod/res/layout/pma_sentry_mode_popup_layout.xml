@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:id="@id/sentry_mode_popup_content" android:layout_width="548.0px" android:layout_height="390.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="328.0px">
+        <TextView android:textSize="26.0px" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/sentry_mode_popup_title" android:layout_width="436.0px" android:layout_height="44.0px" android:layout_marginTop="30.0px" android:text="哨兵模式" />
+        <FrameLayout android:layout_gravity="center_horizontal" android:layout_width="436.0px" android:layout_height="80.0px">
+            <TextView android:textSize="26.0px" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/sentry_mode_popup_tv" android:layout_width="104.0px" android:layout_height="30.0px" android:text="哨兵模式" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/sentry_mode_popup_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="114.0px" android:src="@drawable/pma_selector_sentry_popup_icon_day" />
+            <Switch android:layout_gravity="right|center" android:id="@id/sentry_mode_switch" android:layout_width="72.0px" android:layout_height="44.0px" android:textOn="" android:textOff="" android:thumb="@android:color/transparent" android:track="@drawable/sentry_switchbar_bg_day" android:switchMinWidth="72.0px" android:thumbTextPadding="6.0dp" />
+            <View android:layout_gravity="right|center" android:id="@id/swich_click" android:layout_width="72.0px" android:layout_height="44.0px" />
+        </FrameLayout>
+        <Button android:textSize="24.0px" android:textColor="#ffffff" android:layout_gravity="center_horizontal" android:id="@id/sentry_mode_popup_video_btn" android:background="@drawable/sentry_popup_video_bg_day" android:layout_width="436.0px" android:layout_height="64.0px" android:text="查看视频" />
+        <Button android:textSize="24.0px" android:textColor="#383a3d" android:layout_gravity="center_horizontal" android:id="@id/sentry_mode_popup_setting_btn" android:background="@drawable/sentry_popup_setting_bg_day" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="24.0px" android:text="设置" />
+    </LinearLayout>
+</FrameLayout>

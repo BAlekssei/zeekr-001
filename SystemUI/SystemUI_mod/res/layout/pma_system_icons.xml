@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/pma_other_status" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_layout_other_status" />
+    <include android:id="@id/pma_connect_status" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="32.0px" layout="@layout/pma_layout_connect_status" />
+</LinearLayout>

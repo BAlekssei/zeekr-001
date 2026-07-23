@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/view_open_charge" android:layout_width="match_parent" android:layout_height="90.0px" android:layout_alignParentBottom="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="32.0px" android:textStyle="bold" android:textColor="#000000" android:layout_gravity="center" android:id="@id/tv_open" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/pma_charge_click_open_charge" />
+    <ImageView android:layout_gravity="center" android:id="@id/img_open" android:layout_width="32.0px" android:layout_height="32.0px" />
+</LinearLayout>

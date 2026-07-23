@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:name="ic_hotspot_transient" android:height="48.0dp" android:width="48.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="ic_hotspot_transient_0">
+        <group android:name="ic_hotspot_transient_pivot">
+            <group android:name="circle01">
+                <group android:name="circle01_pivot">
+                    <path android:name="circle01_0" />
+                </group>
+            </group>
+            <group android:name="circle02">
+                <group android:name="circle02_pivot">
+                    <path android:name="circle02_0" />
+                </group>
+            </group>
+            <group android:name="circle03">
+                <group android:name="circle03_pivot">
+                    <path android:name="circle03_0" />
+                </group>
+            </group>
+        </group>
+    </group>
+</vector>

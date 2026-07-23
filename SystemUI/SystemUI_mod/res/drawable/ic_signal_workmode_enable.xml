@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:name="ic_signal_workmode_enable" android:height="42.0dp" android:width="42.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="suitcase" android:scaleX="0.1" android:scaleY="0.1">
+        <group android:name="suitcase_pivot">
+            <clip-path android:name="mask_1" />
+            <group android:name="whole" android:scaleX="0.0" android:scaleY="0.0">
+                <path android:name="rectangle_path_1" />
+            </group>
+            <group android:name="handle">
+                <path android:name="rectangle_path_2" />
+            </group>
+            <group android:name="case">
+                <group android:name="case_pivot">
+                    <group android:name="bottom">
+                        <group android:name="bottom_pivot">
+                            <group android:name="rectangle_path_3_position">
+                                <path android:name="rectangle_path_3" />
+                            </group>
+                        </group>
+                    </group>
+                    <group android:name="top">
+                        <group android:name="top_pivot">
+                            <group android:name="rectangle_path_4_position">
+                                <path android:name="rectangle_path_4" />
+                            </group>
+                        </group>
+                    </group>
+                    <group android:name="left" android:scaleX="1.8">
+                        <group android:name="left_pivot">
+                            <path android:name="rectangle_path_5" />
+                        </group>
+                    </group>
+                    <group android:name="right" android:scaleX="1.8">
+                        <group android:name="right_pivot">
+                            <path android:name="rectangle_path_6" />
+                        </group>
+                    </group>
+                </group>
+            </group>
+            <group android:name="stick" android:rotation="-45.0">
+                <group android:name="stick_pivot">
+                    <path android:name="stickito" />
+                </group>
+            </group>
+        </group>
+    </group>
+</vector>

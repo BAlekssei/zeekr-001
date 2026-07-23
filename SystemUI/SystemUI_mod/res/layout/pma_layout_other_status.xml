@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.pma.SignalOthersViewForPMA android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/iv_teacup" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_icon_teacup_white" android:scaleType="fitCenter" />
+    <ImageView android:id="@id/iv_chargeingState" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_icon_charging_state_white" android:scaleType="fitCenter" />
+    <ImageView android:id="@id/iv_state1" android:visibility="gone" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_icon_teacup" android:scaleType="fitCenter" />
+    <ImageView android:id="@id/wrap_content" android:visibility="gone" android:layout_width="48.0px" android:layout_height="48.0px" android:src="@drawable/pma_icon_teacup" android:scaleType="fitCenter" />
+</com.android.systemui.statusbar.pma.SignalOthersViewForPMA>

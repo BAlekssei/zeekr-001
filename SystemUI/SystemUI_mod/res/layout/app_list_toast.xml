@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/toast_background" android:layout_width="wrap_content" android:layout_height="88.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="24.0px" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_toast" android:layout_width="wrap_content" android:layout_height="88.0px" android:singleLine="true" android:paddingStart="48.0px" android:paddingEnd="48.0px" />
+</FrameLayout>

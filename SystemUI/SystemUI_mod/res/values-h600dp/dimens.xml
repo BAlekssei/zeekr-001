@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="car_body2_size">32.0sp</dimen>
+    <dimen name="notification_children_container_header_height">96.0dp</dimen>
+    <dimen name="notification_children_container_margin_top">88.0dp</dimen>
+</resources>

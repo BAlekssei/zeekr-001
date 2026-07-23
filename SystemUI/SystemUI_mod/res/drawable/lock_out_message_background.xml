@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:height="96.0dp" android:width="480.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="base" android:scaleX="0.994" android:scaleY="0.994">
+        <group android:name="base_pivot">
+            <group android:name="base" android:scaleY="0.99">
+                <path android:name="base_path" />
+            </group>
+        </group>
+    </group>
+    <group android:name="bar">
+        <group android:name="bar_pivot">
+            <clip-path android:name="bar_mask" />
+            <group android:name="base">
+                <path android:name="bar_path" />
+            </group>
+        </group>
+    </group>
+</vector>

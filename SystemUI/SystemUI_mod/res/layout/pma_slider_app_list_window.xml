@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/img_applist_background" android:background="@null" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <com.android.systemui.statusbar.pma.AppListRelativeLayout android:orientation="vertical" android:id="@id/app_list_slider" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="900.0px">
+        <FrameLayout android:id="@id/layout_divider" android:layout_width="2.0px" android:layout_height="580.0px" android:layout_marginTop="100.0px" android:layout_marginStart="269.0px" />
+        <ImageView android:id="@id/img_no_recent" android:layout_width="108.0px" android:layout_height="149.0px" android:layout_marginTop="315.0px" android:src="@drawable/pma_no_recent_day" android:layout_marginStart="81.0px" />
+        <TextView android:textSize="25.0px" android:gravity="center" android:id="@id/tv_app_recent" android:visibility="invisible" android:layout_width="104.0px" android:layout_height="60.0px" android:layout_marginTop="40.0px" android:text="最近使用" android:layout_marginStart="100.0px" />
+        <View android:id="@id/recent_mask" android:layout_width="318.0px" android:layout_height="match_parent" android:layout_marginTop="40.0px" />
+        <androidx.recyclerview.widget.RecyclerView android:id="@id/recycler_app_recent" android:visibility="invisible" android:layout_width="118.0px" android:layout_height="wrap_content" android:layout_marginTop="140.0px" android:overScrollMode="never" android:layout_marginStart="100.0px" />
+        <android.support.design.widget.TabLayout android:id="@id/app_type_tablayout" android:layout_width="1610.0px" android:layout_height="60.0dp" android:layout_marginTop="40.0px" android:layout_marginStart="273.0px" app:tabBackground="@null" app:tabIndicator="@drawable/tab_indicator" app:tabIndicatorColor="#f78650" app:tabIndicatorFullWidth="false" app:tabIndicatorHeight="3.0dp" app:tabMode="scrollable" app:tabRippleColor="@null" app:tabSelectedTextColor="#383a3d" app:tabTextAppearance="@style/TabLayoutTextStyle" app:tabTextColor="#383a3d99">
+            <android.support.design.widget.TabItem android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="应用中心" />
+            <android.support.design.widget.TabItem android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="HUAWEI HiCar" />
+        </android.support.design.widget.TabLayout>
+        <com.android.systemui.statusbar.pma.ScrollOverLayout android:id="@id/scrollOverLayout" android:layout_width="1610.0px" android:layout_height="626.0px" android:layout_marginTop="80.0px" android:layout_marginStart="273.0px">
+            <androidx.viewpager.widget.ViewPager android:id="@id/page_app_list" android:layout_width="1610.0px" android:layout_height="626.0px" android:overScrollMode="never" />
+            <androidx.viewpager.widget.ViewPager android:id="@id/page_hicar_app_list" android:visibility="gone" android:layout_width="1610.0px" android:layout_height="626.0px" android:overScrollMode="never" />
+        </com.android.systemui.statusbar.pma.ScrollOverLayout>
+        <FrameLayout android:id="@id/app_list_exit" android:layout_width="600.0px" android:layout_height="100.0px" android:layout_centerHorizontal="true" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/app_list_dot" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="18.0px" android:layout_marginTop="726.0px" />
+        <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/hicar_list_dot" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="18.0px" android:layout_marginTop="726.0px" />
+    </com.android.systemui.statusbar.pma.AppListRelativeLayout>
+    <FrameLayout android:layout_gravity="bottom" android:id="@id/uninstall" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="900.0px">
+        <FrameLayout android:id="@id/delete_background" android:layout_width="match_parent" android:layout_height="match_parent" android:alpha="0.68" />
+        <ImageView android:id="@id/delete_app" android:layout_width="104.0px" android:layout_height="104.0px" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/app_delete_bin" android:visibility="gone" android:layout_width="100.0px" android:layout_height="90.0px">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/img_delete_bin" android:layout_width="32.0px" android:layout_height="32.0px" android:layout_marginTop="8.0px" />
+        <TextView android:textSize="24.0px" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_app_delete" android:layout_width="wrap_content" android:layout_height="40.0px" android:layout_marginTop="36.0px" android:text="卸载" />
+    </FrameLayout>
+</FrameLayout>

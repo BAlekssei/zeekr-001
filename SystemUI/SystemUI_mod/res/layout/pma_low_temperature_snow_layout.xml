@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/low_temp_snow_bg" android:layout_width="548.0px" android:layout_height="550.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="bottom" android:layout_width="match_parent" android:layout_height="488.0px">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@id/img_car_battery" android:layout_width="400.0px" android:layout_height="280.0px" android:layout_marginTop="30.0px" />
+        <TextView android:textSize="26.0px" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_low_temp" android:layout_width="104.0px" android:layout_height="44.0px" android:layout_marginTop="30.0px" android:text="低温提醒" />
+        <TextView android:textSize="24.0px" android:layout_gravity="center_horizontal" android:id="@id/tv_low_temp_content" android:layout_width="436.0px" android:layout_height="80.0px" android:layout_marginTop="290.0px" android:text="电池温度低，电池性能下降，若需提高电池性能，建议开启电池温度调节" />
+        <Button android:textSize="24.0px" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/butt_battery_temp_regulation" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="402.0px" android:text="电池温度调节" />
+    </FrameLayout>
+</FrameLayout>

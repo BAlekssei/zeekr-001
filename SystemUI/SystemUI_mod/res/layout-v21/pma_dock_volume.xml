@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/pma_dock_icon_background" android:layout_width="@dimen/pma_navigation_bar_icons_width" android:layout_height="@dimen/pma_navigation_bar_icons_width"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/img_dock_volume" android:layout_width="@dimen/pma_dock_icon_width_height" android:layout_height="@dimen/pma_dock_icon_width_height" android:scaleType="center" android:layout_centerInParent="true" android:backgroundTint="#00000000" />
+</RelativeLayout>

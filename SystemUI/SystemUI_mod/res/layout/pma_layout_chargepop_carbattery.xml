@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_horizontal" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="90.0px" android:layout_centerInParent="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/img_battery_car" android:background="@drawable/pma_icon_car" android:layout_width="523.0px" android:layout_height="236.0px" />
+    <ImageView android:id="@id/img_dc_plug_head_cap" android:layout_width="38.0px" android:layout_height="34.0px" android:layout_marginLeft="68.0px" android:src="@drawable/pma_icon_charging_plug_cap_only_open" android:layout_alignLeft="@id/img_battery_car" />
+    <ImageView android:id="@id/img_ac_plug_head_cap" android:layout_width="38.0px" android:layout_height="34.0px" android:layout_marginRight="120.0px" android:src="@drawable/pma_icon_charging_plug_cap_only_open" android:layout_alignRight="@id/img_battery_car" android:layout_alignBottom="@id/img_dc_plug_head_cap" />
+    <com.android.systemui.statusbar.pma.BatteryViewForPMA android:id="@id/battery_view" android:background="@drawable/pma_outer_frame_for_charge" android:layout_width="329.0px" android:layout_height="103.0px" android:layout_marginTop="24.0dp" android:layout_centerInParent="true" android:layout_marginStart="55.0px" android:layout_alignParentStart="true" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_marginStart="86.0px" android:layout_alignStart="@id/battery_view">
+        <TextView android:textSize="36.0px" android:textStyle="bold" android:textColor="#d8d8d8" android:id="@id/tv_battery_level" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+        <TextView android:textSize="18.0px" android:textColor="#d8d8d8" android:id="@id/tv_battery_level_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0999756px" android:text="%" />
+        <View android:layout_gravity="center" android:background="#d8d8d8" android:layout_width="1.0px" android:layout_height="match_parent" android:layout_marginLeft="15.0px" android:layout_marginRight="13.0px" />
+        <TextView android:textSize="35.0px" android:textStyle="bold" android:textColor="#d8d8d8" android:id="@id/tv_range" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" />
+        <TextView android:textSize="17.0px" android:textColor="#d8d8d8" android:id="@id/tv_unit_dis" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0999756px" android:text="km" />
+    </LinearLayout>
+</RelativeLayout>

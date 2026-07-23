@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="vertical" android:id="@id/layout_change_account" android:background="@drawable/pma_user_change_popup_bg_day" android:layout_width="808.0px" android:layout_height="376.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ProgressBar android:id="@id/progress_bar" android:layout_width="112.0px" android:layout_height="112.0px" android:layout_marginTop="92.0px" android:indeterminateDrawable="@anim/pma_user_change_animation_day" android:indeterminateDuration="5000" style="?android:progressBarStyle" />
+    <TextView android:textSize="24.0px" android:textColor="#383a3d" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_user_change" android:layout_width="680.0px" android:layout_height="40.0px" android:layout_marginTop="24.0px" android:text="@string/text_user_change" />
+</LinearLayout>

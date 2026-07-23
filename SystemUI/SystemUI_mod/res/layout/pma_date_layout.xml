@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.pma.DateAndClockLayoutForPMA android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="26.0px" android:textColor="#ff383a3d" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/tv_clock" android:layout_width="wrap_content" android:layout_height="56.0px" android:text="--:--" android:singleLine="true" android:paddingStart="12.0px" android:paddingEnd="12.0px" />
+</com.android.systemui.statusbar.pma.DateAndClockLayoutForPMA>
+

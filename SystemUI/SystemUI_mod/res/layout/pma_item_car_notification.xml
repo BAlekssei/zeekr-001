@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent" android:layout_height="@dimen/pma_car_notification_item_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/icon_car_notification" android:layout_width="@dimen/pma_car_notification_mark_height_width" android:layout_height="@dimen/pma_car_notification_mark_height_width" android:src="@drawable/pma_icon_item_mark" android:layout_centerVertical="true" android:layout_alignParentStart="true" />
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toLeftOf="@id/car_notification_detail" android:layout_toRightOf="@id/icon_car_notification" android:layout_marginStart="32.0px">
+        <TextView android:textSize="30.0px" android:textColor="#ffffff" android:ellipsize="end" android:gravity="bottom" android:id="@id/tv_notification_title" android:layout_width="match_parent" android:layout_height="0.0dp" android:singleLine="true" android:layout_weight="1.0" />
+        <TextView android:textSize="30.0px" android:textColor="#ffffff" android:ellipsize="end" android:gravity="top" android:id="@id/tv_notification_text" android:layout_width="match_parent" android:layout_height="0.0dp" android:singleLine="true" android:layout_weight="1.0" />
+    </LinearLayout>
+    <ImageView android:id="@id/car_notification_detail" android:layout_width="@dimen/pma_car_notification_detail_height_width" android:layout_height="@dimen/pma_car_notification_detail_height_width" android:src="@drawable/pma_icon_car_notification_detail" android:layout_centerVertical="true" android:layout_marginStart="16.0px" android:layout_marginEnd="16.0px" android:layout_alignParentEnd="true" />
+</RelativeLayout>

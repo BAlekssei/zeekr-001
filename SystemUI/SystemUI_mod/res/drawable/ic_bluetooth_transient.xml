@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:name="ic_bluetooth_transient" android:height="48.0dp" android:width="48.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="ic_bluetooth_transient_0">
+        <group android:name="ic_bluetooth_transient_pivot">
+            <group android:name="ic_bluetooth_white_outlines">
+                <group android:name="ic_bluetooth_white_outlines_pivot">
+                    <path android:name="b_shape_merged" />
+                </group>
+            </group>
+            <group android:name="dot_left_outlines">
+                <group android:name="dot_left_outlines_pivot">
+                    <path android:name="dot_left" />
+                </group>
+            </group>
+            <group android:name="dot_right_outlines">
+                <group android:name="dot_right_outlines_pivot">
+                    <path android:name="dot_right" />
+                </group>
+            </group>
+        </group>
+    </group>
+</vector>

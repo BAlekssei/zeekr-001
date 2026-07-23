@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="628.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.viewpager.widget.ViewPager android:id="@id/page_app_list" android:layout_width="1740.0px" android:layout_height="368.0px" android:layout_marginTop="60.0px" android:scaleType="fitXY" android:layout_centerHorizontal="true" />
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:id="@id/app_list_aot" android:layout_width="match_parent" android:layout_height="6.0px" android:layout_marginTop="42.0px" android:layout_marginBottom="152.0px" android:layout_alignBottom="@id/page_app_list" />
+</LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:name="ic_caret_down" android:tint="?android:colorControlNormal" android:height="24.0dp" android:width="24.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:name="caret___4">
+        <group android:name="right" android:rotation="45.0">
+            <group android:name="right_pivot">
+                <path android:name="rectangle_path_1" />
+            </group>
+        </group>
+        <group android:name="left" android:rotation="-45.0">
+            <group android:name="left_pivot">
+                <path android:name="rectangle_path_2" />
+            </group>
+        </group>
+    </group>
+</vector>

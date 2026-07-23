@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.phone.NotificationPanelView android:id="@id/notification_panel" android:background="@android:color/transparent" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
+    <com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer android:layout_gravity="@integer/notification_panel_layout_gravity" android:id="@id/notification_container_parent" android:clipChildren="false" android:clipToPadding="false" android:layout_width="match_parent" android:layout_height="match_parent">
+        <com.android.systemui.statusbar.stack.NotificationStackScrollLayout android:layout_gravity="@integer/notification_panel_layout_gravity" android:id="@id/notification_stack_scroller" android:layout_width="@dimen/notification_panel_width" android:layout_height="match_parent" android:layout_marginTop="@dimen/notification_panel_margin_top" android:layout_marginBottom="@dimen/close_handle_underlap" />
+    </com.android.systemui.statusbar.phone.NotificationsQuickSettingsContainer>
+</com.android.systemui.statusbar.phone.NotificationPanelView>

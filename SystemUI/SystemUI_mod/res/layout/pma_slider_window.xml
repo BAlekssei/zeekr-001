@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView android:id="@id/img_dim_background" android:background="@null" android:visibility="invisible" android:layout_width="match_parent" android:layout_height="match_parent" />
+    <FrameLayout android:layout_gravity="right|bottom" android:id="@id/volume_slider" android:visibility="invisible" android:layout_width="548.0px" android:layout_height="wrap_content" android:layout_marginEnd="7.0px">
+        <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/volume_touch" android:layout_width="500.0px" android:layout_height="wrap_content" android:layout_marginTop="16.0px" android:layout_marginBottom="32.0px" android:layout_marginStart="24.0px">
+            <include android:layout_gravity="center_horizontal" android:layout_width="420.0px" android:layout_height="64.0px" android:layout_marginTop="58.0px" android:layout_marginBottom="20.0px" layout="@layout/pma_volume_dialog_all_mute" />
+            <FrameLayout android:id="@id/margin_out_row_layout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="86.0px">
+                <FrameLayout android:orientation="horizontal" android:id="@id/out_row_layout" android:layout_width="500.0px" android:layout_height="66.0px" android:layout_marginTop="20.0px">
+                    <include android:orientation="horizontal" android:id="@id/out_row" android:layout_width="360.0px" android:layout_height="66.0px" layout="@layout/pma_layout_volume_row" />
+                    <FrameLayout android:layout_gravity="right" android:id="@id/out_row_btn" android:clickable="true" android:layout_width="120.0px" android:layout_height="64.0px" android:layout_marginEnd="40.0px">
+                        <TextView android:textSize="20.0px" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_out_row_btn" android:layout_width="40.0px" android:layout_height="40.0px" android:text="@string/pma_volume_out_close_btn_text" />
+                    </FrameLayout>
+                </FrameLayout>
+            </FrameLayout>
+            <include android:orientation="horizontal" android:id="@id/vr_row" android:layout_width="500.0px" android:layout_height="66.0px" android:layout_marginTop="20.0px" layout="@layout/pma_layout_volume_row" />
+            <include android:orientation="horizontal" android:id="@id/nav_row" android:layout_width="500.0px" android:layout_height="66.0px" android:layout_marginTop="20.0px" layout="@layout/pma_layout_volume_row" />
+            <include android:orientation="horizontal" android:id="@id/phone_row" android:layout_width="500.0px" android:layout_height="64.0px" android:layout_marginTop="20.0px" layout="@layout/pma_layout_volume_row" />
+            <include android:orientation="horizontal" android:id="@id/music_row" android:layout_width="500.0px" android:layout_height="64.0px" android:layout_marginTop="20.0px" android:layout_marginBottom="52.0px" layout="@layout/pma_layout_volume_row" />
+        </LinearLayout>
+    </FrameLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/driver_heat_ventilation_slider_content" android:visibility="invisible" android:layout_width="732.0px" android:layout_height="188.0px" android:layout_marginStart="149.0px">
+        <android.support.v7.widget.RecyclerView android:id="@id/driver_heat_ventilation_slider" android:layout_width="wrap_content" android:layout_height="140.0px" android:layout_marginTop="16.0px" android:overScrollMode="never" android:layout_marginStart="47.0px" />
+        <ImageView android:id="@id/img_driver_heat_select_status" android:background="@drawable/pma_heat_selected_day" android:layout_width="20.0px" android:layout_height="6.0px" android:layout_marginTop="122.0px" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/passenger_heat_ventilation_slider_content" android:visibility="invisible" android:layout_width="732.0px" android:layout_height="188.0px" android:layout_marginStart="1039.0px">
+        <android.support.v7.widget.RecyclerView android:id="@id/passenger_heat_ventilation_slider" android:layout_width="wrap_content" android:layout_height="140.0px" android:layout_marginTop="16.0px" android:overScrollMode="never" android:layout_marginStart="47.0px" />
+        <ImageView android:id="@id/img_passenger_heat_select_status" android:background="@drawable/pma_heat_selected_day" android:layout_width="20.0px" android:layout_height="6.0px" android:layout_marginTop="122.0px" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:id="@id/driver_temp_slider_content" android:background="@drawable/pma_temp_slider_bg_day" android:visibility="invisible" android:layout_width="648.0px" android:layout_height="188.0px" android:layout_marginStart="414.0px">
+        <FrameLayout android:id="@id/driver_temp_click" android:layout_width="600.0px" android:layout_height="140.0px" android:layout_marginTop="16.0px" android:layout_marginStart="24.0px">
+            <com.android.systemui.statusbar.pma.PmaTemperatureSeekbar android:id="@id/pma_driver_temp_seekbar" android:paddingLeft="0.0px" android:paddingRight="0.0px" android:layout_width="550.0px" android:layout_height="wrap_content" android:layout_marginTop="22.0px" android:layout_marginStart="30.0px" />
+            <FrameLayout android:id="@id/sync_temp_icon_layout" android:layout_width="140.0px" android:layout_height="70.0px" android:layout_marginTop="9.0px" android:layout_marginStart="460.0px">
+                <TextView android:textSize="24.0px" android:textStyle="bold" android:gravity="center" android:layout_gravity="center" android:id="@id/sync_temp_icon" android:background="@drawable/sync_temp_btn_bg_night" android:layout_width="100.0px" android:layout_height="48.0px" android:text="@string/pma_temp_sync" />
+            </FrameLayout>
+        </FrameLayout>
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="bottom" android:id="@id/passenger_temp_slider_content" android:background="@drawable/pma_temp_slider_bg_night" android:visibility="invisible" android:layout_width="648.0px" android:layout_height="188.0px" android:layout_marginStart="858.0px">
+        <FrameLayout android:id="@id/passenger_temp_click" android:layout_width="600.0px" android:layout_height="140.0px" android:layout_marginTop="16.0px" android:layout_marginStart="24.0px">
+            <com.android.systemui.statusbar.pma.PmaTemperatureSeekbar android:id="@id/pma_passenger_temp_seekbar" android:paddingLeft="0.0px" android:paddingRight="0.0px" android:layout_width="550.0px" android:layout_height="wrap_content" android:layout_marginLeft="20.0px" android:layout_marginTop="22.0px" />
+        </FrameLayout>
+    </RelativeLayout>
+    <FrameLayout android:layout_gravity="center|bottom" android:orientation="horizontal" android:id="@id/climate_level_show_content" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="188.0px">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/climate_level_touch" android:layout_width="wrap_content" android:layout_height="120.0px">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/climate_min_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="49.0px" />
+            <ImageView android:layout_gravity="center" android:id="@id/iv_climate_level" android:layout_width="wrap_content" android:layout_height="80.0px" android:layout_marginStart="20.0px" />
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/climate_max_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="18.0px" android:layout_marginEnd="35.0px" />
+        </LinearLayout>
+    </FrameLayout>
+</FrameLayout>

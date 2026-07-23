@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/usb_content" android:layout_width="548.0px" android:layout_height="258.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="196.0px">
+        <LinearLayout android:layout_gravity="center_horizontal" android:id="@id/music" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="22.0px">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/img_music" android:layout_width="36.0px" android:layout_height="36.0px" android:src="@drawable/pma_usb_dialog_music" android:layout_marginStart="168.0px" />
+            <TextView android:textSize="24.0px" android:textColor="#383a3d" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/tv_music" android:layout_width="48.0px" android:layout_height="match_parent" android:text="音乐" android:layout_marginStart="16.0px" />
+        </LinearLayout>
+        <LinearLayout android:layout_gravity="center_horizontal" android:id="@id/video" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="24.0px">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/img_video" android:layout_width="36.0px" android:layout_height="36.0px" android:src="@drawable/pma_usb_dialog_video" android:layout_marginStart="168.0px" />
+            <TextView android:textSize="24.0px" android:textColor="#383a3d" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/tv_video" android:layout_width="48.0px" android:layout_height="match_parent" android:text="视频" android:layout_marginStart="16.0px" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

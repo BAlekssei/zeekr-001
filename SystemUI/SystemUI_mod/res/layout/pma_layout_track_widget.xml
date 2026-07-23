@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/layout_track_backgroung" android:layout_width="270.0px" android:layout_height="@dimen/pma_dock_icon_widget_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/layout_open_track" android:layout_width="200.0px" android:layout_height="match_parent">
+        <TextView android:textSize="24.0px" android:textStyle="bold" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/tv_track_title" android:layout_width="96.0px" android:layout_height="40.0px" android:text="@string/pma_dock_widget_track_title" android:layout_marginStart="24.0px" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/layout_track_exit" android:visibility="gone" android:layout_width="70.0px" android:layout_height="match_parent" android:layout_alignParentRight="true">
+        <ImageView android:layout_gravity="center" android:id="@id/img_track_exit" android:layout_width="32.0px" android:layout_height="32.0px" android:layout_marginEnd="30.0px" />
+    </FrameLayout>
+</RelativeLayout>

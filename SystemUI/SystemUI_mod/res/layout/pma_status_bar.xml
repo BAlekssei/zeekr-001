@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.pma.StatusBarViewForPMA android:orientation="horizontal" android:id="@id/status_bar" android:focusable="false" android:descendantFocusability="afterDescendants" android:layout_width="match_parent" android:layout_height="@dimen/status_bar_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:layout_gravity="center_vertical" android:id="@id/btn_closeEva" android:background="#00000000" android:visibility="gone" android:layout_width="120.0px" android:layout_height="80.0px" android:layout_marginStart="36.0px" />
+    <FrameLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/status_bar_contents" android:layout_width="match_parent" android:layout_height="match_parent">
+        <LinearLayout android:orientation="horizontal" android:id="@id/layout_show_eva" android:background="#00000000" android:visibility="gone" android:layout_width="80.0px" android:layout_height="80.0px" android:layout_marginStart="40.0px">
+            <Button android:id="@id/btn_notifyEva" android:background="#00000000" android:layout_width="80.0px" android:layout_height="80.0px" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+            <LinearLayout android:orientation="horizontal" android:id="@id/temperature_aqi_area" android:layout_width="896.0px" android:layout_height="match_parent">
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_outside_temp_road_indication_content" />
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_layout_user" />
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_pdc_content" />
+                <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/low_temp_snow_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+                    <ImageView android:layout_gravity="center" android:id="@id/img_low_temp_snow" android:layout_width="72.0px" android:layout_height="56.0px" android:scaleType="center" />
+                </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_battery_content" />
+                <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/img_dvr_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+                    <ImageView android:layout_gravity="center" android:id="@id/img_dvr" android:background="@drawable/pma_selector_topbar_icon_day" android:layout_width="72.0px" android:layout_height="56.0px" android:src="@drawable/pma_icon_dvr_stop_day" android:scaleType="center" />
+                </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_aqi_content" />
+                <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/usb_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+                    <ImageView android:layout_gravity="center" android:id="@id/iv_usb" android:layout_width="72.0px" android:layout_height="56.0px" android:scaleType="center" />
+                </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_scene_mode" />
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_sentry_mode" />
+                <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/remote_logcat_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+                    <ImageView android:layout_gravity="center" android:id="@id/img_remote_logcat" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="center" />
+                </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_bt_phone_content" />
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_notification" />
+                <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/img_update_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+                    <ImageView android:layout_gravity="center" android:id="@id/img_update" android:layout_width="40.0px" android:layout_height="40.0px" android:src="@drawable/pma_icon_update_day" android:scaleType="center" />
+                </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+            </LinearLayout>
+            <com.android.systemui.statusbar.AlphaOptimizedFrameLayout android:orientation="horizontal" android:id="@id/pma_notification_icon_area" android:visibility="invisible" android:layout_width="0.0dp" android:layout_height="match_parent" android:layout_weight="1.0" android:layout_marginStart="16.0px" />
+            <com.android.keyguard.AlphaOptimizedLinearLayout android:id="@id/system_icon_area" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginEnd="34.0px">
+                <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_system_icons" />
+                <include android:id="@id/pma_date_layout_date_format" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="8.0px" layout="@layout/pma_date_layout" />
+            </com.android.keyguard.AlphaOptimizedLinearLayout>
+        </LinearLayout>
+        <FrameLayout android:id="@id/pma_debug_mode" android:visibility="gone" android:layout_width="168.0px" android:layout_height="match_parent" android:layout_marginLeft="768.0px">
+            <TextView android:textSize="20.0px" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_debug_mode" android:background="@drawable/pma_icon_debug_mode_day" android:layout_width="wrap_content" android:layout_height="45.0px" android:text="Режим отладки" />
+        </FrameLayout>
+        <com.android.systemui.statusbar.pma.PressStateImageView android:id="@id/img_pre_sale" android:background="@drawable/pre_sale_day" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="768.0px" android:scaleType="center" />
+        <com.android.systemui.statusbar.pma.PressStateImageView android:layout_gravity="center_vertical" android:id="@id/img_nzp_back" android:background="@drawable/pma_icon_nzp_back" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="768.0px" android:scaleType="center" />
+    </FrameLayout>
+</com.android.systemui.statusbar.pma.StatusBarViewForPMA>

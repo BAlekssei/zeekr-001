@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="AQS_color_icon">
+        <item>@drawable/pma_status_icon_aqs_color_green</item>
+        <item>@drawable/pma_status_icon_aqs_color_yellow</item>
+        <item>@drawable/pma_status_icon_aqs_color_orange</item>
+        <item>@drawable/pma_status_icon_aqs_color_red</item>
+        <item>@drawable/pma_status_icon_aqs_color_grey</item>
+    </array>
+    <string-array name="animator_duration_scale_entries">
+        <item>Animation off</item>
+        <item>Animation scale .5x</item>
+        <item>Animation scale 1x</item>
+        <item>Animation scale 1.5x</item>
+        <item>Animation scale 2x</item>
+        <item>Animation scale 5x</item>
+        <item>Animation scale 10x</item>
+    </string-array>
+    <string-array name="animator_duration_scale_values">
+        <item>0</item>
+        <item>.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="app_process_limit_entries">
+        <item>Standard limit</item>
+        <item>No background processes</item>
+        <item>At most 1 process</item>
+        <item>At most 2 processes</item>
+        <item>At most 3 processes</item>
+        <item>At most 4 processes</item>
+    </string-array>
+    <string-array name="app_process_limit_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <array name="aqs_air_arrow_icon">
+        <item>@drawable/pma_front_arrows_level_green</item>
+        <item>@drawable/pma_front_arrows_level_yellow</item>
+        <item>@drawable/pma_front_arrows_level_orange</item>
+        <item>@drawable/pma_front_arrows_level_red</item>
+        <item>@drawable/pma_front_arrows_level_grey</item>
+    </array>
+    <array name="aqs_co2_auto_level_icon">
+        <item>@drawable/pma_auto_co2_low_day</item>
+        <item>@drawable/pma_auto_co2_medium_day</item>
+        <item>@drawable/pma_auto_co2_high_day</item>
+        <item>@drawable/pma_auto_co2_high_risk_day</item>
+        <item>@drawable/pma_auto_co2_no_work_day</item>
+    </array>
+    <array name="aqs_co2_auto_level_icon_night">
+        <item>@drawable/pma_auto_co2_low_night</item>
+        <item>@drawable/pma_auto_co2_medium_night</item>
+        <item>@drawable/pma_auto_co2_high_night</item>
+        <item>@drawable/pma_auto_co2_high_risk_night</item>
+        <item>@drawable/pma_auto_co2_no_work_night</item>
+    </array>
+    <array name="aqs_co2_level_icon">
+        <item>@drawable/pma_co2_low_day</item>
+        <item>@drawable/pma_co2_medium_day</item>
+        <item>@drawable/pma_co2_high_day</item>
+        <item>@drawable/pma_co2_high_risk_day</item>
+        <item>@drawable/pma_co2_no_work_day</item>
+    </array>
+    <array name="aqs_co2_level_icon_night">
+        <item>@drawable/pma_co2_low_night</item>
+        <item>@drawable/pma_co2_medium_night</item>
+        <item>@drawable/pma_co2_high_night</item>
+        <item>@drawable/pma_co2_high_risk_night</item>
+        <item>@drawable/pma_co2_no_work_night</item>
+    </array>
+    <string-array name="battery_labels">
+        <item>0%</item>
+        <item>50%</item>
+        <item>100%</item>
+    </string-array>
+    <string-array name="battery_options">
+        <item>Always show percentage</item>
+        <item>Show percentage when charging (default)</item>
+        <item>"Don't show this icon"</item>
+    </string-array>
+    <integer-array name="batterymeter_bolt_points">
+        <item>73</item>
+        <item>0</item>
+        <item>392</item>
+        <item>0</item>
+        <item>201</item>
+        <item>259</item>
+        <item>442</item>
+        <item>259</item>
+        <item>4</item>
+        <item>703</item>
+        <item>157</item>
+        <item>334</item>
+        <item>0</item>
+        <item>334</item>
+    </integer-array>
+    <integer-array name="batterymeter_color_levels">
+        <item>15</item>
+        <item>100</item>
+    </integer-array>
+    <array name="batterymeter_color_values">
+        <item>?android:colorError</item>
+        <item>@android:color/white</item>
+    </array>
+    <integer-array name="batterymeter_plus_points">
+        <item>3</item>
+        <item>0</item>
+        <item>5</item>
+        <item>0</item>
+        <item>5</item>
+        <item>3</item>
+        <item>8</item>
+        <item>3</item>
+        <item>8</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>8</item>
+        <item>3</item>
+        <item>8</item>
+        <item>3</item>
+        <item>5</item>
+        <item>0</item>
+        <item>5</item>
+        <item>0</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+    </integer-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
+        <item>Use System Selection (Default)</item>
+        <item>16 bits/sample</item>
+        <item>24 bits/sample</item>
+        <item>32 bits/sample</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_titles">
+        <item>Use System Selection (Default)</item>
+        <item>16 bits/sample</item>
+        <item>24 bits/sample</item>
+        <item>32 bits/sample</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_bits_per_sample_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
+        <item>Use System Selection (Default)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_titles">
+        <item>Use System Selection (Default)</item>
+        <item>Mono</item>
+        <item>Stereo</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_channel_mode_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
+        <item>Optimized for Audio Quality</item>
+        <item>Balanced Audio And Connection Quality</item>
+        <item>Optimized for Connection Quality</item>
+        <item>Best Effort (Adaptive Bit Rate)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
+        <item>Optimized for Audio Quality (990kbps/909kbps)</item>
+        <item>Balanced Audio And Connection Quality (660kbps/606kbps)</item>
+        <item>Optimized for Connection Quality (330kbps/303kbps)</item>
+        <item>Best Effort (Adaptive Bit Rate)</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_values">
+        <item>1000</item>
+        <item>1001</item>
+        <item>1002</item>
+        <item>1003</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_summaries">
+        <item>Use System Selection (Default)</item>
+        <item>44.1 kHz</item>
+        <item>48.0 kHz</item>
+        <item>88.2 kHz</item>
+        <item>96.0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_titles">
+        <item>Use System Selection (Default)</item>
+        <item>44.1 kHz</item>
+        <item>48.0 kHz</item>
+        <item>88.2 kHz</item>
+        <item>96.0 kHz</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_sample_rate_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>8</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_summaries">
+        <item>Use System Selection (Default)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>Qualcomm® aptX™ audio</item>
+        <item>Qualcomm® aptX™ HD audio</item>
+        <item>LDAC</item>
+        <item>Enable Optional Codecs</item>
+        <item>Disable Optional Codecs</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_titles">
+        <item>Use System Selection (Default)</item>
+        <item>SBC</item>
+        <item>AAC</item>
+        <item>Qualcomm® aptX™ audio</item>
+        <item>Qualcomm® aptX™ HD audio</item>
+        <item>LDAC</item>
+        <item>Enable Optional Codecs</item>
+        <item>Disable Optional Codecs</item>
+    </string-array>
+    <string-array name="bluetooth_a2dp_codec_values">
+        <item>1000000</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+    <string-array name="bluetooth_audio_active_device_summaries">
+        <item></item>
+        <item>, active</item>
+        <item>, active (media)</item>
+        <item>, active (phone)</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_version_values">
+        <item>avrcp14</item>
+        <item>avrcp13</item>
+        <item>avrcp15</item>
+        <item>avrcp16</item>
+    </string-array>
+    <string-array name="bluetooth_avrcp_versions">
+        <item>AVRCP 1.4 (Default)</item>
+        <item>AVRCP 1.3</item>
+        <item>AVRCP 1.5</item>
+        <item>AVRCP 1.6</item>
+    </string-array>
+    <integer-array name="branch_integer_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </integer-array>
+    <string-array name="branch_string_array">
+        <item>酉</item>
+        <item>戌</item>
+        <item>亥</item>
+        <item>子</item>
+        <item>丑</item>
+        <item>寅</item>
+        <item>卯</item>
+        <item>辰</item>
+        <item>巳</item>
+        <item>午</item>
+        <item>未</item>
+        <item>申</item>
+    </string-array>
+    <string-array name="car_facet_category_filters">
+        <item>android.intent.category.APP_MAPS</item>
+        <item>android.intent.category.APP_MESSAGING</item>
+        <item></item>
+        <item>android.intent.category.APP_MUSIC</item>
+        <item></item>
+    </string-array>
+    <array name="car_facet_icons">
+        <item>@drawable/car_ic_navigation</item>
+        <item>@drawable/car_ic_phone</item>
+        <item>@drawable/car_ic_overview</item>
+        <item>@drawable/car_ic_music</item>
+        <item>@drawable/car_ic_car</item>
+    </array>
+    <string-array name="car_facet_intent_uris">
+        <item>intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x14000000;package=com.android.support.car.lenspicker;end</item>
+        <item>intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x14000000;package=com.android.support.car.lenspicker;end</item>
+        <item>intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.HOME;launchFlags=0x14000000;S.system_command=toggle_notifications;end</item>
+        <item>intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x14000000;package=com.android.support.car.lenspicker;end</item>
+        <item>intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x14000000;package=com.android.support.car.lenspicker;end</item>
+    </string-array>
+    <string-array name="car_facet_longpress_intent_uris">
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>intent:#Intent;component=com.google.android.car.bugreport/.BugReportActivity;end</item>
+    </string-array>
+    <string-array name="car_facet_package_filters">
+        <item>com.android.car.mapsplaceholder</item>
+        <item>com.android.car.dialer</item>
+        <item>com.android.car.overview</item>
+        <item></item>
+        <item>com.android.car.hvac;com.android.settings;com.android.car.settings;com.android.vending;com.google.android.car.bugreport;com.google.android.car.kitchensink;com.android.car.systemupdater;org.chromium.webview_shell;com.android.contacts;org.codeaurora.bluetooth.bttestapp;com.google.android.projection.sink;com.google.android.googlequicksearchbox</item>
+    </string-array>
+    <string-array name="chinese_week_string_array">
+        <item>周日</item>
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+    </string-array>
+    <array name="climate_eco_shift_icon">
+        <item>@drawable/pma_icon_climate_shift_off</item>
+        <item>@drawable/pma_icon_climate_eco_shift_1</item>
+        <item>@drawable/pma_icon_climate_eco_shift_2</item>
+        <item>@drawable/pma_icon_climate_eco_shift_3</item>
+        <item>@drawable/pma_icon_climate_eco_shift_4</item>
+        <item>@drawable/pma_icon_climate_eco_shift_5</item>
+        <item>@drawable/pma_icon_climate_eco_shift_6</item>
+        <item>@drawable/pma_icon_climate_eco_shift_7</item>
+        <item>@drawable/pma_icon_climate_eco_shift_8</item>
+        <item>@drawable/pma_icon_climate_eco_shift_9</item>
+        <item>@drawable/pma_icon_climate_eco_auto1</item>
+        <item>@drawable/pma_icon_climate_eco_auto2</item>
+        <item>@drawable/pma_icon_climate_eco_auto3</item>
+        <item>@drawable/pma_icon_climate_eco_auto4</item>
+        <item>@drawable/pma_icon_climate_eco_auto5</item>
+    </array>
+    <array name="climate_eco_shift_icon_day">
+        <item>@drawable/pma_icon_climate_shift_off_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_1_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_2_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_3_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_4_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_5_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_6_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_7_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_8_day</item>
+        <item>@drawable/pma_icon_climate_eco_shift_9_day</item>
+        <item>@drawable/pma_icon_climate_eco_auto1_day</item>
+        <item>@drawable/pma_icon_climate_eco_auto2_day</item>
+        <item>@drawable/pma_icon_climate_eco_auto3_day</item>
+        <item>@drawable/pma_icon_climate_eco_auto4_day</item>
+        <item>@drawable/pma_icon_climate_eco_auto5_day</item>
+    </array>
+    <array name="climate_shift_icon">
+        <item>@drawable/pma_icon_climate_shift_off</item>
+        <item>@drawable/pma_icon_climate_shift_1</item>
+        <item>@drawable/pma_icon_climate_shift_2</item>
+        <item>@drawable/pma_icon_climate_shift_3</item>
+        <item>@drawable/pma_icon_climate_shift_4</item>
+        <item>@drawable/pma_icon_climate_shift_5</item>
+        <item>@drawable/pma_icon_climate_shift_6</item>
+        <item>@drawable/pma_icon_climate_shift_7</item>
+        <item>@drawable/pma_icon_climate_shift_8</item>
+        <item>@drawable/pma_icon_climate_shift_9</item>
+        <item>@drawable/pma_icon_climate_auto1</item>
+        <item>@drawable/pma_icon_climate_auto2</item>
+        <item>@drawable/pma_icon_climate_auto3</item>
+        <item>@drawable/pma_icon_climate_auto4</item>
+        <item>@drawable/pma_icon_climate_auto5</item>
+    </array>
+    <array name="climate_shift_icon_day">
+        <item>@drawable/pma_icon_climate_shift_off_day</item>
+        <item>@drawable/pma_icon_climate_shift_1_day</item>
+        <item>@drawable/pma_icon_climate_shift_2_day</item>
+        <item>@drawable/pma_icon_climate_shift_3_day</item>
+        <item>@drawable/pma_icon_climate_shift_4_day</item>
+        <item>@drawable/pma_icon_climate_shift_5_day</item>
+        <item>@drawable/pma_icon_climate_shift_6_day</item>
+        <item>@drawable/pma_icon_climate_shift_7_day</item>
+        <item>@drawable/pma_icon_climate_shift_8_day</item>
+        <item>@drawable/pma_icon_climate_shift_9_day</item>
+        <item>@drawable/pma_icon_climate_auto1_day</item>
+        <item>@drawable/pma_icon_climate_auto2_day</item>
+        <item>@drawable/pma_icon_climate_auto3_day</item>
+        <item>@drawable/pma_icon_climate_auto4_day</item>
+        <item>@drawable/pma_icon_climate_auto5_day</item>
+    </array>
+    <array name="climate_slider_shift_drawable_day">
+        <item>@drawable/pma_climate_lider_shift_off_day</item>
+        <item>@drawable/pma_climate_lider_shift1_day</item>
+        <item>@drawable/pma_climate_lider_shift2_day</item>
+        <item>@drawable/pma_climate_lider_shift3_day</item>
+        <item>@drawable/pma_climate_lider_shift4_day</item>
+        <item>@drawable/pma_climate_lider_shift5_day</item>
+        <item>@drawable/pma_climate_lider_shift6_day</item>
+        <item>@drawable/pma_climate_lider_shift7_day</item>
+        <item>@drawable/pma_climate_lider_shift8_day</item>
+        <item>@drawable/pma_climate_lider_shift9_day</item>
+        <item>@drawable/pma_climate_slider_auto1_day</item>
+        <item>@drawable/pma_climate_slider_auto2_day</item>
+        <item>@drawable/pma_climate_slider_auto3_day</item>
+        <item>@drawable/pma_climate_slider_auto4_day</item>
+        <item>@drawable/pma_climate_slider_auto5_day</item>
+    </array>
+    <array name="climate_slider_shift_drawable_night">
+        <item>@drawable/pma_climate_lider_shift_off_night</item>
+        <item>@drawable/pma_climate_lider_shift1_night</item>
+        <item>@drawable/pma_climate_lider_shift2_night</item>
+        <item>@drawable/pma_climate_lider_shift3_night</item>
+        <item>@drawable/pma_climate_lider_shift4_night</item>
+        <item>@drawable/pma_climate_lider_shift5_night</item>
+        <item>@drawable/pma_climate_lider_shift6_night</item>
+        <item>@drawable/pma_climate_lider_shift7_night</item>
+        <item>@drawable/pma_climate_lider_shift8_night</item>
+        <item>@drawable/pma_climate_lider_shift9_night</item>
+        <item>@drawable/pma_climate_slider_auto1_night</item>
+        <item>@drawable/pma_climate_slider_auto2_night</item>
+        <item>@drawable/pma_climate_slider_auto3_night</item>
+        <item>@drawable/pma_climate_slider_auto4_night</item>
+        <item>@drawable/pma_climate_slider_auto5_night</item>
+    </array>
+    <string-array name="clock_options">
+        <item>Show hours, minutes, and seconds</item>
+        <item>Show hours and minutes (default)</item>
+        <item>"Don't show this icon"</item>
+    </string-array>
+    <string-array name="color_mode_descriptions">
+        <item>Enhanced colors</item>
+        <item>Natural colors as seen by the eye</item>
+        <item>Colors optimized for digital content</item>
+    </string-array>
+    <integer-array name="color_mode_ids">
+        <item>0</item>
+        <item>-1</item>
+        <item>7</item>
+    </integer-array>
+    <string-array name="color_mode_names">
+        <item>Vibrant (default)</item>
+        <item>Natural</item>
+        <item>Standard</item>
+    </string-array>
+    <integer-array name="config_cameraLaunchGestureVibePattern">
+        <item>0</item>
+        <item>400</item>
+    </integer-array>
+    <integer-array name="config_doze_brightness_sensor_to_brightness">
+        <item>-1</item>
+        <item>2</item>
+        <item>5</item>
+        <item>27</item>
+        <item>28</item>
+    </integer-array>
+    <integer-array name="config_doze_brightness_sensor_to_scrim_opacity">
+        <item>-1</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </integer-array>
+    <integer-array name="config_notification_snooze_times">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>120</item>
+    </integer-array>
+    <string-array name="config_systemUIServiceComponents">
+        <item>com.android.systemui.Dependency</item>
+        <item>com.android.systemui.util.NotificationChannels</item>
+        <item>com.android.systemui.statusbar.CommandQueue$CommandQueueStart</item>
+        <item>com.android.systemui.keyguard.KeyguardViewMediator</item>
+        <item>com.android.systemui.recents.Recents</item>
+        <item>com.android.systemui.stackdivider.Divider</item>
+        <item>com.android.systemui.SystemBars</item>
+        <item>com.android.systemui.usb.StorageNotification</item>
+        <item>@string/config_systemUIVendorServiceComponent</item>
+        <item>com.android.systemui.util.leak.GarbageMonitor$Service</item>
+        <item>com.android.systemui.LatencyTester</item>
+        <item>com.android.systemui.ScreenDecorations</item>
+        <item>com.android.systemui.fingerprint.FingerprintDialogImpl</item>
+        <item>com.android.systemui.SliceBroadcastRelayHandler</item>
+    </string-array>
+    <string-array name="config_systemUIServiceComponentsPerUser">
+        <item>com.android.systemui.Dependency</item>
+        <item>com.android.systemui.util.NotificationChannels</item>
+        <item>com.android.systemui.recents.Recents</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_entries">
+        <item>Off</item>
+        <item>Show overdraw areas</item>
+        <item>Show areas for Deuteranomaly</item>
+    </string-array>
+    <string-array name="debug_hw_overdraw_values">
+        <item>false</item>
+        <item>show</item>
+        <item>show_deuteranomaly</item>
+    </string-array>
+    <array name="driver_heat_icon_selected">
+        <item>@drawable/pma_icon_driver_off</item>
+        <item>@drawable/pma_icon_driver_heat1</item>
+        <item>@drawable/pma_icon_driver_heat2</item>
+        <item>@drawable/pma_icon_driver_heat3</item>
+    </array>
+    <array name="driver_heat_icon_selected_day">
+        <item>@drawable/pma_icon_driver_off_day</item>
+        <item>@drawable/pma_icon_driver_heat1_day</item>
+        <item>@drawable/pma_icon_driver_heat2_day</item>
+        <item>@drawable/pma_icon_driver_heat3_day</item>
+    </array>
+    <array name="driver_heat_icon_unselected">
+        <item>@drawable/pma_icon_driver_off</item>
+        <item>@drawable/pma_icon_driver_heat1</item>
+        <item>@drawable/pma_icon_driver_heat2</item>
+        <item>@drawable/pma_icon_driver_heat3</item>
+    </array>
+    <array name="driver_heat_icon_unselected_day">
+        <item>@drawable/pma_icon_driver_off_day</item>
+        <item>@drawable/pma_icon_driver_heat1_day</item>
+        <item>@drawable/pma_icon_driver_heat2_day</item>
+        <item>@drawable/pma_icon_driver_heat3_day</item>
+    </array>
+    <array name="driver_heat_ventilation_icon_selected">
+        <item>@drawable/pma_icon_driver_ventilation3</item>
+        <item>@drawable/pma_icon_driver_ventilation2</item>
+        <item>@drawable/pma_icon_driver_ventilation1</item>
+        <item>@drawable/pma_icon_driver_off</item>
+        <item>@drawable/pma_icon_driver_heat1</item>
+        <item>@drawable/pma_icon_driver_heat2</item>
+        <item>@drawable/pma_icon_driver_heat3</item>
+    </array>
+    <array name="driver_heat_ventilation_icon_selected_day">
+        <item>@drawable/pma_icon_driver_ventilation3_day</item>
+        <item>@drawable/pma_icon_driver_ventilation2_day</item>
+        <item>@drawable/pma_icon_driver_ventilation1_day</item>
+        <item>@drawable/pma_icon_driver_off_day</item>
+        <item>@drawable/pma_icon_driver_heat1_day</item>
+        <item>@drawable/pma_icon_driver_heat2_day</item>
+        <item>@drawable/pma_icon_driver_heat3_day</item>
+    </array>
+    <array name="driver_heat_ventilation_icon_unselected">
+        <item>@drawable/pma_icon_driver_ventilation3</item>
+        <item>@drawable/pma_icon_driver_ventilation2</item>
+        <item>@drawable/pma_icon_driver_ventilation1</item>
+        <item>@drawable/pma_icon_driver_off</item>
+        <item>@drawable/pma_icon_driver_heat1</item>
+        <item>@drawable/pma_icon_driver_heat2</item>
+        <item>@drawable/pma_icon_driver_heat3</item>
+    </array>
+    <array name="driver_heat_ventilation_icon_unselected_day">
+        <item>@drawable/pma_icon_driver_ventilation3_day</item>
+        <item>@drawable/pma_icon_driver_ventilation2_day</item>
+        <item>@drawable/pma_icon_driver_ventilation1_day</item>
+        <item>@drawable/pma_icon_driver_off_day</item>
+        <item>@drawable/pma_icon_driver_heat1_day</item>
+        <item>@drawable/pma_icon_driver_heat2_day</item>
+        <item>@drawable/pma_icon_driver_heat3_day</item>
+    </array>
+    <array name="driver_heat_ventilation_icon_without_slider">
+        <item>@drawable/pma_icon_driver_ventilation3</item>
+        <item>@drawable/pma_icon_driver_ventilation2</item>
+        <item>@drawable/pma_icon_driver_ventilation1</item>
+        <item>@drawable/pma_icon_driver_off</item>
+        <item>@drawable/pma_icon_driver_heat1</item>
+        <item>@drawable/pma_icon_driver_heat2</item>
+        <item>@drawable/pma_icon_driver_heat3</item>
+    </array>
+    <array name="driver_heat_ventilation_icon_without_slider_day">
+        <item>@drawable/pma_icon_driver_ventilation3_day</item>
+        <item>@drawable/pma_icon_driver_ventilation2_day</item>
+        <item>@drawable/pma_icon_driver_ventilation1_day</item>
+        <item>@drawable/pma_icon_driver_off_day</item>
+        <item>@drawable/pma_icon_driver_heat1_day</item>
+        <item>@drawable/pma_icon_driver_heat2_day</item>
+        <item>@drawable/pma_icon_driver_heat3_day</item>
+    </array>
+    <array name="driver_ventilation_icon_selected">
+        <item>@drawable/pma_icon_driver_ventilation3</item>
+        <item>@drawable/pma_icon_driver_ventilation2</item>
+        <item>@drawable/pma_icon_driver_ventilation1</item>
+        <item>@drawable/pma_icon_driver_off</item>
+    </array>
+    <array name="driver_ventilation_icon_selected_day">
+        <item>@drawable/pma_icon_driver_ventilation3_day</item>
+        <item>@drawable/pma_icon_driver_ventilation2_day</item>
+        <item>@drawable/pma_icon_driver_ventilation1_day</item>
+        <item>@drawable/pma_icon_driver_off_day</item>
+    </array>
+    <array name="driver_ventilation_icon_unselected">
+        <item>@drawable/pma_icon_driver_ventilation3</item>
+        <item>@drawable/pma_icon_driver_ventilation2</item>
+        <item>@drawable/pma_icon_driver_ventilation1</item>
+        <item>@drawable/pma_icon_driver_off</item>
+    </array>
+    <array name="driver_ventilation_icon_unselected_day">
+        <item>@drawable/pma_icon_driver_ventilation3_day</item>
+        <item>@drawable/pma_icon_driver_ventilation2_day</item>
+        <item>@drawable/pma_icon_driver_ventilation1_day</item>
+        <item>@drawable/pma_icon_driver_off_day</item>
+    </array>
+    <array name="dvr_state_icon_day">
+        <item>@drawable/pma_icon_dvr_stop_day</item>
+        <item>@drawable/pma_icon_dvr_recording_day</item>
+        <item>@drawable/pma_icon_dvr_stop_day</item>
+        <item>@drawable/pma_icon_dvr_ergent_day</item>
+        <item>@drawable/pma_icon_dvr_fault_day</item>
+    </array>
+    <array name="dvr_state_icon_night">
+        <item>@drawable/pma_icon_dvr_stop_night</item>
+        <item>@drawable/pma_icon_dvr_recording_night</item>
+        <item>@drawable/pma_icon_dvr_stop_night</item>
+        <item>@drawable/pma_icon_dvr_ergent_night</item>
+        <item>@drawable/pma_icon_dvr_fault_night</item>
+    </array>
+    <string-array name="enable_opengl_traces_entries">
+        <item>None</item>
+        <item>Logcat</item>
+        <item>Systrace (Graphics)</item>
+        <item>Call stack on glGetError</item>
+    </string-array>
+    <string-array name="enable_opengl_traces_values">
+        <item>0</item>
+        <item>1</item>
+        <item>systrace</item>
+        <item>error</item>
+    </string-array>
+    <string-array name="hdcp_checking_summaries">
+        <item>Never use HDCP checking</item>
+        <item>Use HDCP checking for DRM content only</item>
+        <item>Always use HDCP checking</item>
+    </string-array>
+    <string-array name="hdcp_checking_titles">
+        <item>Never check</item>
+        <item>Check for DRM content only</item>
+        <item>Always check</item>
+    </string-array>
+    <string-array name="hdcp_checking_values">
+        <item>never</item>
+        <item>drm-only</item>
+        <item>always</item>
+    </string-array>
+    <string-array name="lockscreen_num_pad_klondike">
+        <item>+</item>
+        <item></item>
+        <item>ABC</item>
+        <item>DEF</item>
+        <item>GHI</item>
+        <item>JKL</item>
+        <item>MNO</item>
+        <item>PQRS</item>
+        <item>TUV</item>
+        <item>WXYZ</item>
+    </string-array>
+    <string-array name="lunar_first_of_month">
+        <item>春节</item>
+        <item>二月</item>
+        <item>三月</item>
+        <item>四月</item>
+        <item>五月</item>
+        <item>六月</item>
+        <item>七月</item>
+        <item>八月</item>
+        <item>九月</item>
+        <item>十月</item>
+        <item>冬月</item>
+        <item>腊月</item>
+    </string-array>
+    <string-array name="lunar_month">
+        <item>元月</item>
+        <item>二月</item>
+        <item>三月</item>
+        <item>四月</item>
+        <item>五月</item>
+        <item>六月</item>
+        <item>七月</item>
+        <item>八月</item>
+        <item>九月</item>
+        <item>十月</item>
+        <item>冬月</item>
+        <item>腊月</item>
+    </string-array>
+    <string-array name="lunar_str">
+        <item>初一</item>
+        <item>初二</item>
+        <item>初三</item>
+        <item>初四</item>
+        <item>初五</item>
+        <item>初六</item>
+        <item>初七</item>
+        <item>初八</item>
+        <item>初九</item>
+        <item>初十</item>
+        <item>十一</item>
+        <item>十二</item>
+        <item>十三</item>
+        <item>十四</item>
+        <item>十五</item>
+        <item>十六</item>
+        <item>十七</item>
+        <item>十八</item>
+        <item>十九</item>
+        <item>二十</item>
+        <item>廿一</item>
+        <item>廿二</item>
+        <item>廿三</item>
+        <item>廿四</item>
+        <item>廿五</item>
+        <item>廿六</item>
+        <item>廿七</item>
+        <item>廿八</item>
+        <item>廿九</item>
+        <item>三十</item>
+    </string-array>
+    <string-array name="month_string_array">
+        <item>1月</item>
+        <item>2月</item>
+        <item>3月</item>
+        <item>4月</item>
+        <item>5月</item>
+        <item>6月</item>
+        <item>7月</item>
+        <item>8月</item>
+        <item>9月</item>
+        <item>10月</item>
+        <item>11月</item>
+        <item>12月</item>
+    </string-array>
+    <string-array name="nav_bar_button_values">
+        <item>clipboard</item>
+        <item>key</item>
+        <item>menu_ime</item>
+        <item>space</item>
+    </string-array>
+    <string-array name="nav_bar_buttons">
+        <item>Clipboard</item>
+        <item>Keycode</item>
+        <item>Rotate confirm, keyboard switcher</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="nav_bar_layouts">
+        <item>Normal</item>
+        <item>Compact</item>
+        <item>Left-leaning</item>
+        <item>Right-leaning</item>
+    </string-array>
+    <string-array name="nav_bar_layouts_values">
+        <item>default</item>
+        <item>left;back,home,recent;right</item>
+        <item>left,back,home,recent,right;space;space</item>
+        <item>space;space;left,back,home,recent,right</item>
+    </string-array>
+    <string-array name="overlay_display_devices_entries">
+        <item>None</item>
+        <item>480p</item>
+        <item>480p (secure)</item>
+        <item>720p</item>
+        <item>720p (secure)</item>
+        <item>1080p</item>
+        <item>1080p (secure)</item>
+        <item>4K</item>
+        <item>4K (secure)</item>
+        <item>4K (upscaled)</item>
+        <item>4K (upscaled, secure)</item>
+        <item>720p, 1080p (dual screen)</item>
+    </string-array>
+    <string-array name="overlay_display_devices_values">
+        <item></item>
+        <item>720x480/142</item>
+        <item>720x480/142,secure</item>
+        <item>1280x720/213</item>
+        <item>1280x720/213,secure</item>
+        <item>1920x1080/320</item>
+        <item>1920x1080/320,secure</item>
+        <item>3840x2160/320</item>
+        <item>3840x2160/320,secure</item>
+        <item>1920x1080/320|3840x2160/640</item>
+        <item>1920x1080/320|3840x2160/640,secure</item>
+        <item>1280x720/213;1920x1080/320</item>
+    </string-array>
+    <array name="passenger_heat_icon_selected">
+        <item>@drawable/pma_icon_passenger_off</item>
+        <item>@drawable/pma_icon_passenger_heat1</item>
+        <item>@drawable/pma_icon_passenger_heat2</item>
+        <item>@drawable/pma_icon_passenger_heat3</item>
+    </array>
+    <array name="passenger_heat_icon_selected_day">
+        <item>@drawable/pma_icon_passenger_off_day</item>
+        <item>@drawable/pma_icon_passenger_heat1_day</item>
+        <item>@drawable/pma_icon_passenger_heat2_day</item>
+        <item>@drawable/pma_icon_passenger_heat3_day</item>
+    </array>
+    <array name="passenger_heat_icon_unselected">
+        <item>@drawable/pma_icon_passenger_off</item>
+        <item>@drawable/pma_icon_passenger_heat1</item>
+        <item>@drawable/pma_icon_passenger_heat2</item>
+        <item>@drawable/pma_icon_passenger_heat3</item>
+    </array>
+    <array name="passenger_heat_icon_unselected_day">
+        <item>@drawable/pma_icon_passenger_off_day</item>
+        <item>@drawable/pma_icon_passenger_heat1_day</item>
+        <item>@drawable/pma_icon_passenger_heat2_day</item>
+        <item>@drawable/pma_icon_passenger_heat3_day</item>
+    </array>
+    <array name="passenger_heat_ventilation_icon_selected">
+        <item>@drawable/pma_icon_passenger_ventilation3</item>
+        <item>@drawable/pma_icon_passenger_ventilation2</item>
+        <item>@drawable/pma_icon_passenger_ventilation1</item>
+        <item>@drawable/pma_icon_passenger_off</item>
+        <item>@drawable/pma_icon_passenger_heat1</item>
+        <item>@drawable/pma_icon_passenger_heat2</item>
+        <item>@drawable/pma_icon_passenger_heat3</item>
+    </array>
+    <array name="passenger_heat_ventilation_icon_selected_day">
+        <item>@drawable/pma_icon_passenger_ventilation3_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation2_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation1_day</item>
+        <item>@drawable/pma_icon_passenger_off_day</item>
+        <item>@drawable/pma_icon_passenger_heat1_day</item>
+        <item>@drawable/pma_icon_passenger_heat2_day</item>
+        <item>@drawable/pma_icon_passenger_heat3_day</item>
+    </array>
+    <array name="passenger_heat_ventilation_icon_unselected">
+        <item>@drawable/pma_icon_passenger_ventilation3</item>
+        <item>@drawable/pma_icon_passenger_ventilation2</item>
+        <item>@drawable/pma_icon_passenger_ventilation1</item>
+        <item>@drawable/pma_icon_passenger_off</item>
+        <item>@drawable/pma_icon_passenger_heat1</item>
+        <item>@drawable/pma_icon_passenger_heat2</item>
+        <item>@drawable/pma_icon_passenger_heat3</item>
+    </array>
+    <array name="passenger_heat_ventilation_icon_unselected_day">
+        <item>@drawable/pma_icon_passenger_ventilation3_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation2_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation1_day</item>
+        <item>@drawable/pma_icon_passenger_off_day</item>
+        <item>@drawable/pma_icon_passenger_heat1_day</item>
+        <item>@drawable/pma_icon_passenger_heat2_day</item>
+        <item>@drawable/pma_icon_passenger_heat3_day</item>
+    </array>
+    <array name="passenger_heat_ventilation_icon_without_slider">
+        <item>@drawable/pma_icon_passenger_ventilation3</item>
+        <item>@drawable/pma_icon_passenger_ventilation2</item>
+        <item>@drawable/pma_icon_passenger_ventilation1</item>
+        <item>@drawable/pma_icon_passenger_off</item>
+        <item>@drawable/pma_icon_passenger_heat1</item>
+        <item>@drawable/pma_icon_passenger_heat2</item>
+        <item>@drawable/pma_icon_passenger_heat3</item>
+    </array>
+    <array name="passenger_heat_ventilation_icon_without_slider_day">
+        <item>@drawable/pma_icon_passenger_ventilation3_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation2_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation1_day</item>
+        <item>@drawable/pma_icon_passenger_off_day</item>
+        <item>@drawable/pma_icon_passenger_heat1_day</item>
+        <item>@drawable/pma_icon_passenger_heat2_day</item>
+        <item>@drawable/pma_icon_passenger_heat3_day</item>
+    </array>
+    <array name="passenger_ventilation_icon_selected">
+        <item>@drawable/pma_icon_passenger_ventilation3</item>
+        <item>@drawable/pma_icon_passenger_ventilation2</item>
+        <item>@drawable/pma_icon_passenger_ventilation1</item>
+        <item>@drawable/pma_icon_passenger_off</item>
+    </array>
+    <array name="passenger_ventilation_icon_selected_day">
+        <item>@drawable/pma_icon_passenger_ventilation3_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation2_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation1_day</item>
+        <item>@drawable/pma_icon_passenger_off_day</item>
+    </array>
+    <array name="passenger_ventilation_icon_unselected">
+        <item>@drawable/pma_icon_passenger_ventilation3</item>
+        <item>@drawable/pma_icon_passenger_ventilation2</item>
+        <item>@drawable/pma_icon_passenger_ventilation1</item>
+        <item>@drawable/pma_icon_passenger_off</item>
+    </array>
+    <array name="passenger_ventilation_icon_unselected_day">
+        <item>@drawable/pma_icon_passenger_ventilation3_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation2_day</item>
+        <item>@drawable/pma_icon_passenger_ventilation1_day</item>
+        <item>@drawable/pma_icon_passenger_off_day</item>
+    </array>
+    <array name="pm25_air_vent_icon">
+        <item>@drawable/pma_air_vent_green</item>
+        <item>@drawable/pma_air_vent_yellow</item>
+        <item>@drawable/pma_air_vent_orange</item>
+        <item>@drawable/pma_air_vent_red</item>
+        <item>@drawable/pma_air_vent_purple</item>
+        <item>@drawable/pma_air_vent_purplish</item>
+        <item>@drawable/pma_air_vent_grey</item>
+    </array>
+    <array name="recents_onboarding_blacklisted_packages" />
+    <string-array name="select_logd_size_lowram_titles">
+        <item>Off</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+    </string-array>
+    <string-array name="select_logd_size_summaries">
+        <item>Off</item>
+        <item>64K per log buffer</item>
+        <item>256K per log buffer</item>
+        <item>1M per log buffer</item>
+        <item>4M per log buffer</item>
+        <item>16M per log buffer</item>
+    </string-array>
+    <string-array name="select_logd_size_titles">
+        <item>Off</item>
+        <item>64K</item>
+        <item>256K</item>
+        <item>1M</item>
+        <item>4M</item>
+        <item>16M</item>
+    </string-array>
+    <string-array name="select_logd_size_values">
+        <item>32768</item>
+        <item>65536</item>
+        <item>262144</item>
+        <item>1048576</item>
+        <item>4194304</item>
+        <item>16777216</item>
+    </string-array>
+    <string-array name="select_logpersist_summaries">
+        <item>Off</item>
+        <item>All log buffers</item>
+        <item>All but radio log buffers</item>
+        <item>kernel log buffer only</item>
+    </string-array>
+    <string-array name="select_logpersist_titles">
+        <item>Off</item>
+        <item>All</item>
+        <item>All but radio</item>
+        <item>kernel only</item>
+    </string-array>
+    <string-array name="select_logpersist_values">
+        <item></item>
+        <item>all</item>
+        <item>default,security,kernel</item>
+        <item>kernel</item>
+    </string-array>
+    <string-array name="shengxiao_string_array">
+        <item>鼠年</item>
+        <item>牛年</item>
+        <item>虎年</item>
+        <item>兔年</item>
+        <item>龙年</item>
+        <item>蛇年</item>
+        <item>马年</item>
+        <item>羊年</item>
+        <item>猴年</item>
+        <item>鸡年</item>
+        <item>狗年</item>
+        <item>猪年</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_entries">
+        <item>Off</item>
+        <item>Draw non-rectangular clip region in blue</item>
+        <item>Highlight tested drawing commands in green</item>
+    </string-array>
+    <string-array name="show_non_rect_clip_values">
+        <item>hide</item>
+        <item>region</item>
+        <item>highlight</item>
+    </string-array>
+    <string-array name="simulate_color_space_entries">
+        <item>@string/daltonizer_mode_disabled</item>
+        <item>@string/daltonizer_mode_monochromacy</item>
+        <item>@string/daltonizer_mode_deuteranomaly</item>
+        <item>@string/daltonizer_mode_protanomaly</item>
+        <item>@string/daltonizer_mode_tritanomaly</item>
+    </string-array>
+    <string-array name="simulate_color_space_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>2</item>
+        <item>1</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="solar_festival">
+        <item>0101元旦</item>
+        <item>0214情人节</item>
+        <item>0308妇女节</item>
+        <item>0312植树节</item>
+        <item>0315消权日</item>
+        <item>0401愚人节</item>
+        <item>0422地球日</item>
+        <item>0501劳动节</item>
+        <item>0504青年节</item>
+        <item>0601儿童节</item>
+        <item>0701建党节</item>
+        <item>0801建军节</item>
+        <item>0910教师节</item>
+        <item>1001国庆节</item>
+        <item>1031万圣节</item>
+        <item>1111光棍节</item>
+        <item>1224平安夜</item>
+        <item>1225圣诞节</item>
+    </string-array>
+    <string-array name="solar_term">
+        <item>春分</item>
+        <item>清明</item>
+        <item>谷雨</item>
+        <item>立夏</item>
+        <item>小满</item>
+        <item>芒种</item>
+        <item>夏至</item>
+        <item>小暑</item>
+        <item>大暑</item>
+        <item>立秋</item>
+        <item>处暑</item>
+        <item>白露</item>
+        <item>秋分</item>
+        <item>寒露</item>
+        <item>霜降</item>
+        <item>立冬</item>
+        <item>小雪</item>
+        <item>大雪</item>
+        <item>冬至</item>
+        <item>小寒</item>
+        <item>大寒</item>
+        <item>立春</item>
+        <item>雨水</item>
+        <item>惊蛰</item>
+    </string-array>
+    <string-array name="special_festivals">
+        <item>母亲节</item>
+        <item>父亲节</item>
+        <item>感恩节</item>
+    </string-array>
+    <array name="stat_system_signal_4g">
+        <item>@drawable/pma_icon_4g_3_white</item>
+    </array>
+    <array name="stat_system_wifi">
+        <item>@drawable/pma_icon_wifi_1</item>
+        <item>@drawable/pma_icon_wifi_2</item>
+        <item>@drawable/pma_icon_wifi_3</item>
+        <item>@drawable/pma_icon_wifi_4</item>
+    </array>
+    <string-array name="track_frame_time_entries">
+        <item>Off</item>
+        <item>On screen as bars</item>
+        <item>In adb shell dumpsys gfxinfo</item>
+    </string-array>
+    <string-array name="track_frame_time_values">
+        <item>false</item>
+        <item>visual_bars</item>
+        <item>true</item>
+    </string-array>
+    <string-array name="tradition_festival">
+        <item>除夕</item>
+        <item>0101春节</item>
+        <item>0115元宵</item>
+        <item>0505端午</item>
+        <item>0707七夕</item>
+        <item>0815中秋</item>
+        <item>0909重阳</item>
+    </string-array>
+    <string-array name="transition_animation_scale_entries">
+        <item>Animation off</item>
+        <item>Animation scale .5x</item>
+        <item>Animation scale 1x</item>
+        <item>Animation scale 1.5x</item>
+        <item>Animation scale 2x</item>
+        <item>Animation scale 5x</item>
+        <item>Animation scale 10x</item>
+    </string-array>
+    <string-array name="transition_animation_scale_values">
+        <item>0</item>
+        <item>.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+    <integer-array name="trunk_integer_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </integer-array>
+    <string-array name="trunk_string_array">
+        <item>辛</item>
+        <item>壬</item>
+        <item>癸</item>
+        <item>甲</item>
+        <item>乙</item>
+        <item>丙</item>
+        <item>丁</item>
+        <item>戊</item>
+        <item>己</item>
+        <item>庚</item>
+    </string-array>
+    <string-array name="tts_demo_string_langs">
+        <item>eng</item>
+        <item>fra</item>
+        <item>deu</item>
+        <item>ita</item>
+        <item>spa</item>
+        <item>kor</item>
+    </string-array>
+    <string-array name="tts_demo_strings">
+        <item>This is an example of speech synthesis in English.</item>
+        <item>Voici un échantillon de synthèse vocale en français.</item>
+        <item>Dies ist ein Beispiel für Sprachsynthese in Deutsch.</item>
+        <item>Questo è un esempio di sintesi vocale in italiano.</item>
+        <item>Este es un ejemplo de síntesis de voz en español.</item>
+        <item>이것은 한국어 음성 합성의 예입니다.</item>
+    </string-array>
+    <string-array name="tts_rate_entries">
+        <item>Very slow</item>
+        <item>Slow</item>
+        <item>Normal</item>
+        <item>Fast</item>
+        <item>Faster</item>
+        <item>Very fast</item>
+        <item>Rapid</item>
+        <item>Very rapid</item>
+        <item>Fastest</item>
+    </string-array>
+    <string-array name="tts_rate_values">
+        <item>60</item>
+        <item>80</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+        <item>250</item>
+        <item>300</item>
+        <item>350</item>
+        <item>400</item>
+    </string-array>
+    <string-array name="tv_pip_settings_class_name">
+        <item>com.android.tv.settings</item>
+        <item>com.google.android.leanbacklauncher/.settings.HomeScreenSettingsActivity</item>
+        <item>com.google.android.apps.mediashell/.settings.CastSettingsActivity</item>
+        <item>com.google.android.katniss.setting/.SpeechSettingsActivity</item>
+        <item>com.google.android.katniss.setting/.SearchSettingsActivity</item>
+        <item>com.google.android.tungsten.setupwraith/.settings.usage.UsageDiagnosticsSettingActivity</item>
+        <item>com.google.android.tvlauncher/.notifications.NotificationsSidePanelActivity</item>
+    </string-array>
+    <string-array name="usb_configuration_titles">
+        <item>Charging</item>
+        <item>MTP (Media Transfer Protocol)</item>
+        <item>PTP (Picture Transfer Protocol)</item>
+        <item>RNDIS (USB Ethernet)</item>
+        <item>Audio Source</item>
+        <item>MIDI</item>
+    </string-array>
+    <string-array name="usb_configuration_values">
+        <item>none</item>
+        <item>mtp</item>
+        <item>ptp</item>
+        <item>rndis</item>
+        <item>audio_source</item>
+        <item>midi</item>
+    </string-array>
+    <string-array name="version_pma">
+        <item>VIP:PMA_V6.1.7.10</item>
+        <item>QNX:PMA_V6.1.7.10</item>
+        <item>Android:PMA_V6.1.7.10</item>
+    </string-array>
+    <string-array name="week_string_array">
+        <item>日</item>
+        <item>一</item>
+        <item>二</item>
+        <item>三</item>
+        <item>四</item>
+        <item>五</item>
+        <item>六</item>
+    </string-array>
+    <string-array name="wifi_status">
+        <item></item>
+        <item>Scanning…</item>
+        <item>Connecting…</item>
+        <item>Authenticating…</item>
+        <item>Obtaining IP address…</item>
+        <item>Connected</item>
+        <item>Suspended</item>
+        <item>Disconnecting…</item>
+        <item>Disconnected</item>
+        <item>Unsuccessful</item>
+        <item>Blocked</item>
+        <item>Temporarily avoiding poor connection</item>
+    </string-array>
+    <string-array name="wifi_status_with_ssid">
+        <item></item>
+        <item>Scanning…</item>
+        <item>Connecting to %1$s…</item>
+        <item>Authenticating with %1$s…</item>
+        <item>Obtaining IP address from %1$s…</item>
+        <item>Connected to %1$s</item>
+        <item>Suspended</item>
+        <item>Disconnecting from %1$s…</item>
+        <item>Disconnected</item>
+        <item>Unsuccessful</item>
+        <item>Blocked</item>
+        <item>Temporarily avoiding poor connection</item>
+    </string-array>
+    <string-array name="window_animation_scale_entries">
+        <item>Animation off</item>
+        <item>Animation scale .5x</item>
+        <item>Animation scale 1x</item>
+        <item>Animation scale 1.5x</item>
+        <item>Animation scale 2x</item>
+        <item>Animation scale 5x</item>
+        <item>Animation scale 10x</item>
+    </string-array>
+    <string-array name="window_animation_scale_values">
+        <item>0</item>
+        <item>.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+    </string-array>
+    <string-array name="year_view_week_string_array">
+        <item>日</item>
+        <item>一</item>
+        <item>二</item>
+        <item>三</item>
+        <item>四</item>
+        <item>五</item>
+        <item>六</item>
+    </string-array>
+</resources>

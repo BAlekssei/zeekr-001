@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector android:name="root" android:height="28.0dp" android:width="28.0dp"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <group android:name="icon" android:pivotX="14.0" android:pivotY="14.0" android:scaleX="?rotateButtonScaleX">
+        <path />
+    </group>
+</vector>

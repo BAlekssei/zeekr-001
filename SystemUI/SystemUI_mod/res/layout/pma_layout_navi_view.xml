@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:id="@id/flow_radio_group" android:layout_width="match_parent" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:id="@id/dock_background" android:layout_width="match_parent" android:layout_height="@dimen/pma_navigation_bar_icons_width" android:layout_centerVertical="true">
+        <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/frame_home" android:layout_width="140.0px" android:layout_height="@dimen/pma_dock_icon_width_height">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/img_back_home" android:layout_width="48.0px" android:layout_height="48.0px" android:scaleType="centerInside" app:lottie_fileName="dock_home_night.json" />
+        </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+        <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/frame_setting" android:layout_width="150.0px" android:layout_height="@dimen/pma_dock_icon_width_height">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/img_open_settings" android:layout_width="48.0px" android:layout_height="48.0px" android:scaleType="centerInside" app:lottie_fileName="dock_setting_night.json" />
+        </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+        <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/frame_360" android:layout_width="150.0px" android:layout_height="@dimen/pma_dock_icon_width_height">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/img_open_360" android:layout_width="48.0px" android:layout_height="48.0px" android:scaleType="centerInside" app:lottie_fileName="dock_360_night.json" />
+        </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+        <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_layout_nav_middle_view" />
+        <FrameLayout android:id="@id/frame_media" android:focusable="false" android:layout_width="150.0px" android:layout_height="@dimen/pma_dock_icon_width_height">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/img_open_media" android:layout_width="120.0px" android:layout_height="@dimen/pma_dock_icon_width_height" android:src="@drawable/pma_selector_icon_media_day" android:scaleType="centerInside" />
+        </FrameLayout>
+        <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/frame_applist" android:layout_width="150.0px" android:layout_height="@dimen/pma_dock_icon_width_height">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/img_open_app_list" android:layout_width="48.0px" android:layout_height="48.0px" android:scaleType="centerInside" app:lottie_fileName="dock_applist_night.json" />
+        </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+        <FrameLayout android:id="@id/frame_volume" android:layout_width="140.0px" android:layout_height="@dimen/pma_dock_icon_width_height">
+            <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/img_open_volume" android:layout_width="48.0px" android:layout_height="48.0px" android:scaleType="centerInside" app:lottie_fileName="dock_volume_night.json" />
+        </FrameLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/img_app_selected" android:background="@drawable/pma_dock_app_selected" android:visibility="gone" android:layout_width="36.0px" android:layout_height="4.0px" android:layout_marginTop="102.5px" />
+</RelativeLayout>

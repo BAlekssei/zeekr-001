@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:layout_width="80.0px" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.android.systemui.statusbar.pma.PressStateFrameLayout android:orientation="horizontal" android:id="@id/song_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/img_song" android:background="@drawable/img_song_d" android:layout_width="36.0px" android:layout_height="36.0px" android:scaleType="center" />
+    </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/aqi_content" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/pm25_layout" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="18.0px" android:layout_marginEnd="18.0px">
+        <ImageView android:layout_gravity="center" android:id="@id/img_aqi_car" android:layout_width="36.0px" android:layout_height="36.0px" android:src="@drawable/pma_icon_aqi" android:scaleType="center" />
+        <FrameLayout android:orientation="vertical" android:layout_width="39.0px" android:layout_height="match_parent" android:layout_marginTop="20.0px">
+            <TextView android:textSize="22.0px" android:textColor="#383a3d" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_inside_aqi" android:visibility="visible" android:layout_width="match_parent" android:layout_height="27.0px" android:text="--" />
+            <com.android.systemui.statusbar.pma.PmaLoadingIndicatorView android:layout_gravity="center_horizontal" android:id="@id/img_inside_aqi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="27.0px" android:layout_marginTop="6.0px" />
+            <TextView android:textSize="10.0px" android:textColor="#383a3d" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/tv_aqi_pm25" android:layout_width="match_parent" android:layout_height="11.0px" android:layout_marginTop="25.0px" android:text="PM2.5" />
+        </FrameLayout>
+        <ImageView android:id="@id/img_co2_level" android:visibility="gone" android:layout_width="36.0px" android:layout_height="36.0px" android:layout_marginTop="22.0px" android:src="@drawable/pma_co2_no_work_day" />
+        <ImageView android:layout_gravity="center" android:id="@id/img_aqs_color" android:focusable="false" android:visibility="gone" android:layout_width="40.0px" android:layout_height="40.0px" android:src="@drawable/pma_status_icon_aqs_color_grey" />
+    </LinearLayout>
+    <TextView android:id="@id/tv_outside_aqi" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</com.android.systemui.statusbar.pma.PressStateFrameLayout>

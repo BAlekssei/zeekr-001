@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.android.systemui.statusbar.pma.SignalClusterViewForPMA android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:gravity="right" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="match_parent">
+        <FrameLayout android:id="@id/hicar_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/img_hicar" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="center" />
+        </FrameLayout>
+        <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/pma_icon_wpc_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/pma_icon_wpc" android:layout_width="72.0px" android:layout_height="56.0px" android:scaleType="center" />
+        </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+        <FrameLayout android:id="@id/gps_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/img_gps" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="center" />
+        </FrameLayout>
+        <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/passenger_door_close_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/img_passenger_door_close" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="center" />
+        </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+        <FrameLayout android:id="@id/pma_icon_rest_mode_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/pma_icon_rest_mode" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="center" />
+        </FrameLayout>
+        <include android:layout_width="wrap_content" android:layout_height="match_parent" layout="@layout/pma_no_mic_karaoke" />
+        <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/bluetooth_content" android:layout_width="80.0px" android:layout_height="match_parent">
+            <ImageView android:layout_gravity="center" android:id="@id/iv_bluetooth" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="center" />
+        </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+    </LinearLayout>
+    <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/hotpot_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/iv_hotpot" android:layout_width="36.0px" android:layout_height="36.0px" app:lottie_fileName="statusbar_ap_day.json" />
+    </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+    <com.android.systemui.statusbar.pma.PressStateFrameLayout android:id="@id/wifi_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/iv_wifi" android:visibility="gone" android:layout_width="40.0px" android:layout_height="40.0px" android:src="@drawable/pma_connectivity_wifi_3_night" android:scaleType="center" />
+        <com.airbnb.lottie.LottieAnimationView android:layout_gravity="center" android:id="@id/lottie_wifi" android:layout_width="36.0px" android:layout_height="36.0px" app:lottie_fileName="statusbar_wifi_day.json" />
+    </com.android.systemui.statusbar.pma.PressStateFrameLayout>
+    <FrameLayout android:id="@id/id_network_framelayout" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="20.0px" android:layout_marginEnd="20.0px">
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/iv_network_status" android:visibility="gone" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="center" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/iv_mobile_signal" android:visibility="gone" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="center" />
+        <TextView android:textSize="22.0px" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/tv_no_signal" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0px" android:layout_marginTop="3.0px" android:text="无服务" />
+    </FrameLayout>
+    <FrameLayout android:id="@id/network_connect_status_content" android:visibility="gone" android:layout_width="80.0px" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/iv_network_connect_status" android:layout_width="40.0px" android:layout_height="40.0px" android:scaleType="fitCenter" />
+    </FrameLayout>
+</com.android.systemui.statusbar.pma.SignalClusterViewForPMA>

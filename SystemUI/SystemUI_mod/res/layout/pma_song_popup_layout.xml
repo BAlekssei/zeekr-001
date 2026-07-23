@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/song_popup_content" android:layout_width="515.0px" android:layout_height="730.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="515.0px" android:layout_height="730.0px">
+        <TextView android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:id="@id/tv_song_title" android:layout_width="89.0px" android:layout_height="28.0px" android:layout_marginLeft="174.0px" android:layout_marginTop="20.0px" android:text="无麦K歌" />
+        <TextView android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/nomicktv_human_volume_text" android:layout_width="wrap_content" android:layout_height="40.0px" android:layout_marginLeft="40.0px" android:layout_marginTop="20.0px" android:text="人声音量" android:singleLine="true" />
+        <include android:id="@id/people_row" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="12.0px" layout="@layout/no_mic_row" />
+        <TextView android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/nomicktv_human_volume_text1" android:layout_width="wrap_content" android:layout_height="40.0px" android:layout_marginTop="20.0px" android:text="混响效果" android:singleLine="true" android:layout_marginStart="40.0px" />
+        <include android:id="@id/music_row" android:layout_width="436.0px" android:layout_height="64.0px" android:layout_marginTop="12.0px" layout="@layout/no_mic_row" />
+        <TextView android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/nomicktv_human_volume_text2" android:layout_width="wrap_content" android:layout_height="40.0px" android:layout_marginTop="20.0px" android:text="收音区选择" android:singleLine="true" android:layout_marginStart="40.0px" />
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0px">
+            <Button android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:gravity="center" android:layout_gravity="center" android:id="@id/btn_1" android:layout_width="170.0px" android:layout_height="64.0px" android:text="主驾" android:layout_marginStart="38.0px" />
+            <Button android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:gravity="center" android:layout_gravity="center" android:id="@id/btn_2" android:layout_width="170.0px" android:layout_height="64.0px" android:layout_marginLeft="30.0px" android:text="副驾" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0px">
+            <Button android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:gravity="center" android:layout_gravity="center" android:id="@id/btn_3" android:layout_width="170.0px" android:layout_height="64.0px" android:text="后排左" android:layout_marginStart="38.0px" />
+            <Button android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:gravity="center" android:layout_gravity="center" android:id="@id/btn_4" android:layout_width="170.0px" android:layout_height="64.0px" android:layout_marginLeft="30.0px" android:text="后排右" />
+        </LinearLayout>
+        <Button android:textSize="24.0px" android:textColor="@color/nomicktv_text_color1" android:gravity="center" android:id="@id/exit" android:layout_width="382.0px" android:layout_height="64.0px" android:layout_marginLeft="32.0px" android:layout_marginTop="15.0px" android:text="关闭无麦K歌" />
+    </LinearLayout>
+</FrameLayout>

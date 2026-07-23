@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:layout_width="304.0px" android:layout_height="@dimen/pma_navigation_bar_icons_width" android:backgroundTint="@color/pma_text_day"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:id="@id/layout_left_arrow" android:layout_width="@dimen/pma_dock_icon_width_height" android:layout_height="match_parent">
+        <ImageView android:layout_gravity="right|center" android:id="@id/img_left_arrow" android:focusable="false" android:layout_width="64.0px" android:layout_height="64.0px" android:src="@drawable/pma_day_ic_left_normal_24" />
+    </FrameLayout>
+    <com.android.systemui.statusbar.pma.TemperatureTextView android:id="@id/tv_temp" android:focusable="false" android:layout_width="112.0px" android:layout_height="@dimen/pma_dock_icon_width_height" android:layout_centerInParent="true" />
+    <FrameLayout android:id="@id/layout_right_arrow" android:layout_width="@dimen/pma_dock_icon_width_height" android:layout_height="match_parent" android:layout_alignParentRight="true">
+        <ImageView android:layout_gravity="left|center" android:id="@id/img_right_arrow" android:focusable="false" android:layout_width="64.0px" android:layout_height="64.0px" android:src="@drawable/pma_day_ic_right_normal_24" />
+    </FrameLayout>
+</RelativeLayout>
