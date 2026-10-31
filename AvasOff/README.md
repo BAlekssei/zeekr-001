@@ -40,10 +40,10 @@ ActivityManagerNative.getDefault().updateConfiguration(cfg)
 ```bash
 # через root (app_process) — разово; целевой язык сервиса не меняет,
 # так что при включённом слежении сервис вернёт целевой через ~2 с
-CP='CLASSPATH=$(pm path ru.avasoff|cut -d: -f2)'
-adb shell su 0 sh -c "$CP app_process /system/bin ru.avasoff.Main lang"         # показать
-adb shell su 0 sh -c "$CP app_process /system/bin ru.avasoff.Main lang ru-RU"   # русский
-#   en-US — английский, zh-CN — китайский
+# adb shell склеивает аргументы через пробел, поэтому вся команда для sh -c — одной строкой в кавычках
+avas() { adb shell "su 0 sh -c 'CLASSPATH=\$(pm path ru.avasoff|cut -d: -f2) app_process /system/bin ru.avasoff.Main $*'"; }
+avas lang          # показать
+avas lang ru-RU    # русский;  en-US — английский, zh-CN — китайский
 
 # без root: broadcast в приложение (у adb shell есть CHANGE_CONFIGURATION)
 # — переключает сразу И делает язык целевым, сервис будет его держать
@@ -76,9 +76,8 @@ adb logcat -s AvasOff     # ожидаем "AVAS was on -> switched off"
 ## Ручное управление
 
 ```bash
-CP='CLASSPATH=$(pm path ru.avasoff|cut -d: -f2)'
-adb shell su 0 sh -c "$CP app_process /system/bin ru.avasoff.Main get"
-adb shell su 0 sh -c "$CP app_process /system/bin ru.avasoff.Main off"
+avas get           # avas() — см. «Смена языка»
+avas off
 
 adb shell am force-stop ru.avasoff   # временно разрешить AVAS (до перезагрузки)
 adb uninstall ru.avasoff             # удалить

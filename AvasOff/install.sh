@@ -13,7 +13,8 @@ fi
 
 echo "== 2. Проверка: прямой вызов AudioSystem через app_process"
 APK=$(adb shell pm path $PKG | tr -d '\r' | cut -d: -f2)
-adb shell su 0 sh -c "CLASSPATH=$APK app_process /system/bin ru.avasoff.Main get"
+# adb shell склеивает аргументы через пробел — команду для sh -c передаём одной строкой в кавычках
+adb shell "su 0 sh -c 'CLASSPATH=$APK app_process /system/bin ru.avasoff.Main get'"
 
 echo "== 3. Разрешаем работу в фоне"
 adb shell su 0 cmd appops set $PKG RUN_IN_BACKGROUND allow || true
