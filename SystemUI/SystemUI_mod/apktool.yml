@@ -1,5 +1,5 @@
 version: 3.0.2
-apkFileName: SystemUI_original.apk
+apkFileName: SystemUI.apk
 usesFramework:
   ids:
   - 1

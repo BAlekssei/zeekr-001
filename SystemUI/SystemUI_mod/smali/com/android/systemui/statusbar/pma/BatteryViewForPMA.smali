@@ -592,13 +592,13 @@
 
     :array_0
     .array-data 4
-        0x4d1ef1c6    # 1.66665312E8f
+        0x4d1ef1c6    # 1.6666531E8f
         -0xe10e3a
     .end array-data
 
     :array_1
     .array-data 4
-        0x4daf1b51    # 3.67225376E8f
+        0x4daf1b51    # 3.6722538E8f
         -0x50e4af
     .end array-data
 .end method

@@ -1,0 +1,40 @@
+--- a/smali/com/android/systemui/statusbar/pma/CalendarDialog$1.smali
++++ b/smali/com/android/systemui/statusbar/pma/CalendarDialog$1.smali
+@@ -41,7 +41,7 @@
+     .param p1, "yearCalendar"    # I
+     .param p2, "monthCalendar"    # I
+ 
+-    .line 91
++.line 91
+     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/CalendarDialog$1;->this$0:Lcom/android/systemui/statusbar/pma/CalendarDialog;
+ 
+     invoke-static {v0}, Lcom/android/systemui/statusbar/pma/CalendarDialog;->access$000(Lcom/android/systemui/statusbar/pma/CalendarDialog;)Landroid/widget/TextView;
+@@ -52,18 +52,23 @@
+ 
+     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
++    # Вызываем наш метод перевода месяца, передаем номер месяца (p2)
++    invoke-static {p2}, Lcom/android/systemui/statusbar/pma/CalendarDialog;->getMonthText(I)Ljava/lang/String;
+ 
+-    const-string/jumbo v2, "\u5e74"
++    move-result-object v2
+ 
++    # Добавляем текстовое название месяца
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+-
+-    const-string/jumbo v2, "\u6708"
++    # Добавляем пробел
++    const-string/jumbo v2, " "
+ 
+     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
++    # Добавляем год (p1)
++    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
++
++    # Собираем строку и выводим на экран
+     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+     move-result-object v1

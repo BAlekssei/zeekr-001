@@ -13592,5 +13592,5 @@ Name: res/xml/tuner_prefs.xml
 SHA-256-Digest: 4diRKAnzA0u7koSFoFImJ9YwHhBfuVfOlqMegHl7ZlM=
 
 Name: resources.arsc
-SHA-256-Digest: xBGEHm5tZOcmPL97BCq03vY/6lhpUbzzNtIGeeFnsFc=
+SHA-256-Digest: /6qcKe1VIg2t8NRL0ncuinOMVI3ihkExTTFB7qA1mnc=
 

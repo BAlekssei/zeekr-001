@@ -1,0 +1,13 @@
+--- a/res/layout/pma_status_bar.xml
++++ b/res/layout/pma_status_bar.xml
+@@ -39,8 +39,8 @@
+                 <include android:id="@id/pma_date_layout_date_format" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginStart="8.0px" layout="@layout/pma_date_layout" />
+             </com.android.keyguard.AlphaOptimizedLinearLayout>
+         </LinearLayout>
+-        <FrameLayout android:id="@id/pma_debug_mode" android:visibility="gone" android:layout_width="128.0px" android:layout_height="match_parent" android:layout_marginLeft="768.0px">
+-            <TextView android:textSize="22.0px" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_debug_mode" android:background="@drawable/pma_icon_debug_mode_day" android:layout_width="wrap_content" android:layout_height="42.0px" android:text="调试模式" />
++        <FrameLayout android:id="@id/pma_debug_mode" android:visibility="gone" android:layout_width="168.0px" android:layout_height="match_parent" android:layout_marginLeft="768.0px">
++            <TextView android:textSize="20.0px" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_debug_mode" android:background="@drawable/pma_icon_debug_mode_day" android:layout_width="wrap_content" android:layout_height="45.0px" android:text="Режим отладки" />
+         </FrameLayout>
+         <com.android.systemui.statusbar.pma.PressStateImageView android:id="@id/img_pre_sale" android:background="@drawable/pre_sale_day" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="768.0px" android:scaleType="center" />
+         <com.android.systemui.statusbar.pma.PressStateImageView android:layout_gravity="center_vertical" android:id="@id/img_nzp_back" android:background="@drawable/pma_icon_nzp_back" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="768.0px" android:scaleType="center" />

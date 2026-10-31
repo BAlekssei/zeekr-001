@@ -1,0 +1,127 @@
+--- a/smali/com/android/systemui/statusbar/pma/CalendarDialog.smali
++++ b/smali/com/android/systemui/statusbar/pma/CalendarDialog.smali
+@@ -75,7 +75,7 @@
+     .line 57
+     const/16 v0, 0x224
+ 
+-    const/16 v1, 0x322
++    const/16 v1, 0x2aa
+ 
+     invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/pma/CalendarDialog;->updateAnimation(II)Z
+ 
+@@ -178,7 +178,7 @@
+     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->width:I
+ 
+     .line 138
+-    const/16 v2, 0x322
++    const/16 v2, 0x2aa
+ 
+     iput v2, v1, Landroid/view/WindowManager$LayoutParams;->height:I
+ 
+@@ -641,7 +641,7 @@
+     sput-object v0, Lcom/android/systemui/statusbar/pma/CalendarDialog;->DAY_STR:[Ljava/lang/String;
+ 
+     .line 72
+-    const/16 v0, 0x322
++    const/16 v0, 0x2aa
+ 
+     iput v0, p0, Lcom/android/systemui/statusbar/pma/CalendarDialog;->paramsHeight:I
+ 
+@@ -777,22 +777,28 @@
+ 
+     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+ 
+-    iget v5, p0, Lcom/android/systemui/statusbar/pma/CalendarDialog;->year:I
++    # Получаем месяц (число)
++    iget v5, p0, Lcom/android/systemui/statusbar/pma/CalendarDialog;->month:I
+ 
+-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
++    # Конвертируем число месяца в текст через наш новый метод
++    invoke-static {v5}, Lcom/android/systemui/statusbar/pma/CalendarDialog;->getMonthText(I)Ljava/lang/String;
+ 
+-    const-string/jumbo v5, "\u5e74"
++    move-result-object v5
+ 
++    # Добавляем текстовый месяц в StringBuilder
+     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    iget v5, p0, Lcom/android/systemui/statusbar/pma/CalendarDialog;->month:I
++    # Добавляем пробел между месяцем и годом
++    const-string/jumbo v5, " "
+ 
+-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
++    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ 
+-    const-string/jumbo v5, "\u6708"
++    # Добавляем год (число)
++    iget v5, p0, Lcom/android/systemui/statusbar/pma/CalendarDialog;->year:I
+ 
+-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+ 
++    # Собираем все в финальную строку и отдаем в TextView
+     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+ 
+     move-result-object v4
+@@ -1177,3 +1183,61 @@
+     .line 200
+     return-void
+ .end method
++
++.method public static getMonthText(I)Ljava/lang/String;
++    .locals 3
++
++    const/16 v0, 0xd
++    new-array v0, v0, [Ljava/lang/String;
++
++    const/4 v1, 0x1
++    const-string v2, "\u042f\u043d\u0432"
++    aput-object v2, v0, v1
++
++    const/4 v1, 0x2
++    const-string v2, "\u0424\u0435\u0432"
++    aput-object v2, v0, v1
++
++    const/4 v1, 0x3
++    const-string v2, "\u041c\u0430\u0440"
++    aput-object v2, v0, v1
++
++    const/4 v1, 0x4
++    const-string v2, "\u0410\u043f\u0440"
++    aput-object v2, v0, v1
++
++    const/4 v1, 0x5
++    const-string v2, "\u041c\u0430\u0439"
++    aput-object v2, v0, v1
++
++    const/4 v1, 0x6
++    const-string v2, "\u0418\u044e\u043d"
++    aput-object v2, v0, v1
++
++    const/4 v1, 0x7
++    const-string v2, "\u0418\u044e\u043b"
++    aput-object v2, v0, v1
++
++    const/16 v1, 0x8
++    const-string v2, "\u0410\u0432\u0433"
++    aput-object v2, v0, v1
++
++    const/16 v1, 0x9
++    const-string v2, "\u0421\u0435\u043d"
++    aput-object v2, v0, v1
++
++    const/16 v1, 0xa
++    const-string v2, "\u041e\u043a\u0442"
++    aput-object v2, v0, v1
++
++    const/16 v1, 0xb
++    const-string v2, "\u041d\u043e\u044f"
++    aput-object v2, v0, v1
++
++    const/16 v1, 0xc
++    const-string v2, "\u0414\u0435\u043a"
++    aput-object v2, v0, v1
++
++    aget-object v0, v0, p0
++    return-object v0
++.end method
