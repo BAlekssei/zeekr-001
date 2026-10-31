@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="adas_copilot_and_parking">
+        <item>Активная безопасность</item>
+        <item>Помощь при парковке</item>
+        <item>Помощь в движении</item>
+    </string-array>
+    <string-array name="adas_fix_speed_percentage">
+        <item>Фиксированная скорость км/ч</item>
+        <item>Проценты %</item>
+    </string-array>
+    <string-array name="adas_remind_type">
+        <item>Звуковой сигнал</item>
+        <item>Вибрация</item>
+    </string-array>
+    <string-array name="adas_remind_type_display_and_buzzing">
+        <item>Индикация</item>
+        <item>Звуковой сигнал</item>
+    </string-array>
+    <string-array name="adas_remind_type_display_and_buzzing_with_off">
+        <item>ВЫКЛ</item>
+        <item>Индикация</item>
+        <item>Звуковой сигнал</item>
+    </string-array>
+    <string-array name="adas_remind_type_with_off">
+        <item>ВЫКЛ</item>
+        <item>Звуковой сигнал</item>
+        <item>Вибрация</item>
+    </string-array>
+    <string-array name="adas_search_car_remind_type">
+        <item>Световой сигнал</item>
+        <item>Свет + звук</item>
+    </string-array>
+    <string-array name="adas_sensitivity_level">
+        <item>Позже</item>
+        <item>Умеренно</item>
+        <item>Раньше</item>
+    </string-array>
+    <string-array name="adas_sensitivity_level_with_off">
+        <item>ВЫКЛ</item>
+        <item>Позже</item>
+        <item>Умеренно</item>
+        <item>Раньше</item>
+    </string-array>
+    <string-array name="adas_sensitivity_sensitivity_level_low_middle_high">
+        <item>НИЗКАЯ</item>
+        <item>СРЕДНЯЯ</item>
+        <item>ВЫСОКАЯ</item>
+    </string-array>
+    <string-array name="arr_volume_key_level">
+        <item>Текущая громкость</item>
+        <item>Медиа и вызовы</item>
+    </string-array>
+    <string-array name="common_car_locator_type">
+        <item>Мигание фар</item>
+        <item>Мерцание и сирена</item>
+    </string-array>
+    <string-array name="common_door_manual_helps">
+        <item>Легкий</item>
+        <item>Стандартный</item>
+    </string-array>
+    <string-array name="common_door_mode">
+        <item>Закрыто</item>
+        <item>Только посадка</item>
+        <item>Посадка и высадка</item>
+    </string-array>
+    <string-array name="common_door_mode_two">
+        <item>Закрыто</item>
+        <item>Посадка и высадка</item>
+    </string-array>
+    <string-array name="common_equalizer_presets">
+        <item>Плоский</item>
+        <item>Поп</item>
+        <item>Рок</item>
+        <item>Джаз</item>
+        <item>Классика</item>
+        <item>Вокал</item>
+        <item>Пользовательский</item>
+    </string-array>
+    <string-array name="common_general_time">
+        <item>12 ч</item>
+        <item>24 ч</item>
+    </string-array>
+    <string-array name="common_hud_adjust">
+        <item>Положение</item>
+        <item>Угол</item>
+        <item>Яркость</item>
+    </string-array>
+    <string-array name="common_key_unlock_handle">
+        <item>Дверь водителя</item>
+        <item>Все двери</item>
+    </string-array>
+    <string-array name="common_mirror_title">
+        <item>Левое</item>
+        <item>Правое</item>
+    </string-array>
+    <string-array name="common_point_mode">
+        <item>2.4 ГГц</item>
+        <item>5 ГГц</item>
+    </string-array>
+    <string-array name="common_regeneration_level">
+        <item>Низкий</item>
+        <item>Средний</item>
+        <item>Высокий</item>
+    </string-array>
+    <string-array name="common_regeneration_level_bx">
+        <item>Слабый</item>
+        <item>Стандарт</item>
+        <item>Сильный</item>
+    </string-array>
+    <string-array name="common_tilt_mirror">
+        <item>Оба</item>
+        <item>Левое</item>
+        <item>Правое</item>
+    </string-array>
+    <string-array name="common_touch_handle">
+        <item>Все двери</item>
+        <item>Одна дверь</item>
+    </string-array>
+    <string-array name="common_zeekr_arrmode">
+        <item>НИЗКАЯ</item>
+        <item>СРЕДНЯЯ</item>
+        <item>ВЫСОКАЯ</item>
+    </string-array>
+    <string-array name="common_zeekrad_imgtotext">
+        <item>ВЫКЛ</item>
+        <item>Позже</item>
+        <item>Средне</item>
+        <item>Раньше</item>
+    </string-array>
+    <string-array name="common_zeekrad_lane">
+        <item>ВЫКЛ</item>
+        <item>Сигнал</item>
+        <item>Вибрация</item>
+    </string-array>
+    <string-array name="common_zeekrad_offset_unit">
+        <item>км/ч</item>
+        <item>%</item>
+    </string-array>
+    <string-array name="common_zeekrad_reveal">
+        <item>ВЫКЛ</item>
+        <item>Индикация</item>
+        <item>Сигнал</item>
+    </string-array>
+    <string-array name="common_zeekrad_reveal_sencond">
+        <item>Индикация</item>
+        <item>Сигнал</item>
+    </string-array>
+    <string-array name="dc_door_and_window">
+        <item>Двери</item>
+        <item>Окна</item>
+    </string-array>
+    <string-array name="dc_door_skylight_window">
+        <item>Дверь авто</item>
+        <item>Люк</item>
+        <item>Окно авто</item>
+    </string-array>
+    <string-array name="display_array_home_weather_effect">
+        <item>Динамический</item>
+        <item>Ясно</item>
+        <item>Дождь</item>
+        <item>Снег</item>
+    </string-array>
+    <string-array name="door_feedback_lock_tab_names">
+        <item>Только мигание</item>
+        <item>Мигание + сигнал</item>
+        <item>Мигание + аккорд</item>
+        <item>Мигание + световое шоу</item>
+    </string-array>
+    <string-array name="door_feedback_unlock_tab_names">
+        <item>Только мигание</item>
+        <item>Мигание + сигнал</item>
+        <item>Мигание + аккорд</item>
+    </string-array>
+    <string-array name="door_sound_ef1e_4s">
+        <item>Изящная арфа</item>
+        <item>Легкий перелив</item>
+        <item>Сказочный старт</item>
+    </string-array>
+    <string-array name="doorwindow_angle_tab">
+        <item>Передние двери</item>
+        <item>Задние двери</item>
+        <item>Багажник</item>
+    </string-array>
+    <string-array name="doorwindow_angle_tab1">
+        <item>Передние двери</item>
+        <item>Багажник</item>
+    </string-array>
+    <string-array name="doorwindow_angle_tab2">
+        <item>Передние двери</item>
+        <item>Задние двери</item>
+    </string-array>
+    <string-array name="doorwindow_angle_tab3">
+        <item>Передние двери</item>
+    </string-array>
+    <string-array name="doorwindow_angle_tab4">
+        <item>Багажник</item>
+    </string-array>
+    <string-array name="doorwindow_angle_tab5">
+        <item>Задние двери</item>
+        <item>Багажник</item>
+    </string-array>
+    <string-array name="doorwindow_angle_tab6">
+        <item>Задние двери</item>
+    </string-array>
+    <string-array name="doorwindow_feedback_lock_tabs">
+        <item>Только мигание</item>
+        <item>Мигание + свет</item>
+        <item>Мигание + световое шоу</item>
+    </string-array>
+    <string-array name="doorwindow_lock_unlock">
+        <item>Блокировка</item>
+        <item>Разблокировка</item>
+    </string-array>
+    <string-array name="energy_range_mode">
+        <item>Стандартный запас хода</item>
+        <item>Динамический запас хода</item>
+    </string-array>
+    <string-array name="energy_tab">
+        <item>Зарядка автомобиля</item>
+        <item>Внешнее питание</item>
+    </string-array>
+    <string-array name="lighting">
+        <item>Освещение салона</item>
+        <item>Внешний свет</item>
+    </string-array>
+    <string-array name="lighting_home_light">
+        <item>Выкл</item>
+        <item>30с</item>
+        <item>30</item>
+        <item>Тридцать секунд</item>
+        <item>Тридцать</item>
+        <item>60с</item>
+        <item>60</item>
+        <item>Шестьдесят секунд</item>
+        <item>Шестьдесят</item>
+        <item>90с</item>
+        <item>90</item>
+        <item>Девяносто секунд</item>
+        <item>Девяносто</item>
+    </string-array>
+    <string-array name="lighting_home_safety_light">
+        <item>Выкл</item>
+        <item>30с</item>
+        <item>60с</item>
+        <item>90с</item>
+    </string-array>
+    <string-array name="lighting_light_seat_position">
+        <item>Передняя зона</item>
+        <item>Задняя зона</item>
+    </string-array>
+    <string-array name="multi_sound_effects_dc">
+        <item>Джаз-клуб</item>
+        <item>Сценическая площадка</item>
+        <item>Домашний кинотеатр</item>
+    </string-array>
+    <string-array name="ota_tabs">
+        <item>OTA</item>
+        <item>Система</item>
+    </string-array>
+    <string-array name="quick_setting_dc_drive_sat_tabs">
+        <item>Привод</item>
+        <item>Подвеска</item>
+        <item>Жесткость</item>
+        <item>Тормоза</item>
+        <item>Рулевое управление</item>
+    </string-array>
+    <string-array name="quick_setting_driver_mode">
+        <item>Комф.</item>
+        <item>Эко</item>
+        <item>Спорт</item>
+        <item>Трэк</item>
+        <item>Снег</item>
+        <item>Песок</item>
+        <item>4x4</item>
+        <item>Свой</item>
+    </string-array>
+    <string-array name="quick_setting_driver_mode_two">
+        <item>Комфорт</item>
+        <item>Эко</item>
+        <item>Спорт</item>
+        <item>Трэк</item>
+        <item>Индивидуальный</item>
+    </string-array>
+    <string-array name="quick_setting_individual_climate">
+        <item>Стандарт</item>
+        <item>Эко</item>
+    </string-array>
+    <string-array name="quick_setting_individual_propulsion">
+        <item>Эко</item>
+        <item>Комфорт</item>
+        <item>Спорт</item>
+    </string-array>
+    <string-array name="quick_setting_individual_rab">
+        <item>Нормально</item>
+        <item>Спорт</item>
+    </string-array>
+    <string-array name="quick_setting_individual_steer">
+        <item>Комфорт</item>
+        <item>Нормально</item>
+        <item>Спорт</item>
+    </string-array>
+    <string-array name="quick_setting_individual_suspension">
+        <item>Оффроуд</item>
+        <item>Тяга</item>
+        <item>Комфорт</item>
+        <item>Спорт</item>
+    </string-array>
+    <string-array name="quick_setting_individual_suspension_tip">
+        <item>Максимальная высота</item>
+        <item>Спец. покрытие (Песок и т.д.)</item>
+        <item>Нормально</item>
+        <item>Низкая и маневренная</item>
+    </string-array>
+    <string-array name="quick_setting_suspension_height">
+        <item>Макс.</item>
+        <item>Высоко</item>
+        <item>Норма</item>
+        <item>Низко</item>
+        <item>Мин.</item>
+    </string-array>
+    <string-array name="safety_and_keepUp">
+        <item>Безопасность</item>
+        <item>Обслуживание</item>
+    </string-array>
+    <string-array name="seat_optimisation">
+        <item>Водитель</item>
+        <item>Сзади</item>
+        <item>Все</item>
+    </string-array>
+    <string-array name="seat_optimisation_cs1e">
+        <item>Все</item>
+        <item>Водитель</item>
+        <item>Пассажир</item>
+        <item>Сзади слева</item>
+        <item>Сзади справа</item>
+    </string-array>
+    <string-array name="side">
+        <item>Быстрые настройки</item>
+        <item>Сиденья</item>
+        <item>Освещение</item>
+        <item>Двери и окна</item>
+        <item>Зарядка и разрядка</item>
+        <item>Вождение</item>
+        <item>ZEEKR AD</item>
+        <item>Безопасность</item>
+        <item>Подключения</item>
+        <item>Звук и уведомления</item>
+        <item>Экран</item>
+        <item>OTA</item>
+        <item>ZEEKR Studio</item>
+    </string-array>
+    <string-array name="side_emulator">
+        <item>Быстрые настройки</item>
+        <item>Сиденья</item>
+        <item>Освещение</item>
+        <item>Двери и окна</item>
+        <item>Зарядка и разрядка</item>
+        <item>Вождение</item>
+        <item>ZEEKR AD</item>
+        <item>Безопасность</item>
+        <item>Звук и уведомления</item>
+        <item>Экран</item>
+        <item>OTA</item>
+        <item>ZEEKR Studio</item>
+    </string-array>
+    <string-array name="soundnotify_sound_notification">
+        <item>Звук</item>
+        <item>Эквалайзер</item>
+        <item>Уведомления</item>
+    </string-array>
+    <string-array name="tab_seat">
+        <item>Массаж сидений</item>
+        <item>Регулировка сидений</item>
+    </string-array>
+    <string-array name="tab_seat_adjust_main">
+        <item>Водитель</item>
+        <item>Пассажир</item>
+        <item>Сзади слева</item>
+        <item>Сзади справа</item>
+    </string-array>
+    <string-array name="tab_seat_adjust_part">
+        <item>Сиденье</item>
+        <item>Боковины</item>
+        <item>Поясница</item>
+        <item>Подушка</item>
+    </string-array>
+    <string-array name="tab_seat_adjust_rear">
+        <item>Слева</item>
+        <item>Справа</item>
+    </string-array>
+    <string-array name="tab_seat_adjust_turefollow">
+        <item>ВЫКЛ</item>
+        <item>Низкая</item>
+        <item>Стандарт</item>
+    </string-array>
+    <string-array name="tab_seat_massage_main">
+        <item>Водитель</item>
+        <item>Пассажир</item>
+    </string-array>
+    <string-array name="tab_seat_massage_program">
+        <item>Волны</item>
+        <item>Расслабление</item>
+        <item>Бодрость</item>
+        <item>Энергия</item>
+    </string-array>
+    <string-array name="tab_seat_massage_strength">
+        <item>ВЫКЛ</item>
+        <item>Низкая</item>
+        <item>Средняя</item>
+        <item>Высокая</item>
+    </string-array>
+    <string-array name="tab_seat_onlyadjust">
+        <item>Регулировка сидений</item>
+    </string-array>
+    <string-array name="zeekrad_offset_unit">
+        <item>км/ч</item>
+        <item>%</item>
+    </string-array>
+</resources>
