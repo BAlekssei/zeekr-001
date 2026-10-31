@@ -1169,9 +1169,9 @@
         <item>midi</item>
     </string-array>
     <string-array name="version_pma">
-        <item>VIP:PMA_V6.1.7.10</item>
-        <item>QNX:PMA_V6.1.7.10</item>
-        <item>Android:PMA_V6.1.7.10</item>
+        <item>VIP:PMA_V6.2.0.00</item>
+        <item>QNX:PMA_V6.2.0.00</item>
+        <item>Android:PMA_V6.2.0.00</item>
     </string-array>
     <string-array name="week_string_array">
         <item>日</item>

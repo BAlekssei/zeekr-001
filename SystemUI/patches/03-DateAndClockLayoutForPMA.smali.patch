@@ -1,0 +1,213 @@
+--- a/smali/com/android/systemui/statusbar/pma/DateAndClockLayoutForPMA.smali
++++ b/smali/com/android/systemui/statusbar/pma/DateAndClockLayoutForPMA.smali
+@@ -101,29 +101,29 @@
+     iput v1, p0, Lcom/android/systemui/statusbar/pma/DateAndClockLayoutForPMA;->UNIT_DATE_FORMAT_MDY:I
+ 
+     .line 77
+-    const-string v2, "Jan"
++    const-string v2, "\u042f\u043d\u0432"
+ 
+-    const-string v3, "Feb"
++    const-string v3, "\u0424\u0435\u0432"
+ 
+-    const-string v4, "Mar"
++    const-string v4, "\u041c\u0430\u0440"
+ 
+-    const-string v5, "Apr"
++    const-string v5, "\u0410\u043f\u0440"
+ 
+-    const-string v6, "May"
++    const-string v6, "\u041c\u0430\u0439"
+ 
+-    const-string v7, "Jun"
++    const-string v7, "\u0418\u044e\u043d"
+ 
+-    const-string v8, "Jul"
++    const-string v8, "\u0418\u044e\u043b"
+ 
+-    const-string v9, "Aug"
++    const-string v9, "\u0410\u0432\u0433"
+ 
+-    const-string v10, "Sep"
++    const-string v10, "\u0421\u0435\u043d"
+ 
+-    const-string v11, "Oct"
++    const-string v11, "\u041e\u043a\u0442"
+ 
+-    const-string v12, "Nov"
++    const-string v12, "\u041d\u043e\u044f"
+ 
+-    const-string v13, "Dec"
++    const-string v13, "\u0414\u0435\u043a"
+ 
+     filled-new-array/range {v2 .. v13}, [Ljava/lang/String;
+ 
+@@ -217,29 +217,29 @@
+     iput v2, v0, Lcom/android/systemui/statusbar/pma/DateAndClockLayoutForPMA;->UNIT_DATE_FORMAT_MDY:I
+ 
+     .line 77
+-    const-string v3, "Jan"
++    const-string v3, "\u042f\u043d\u0432"
+ 
+-    const-string v4, "Feb"
++    const-string v4, "\u0424\u0435\u0432"
+ 
+-    const-string v5, "Mar"
++    const-string v5, "\u041c\u0430\u0440"
+ 
+-    const-string v6, "Apr"
++    const-string v6, "\u0410\u043f\u0440"
+ 
+-    const-string v7, "May"
++    const-string v7, "\u041c\u0430\u0439"
+ 
+-    const-string v8, "Jun"
++    const-string v8, "\u0418\u044e\u043d"
+ 
+-    const-string v9, "Jul"
++    const-string v9, "\u0418\u044e\u043b"
+ 
+-    const-string v10, "Aug"
++    const-string v10, "\u0410\u0432\u0433"
+ 
+-    const-string v11, "Sep"
++    const-string v11, "\u0421\u0435\u043d"
+ 
+-    const-string v12, "Oct"
++    const-string v12, "\u041e\u043a\u0442"
+ 
+-    const-string v13, "Nov"
++    const-string v13, "\u041d\u043e\u044f"
+ 
+-    const-string v14, "Dec"
++    const-string v14, "\u0414\u0435\u043a"
+ 
+     filled-new-array/range {v3 .. v14}, [Ljava/lang/String;
+ 
+@@ -334,29 +334,29 @@
+     iput v2, v0, Lcom/android/systemui/statusbar/pma/DateAndClockLayoutForPMA;->UNIT_DATE_FORMAT_MDY:I
+ 
+     .line 77
+-    const-string v3, "Jan"
++    const-string v3, "\u042f\u043d\u0432"
+ 
+-    const-string v4, "Feb"
++    const-string v4, "\u0424\u0435\u0432"
+ 
+-    const-string v5, "Mar"
++    const-string v5, "\u041c\u0430\u0440"
+ 
+-    const-string v6, "Apr"
++    const-string v6, "\u0410\u043f\u0440"
+ 
+-    const-string v7, "May"
++    const-string v7, "\u041c\u0430\u0439"
+ 
+-    const-string v8, "Jun"
++    const-string v8, "\u0418\u044e\u043d"
+ 
+-    const-string v9, "Jul"
++    const-string v9, "\u0418\u044e\u043b"
+ 
+-    const-string v10, "Aug"
++    const-string v10, "\u0410\u0432\u0433"
+ 
+-    const-string v11, "Sep"
++    const-string v11, "\u0421\u0435\u043d"
+ 
+-    const-string v12, "Oct"
++    const-string v12, "\u041e\u043a\u0442"
+ 
+-    const-string v13, "Nov"
++    const-string v13, "\u041d\u043e\u044f"
+ 
+-    const-string v14, "Dec"
++    const-string v14, "\u0414\u0435\u043a"
+ 
+     filled-new-array/range {v3 .. v14}, [Ljava/lang/String;
+ 
+@@ -678,11 +678,9 @@
+ 
+     move-result v11
+ 
+-    add-int/2addr v11, v4
++    iget-object v12, v0, Lcom/android/systemui/statusbar/pma/DateAndClockLayoutForPMA;->mMonthText:[Ljava/lang/String;
+ 
+-    invoke-static {v11}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+-
+-    move-result-object v11
++    aget-object v11, v12, v11
+ 
+     .line 261
+     .local v11, "mMonth":Ljava/lang/String;
+@@ -723,7 +721,7 @@
+     if-eqz v14, :cond_5
+ 
+     .line 264
+-    const-string/jumbo v13, "\u65e5"
++    const-string/jumbo v13, "\u0412\u0441"
+ 
+     goto :goto_2
+ 
+@@ -738,7 +736,7 @@
+     if-eqz v14, :cond_6
+ 
+     .line 266
+-    const-string/jumbo v13, "\u4e00"
++    const-string/jumbo v13, "\u041f\u043d"
+ 
+     goto :goto_2
+ 
+@@ -753,7 +751,7 @@
+     if-eqz v14, :cond_7
+ 
+     .line 268
+-    const-string/jumbo v13, "\u4e8c"
++    const-string/jumbo v13, "\u0412\u0442"
+ 
+     goto :goto_2
+ 
+@@ -768,7 +766,7 @@
+     if-eqz v14, :cond_8
+ 
+     .line 270
+-    const-string/jumbo v13, "\u4e09"
++    const-string/jumbo v13, "\u0421\u0440"
+ 
+     goto :goto_2
+ 
+@@ -783,7 +781,7 @@
+     if-eqz v14, :cond_9
+ 
+     .line 272
+-    const-string/jumbo v13, "\u56db"
++    const-string/jumbo v13, "\u0427\u0442"
+ 
+     goto :goto_2
+ 
+@@ -798,7 +796,7 @@
+     if-eqz v14, :cond_a
+ 
+     .line 274
+-    const-string/jumbo v13, "\u4e94"
++    const-string/jumbo v13, "\u041f\u0442"
+ 
+     goto :goto_2
+ 
+@@ -813,14 +811,14 @@
+     if-eqz v14, :cond_b
+ 
+     .line 276
+-    const-string/jumbo v13, "\u516d"
++    const-string/jumbo v13, "\u0421\u0431"
+ 
+     .line 278
+     :cond_b
+     :goto_2
+     iget-object v14, v0, Lcom/android/systemui/statusbar/pma/DateAndClockLayoutForPMA;->date:Ljava/lang/StringBuilder;
+ 
+-    const-string v15, "%s\u6708%s\u65e5 \u661f\u671f%s "
++    const-string v15, "%s %s %s "
+ 
+     const/4 v8, 0x3
+ 
