@@ -56,7 +56,7 @@ adb logcat -s AvasOff     # "locale -> ru-RU"
 
 ```
 src/        исходники apktool-проекта (smali + манифест)
-build.sh    сборка: apktool -> zipalign -> apksigner (platform keys из ../SystemUI)
+build.sh    сборка: apktool -> zipalign -> apksigner (platform keys из ../platform)
 install.sh  установка по adb + первый запуск сервиса
 ```
 

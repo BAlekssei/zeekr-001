@@ -1,8 +1,10 @@
-# SystemUI (Zeekr 001, PMA)
+# SystemUI — русификация статус-бара и календаря
 
-Текущая база: **PMA_V6.2.0.00** (`smile_gvmq-userdebug 9 PQ1A.190105.004 528`).
+Прошивка **5.6d** (внутренняя версия PMA_V6.2.0.00, `smile_gvmq-userdebug 9 PQ1A.190105.004 528`).
 
-Доработки (лежат отдельными патчами в `patches/`):
+## Что изменено
+
+Доработки лежат отдельными патчами в `patches/` и накладываются на стоковый APK:
 
 | Патч | Что делает |
 |---|---|
@@ -12,41 +14,62 @@
 | 04-pma_calender.xml | русская шапка дней недели, неделя с понедельника, лунный календарь скрыт |
 | 05-pma_status_bar.xml | «Режим отладки» вместо `调试模式` |
 
-Файлы:
-- `SystemUI_original.apk` — стоковый APK текущей прошивки
-- `SystemUI_mod/` — распаковка apktool с наложенными патчами
-- `systemui_patched_final.apk` — готовый, подписан platform-ключом
-- `port.sh` — перенос патчей на новую прошивку
+Строки локалей (`values-ru` и др.) не меняются — они стоковые.
 
-## Перенос на новую прошивку
+## Структура
 
-```bash
-adb root
-adb pull /system/priv-app/SystemUI/SystemUI.apk
-adb pull /system/framework/framework-res.apk   # обязательно: без него apktool портит ссылки @android:
-APKTOOL_JAR=apktool.jar SIGNER_JAR=uber-apk-signer.jar ./port.sh SystemUI.apk framework-res.apk
+```
+SystemUI_original.apk       стоковый SystemUI текущей прошивки
+SystemUI_mod/               apktool-проект: сток + patches/
+patches/                    доработки (unified diff)
+systemui_patched_final.apk  готовый APK, подписан platform-ключом
+build.sh                    сборка: apktool -> zipalign -> apksigner
+install.sh                  установка по adb (с бэкапом текущего SystemUI)
+update.sh                   перенос патчей на новую прошивку
 ```
 
-Если патч не накладывается, скрипт остановится; этот файл переносится вручную.
+Ключи и `framework-res.apk` машины — в `../platform`.
 
-## Сборка из SystemUI_mod вручную
+Нужны в PATH: `apktool` (3.x), `zipalign`, `apksigner` (Android build-tools), `patch`.
+
+## Сборка
 
 ```bash
-apktool if framework-res.apk          # фреймворк машины
-apktool b SystemUI_mod/ -o systemui_patched.apk
-zipalign -p -f 4 systemui_patched.apk systemui_patched_align.apk
-apksigner sign --key platform.pk8 --cert platform.x509.pem --out systemui_patched_final.apk systemui_patched_align.apk
+./build.sh        # -> systemui_patched_final.apk
 ```
 
 ## Установка
 
 ```bash
-adb root
-adb remount
-adb push systemui_patched_final.apk /system/priv-app/SystemUI/SystemUI.apk
+./install.sh      # root, remount, бэкап SystemUI_backup_<дата>.apk, push, reboot
+```
+
+Откат на сток (или на бэкап):
+
+```bash
+adb root && adb remount
+adb push SystemUI_original.apk /system/priv-app/SystemUI/SystemUI.apk
 adb shell chmod 644 /system/priv-app/SystemUI/SystemUI.apk
-adb shell chown root:root /system/priv-app/SystemUI/SystemUI.apk
 adb reboot
 ```
 
-Обновление прошивки (OTA) затирает SystemUI стоковым — после обновления запустите `port.sh` заново.
+## Новая прошивка
+
+Обновление прошивки затирает SystemUI стоковым. Подключиться к машине и:
+
+```bash
+./update.sh                  # скачает SystemUI.apk и framework-res.apk, наложит патчи, соберёт
+./update.sh SystemUI.apk     # или из готового файла
+./install.sh
+```
+
+Если патч не наложился, скрипт остановится — правка переносится вручную в `build/SystemUI_new`.
+`framework-res.apk` обязателен: без него apktool неверно разворачивает ссылки `@android:`
+и сборка падает на приватных ресурсах.
+
+## Ещё не переведено
+
+Тексты, зашитые прямо в PMA-разметку (`res/layout/pma_*.xml`): 主驾/副驾/后排, 卸载, 取消, 确认,
+哨兵模式, 应用中心, 低温提醒, 无麦K歌 и др. — около 30 штук. И 10 строк без русского перевода
+в `values-ru`: дни недели `mon…sun` (一…日) и подписи виджетов дока
+`pma_dock_widget_car_mileage_title` (总里程), `…_car_setting_title` (车辆设置), `…_track_title` (赛道模式).

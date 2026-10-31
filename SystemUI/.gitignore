@@ -1,0 +1,4 @@
+build/
+SystemUI_mod/build/
+*.idsig
+SystemUI_backup_*.apk
