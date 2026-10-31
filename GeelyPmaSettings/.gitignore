@@ -1,3 +1,4 @@
 build/
 *.idsig
 GeelySettings_backup_*.apk
+GeelySettings_backup_*_oat/

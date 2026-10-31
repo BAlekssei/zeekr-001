@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Сборка русского GeelySettings из стока:
-#   GeelySettings_original.apk -> apktool d -s -> ru/*.xml + patches/ -> apktool b -> zipalign -> apksigner
-# Код (dex) не трогается — меняются только ресурсы.
-# Нужны в PATH: apktool, zipalign, apksigner (Android build-tools), patch, python3
+#   GeelySettings_original.apk -> apktool d -> ru/*.xml + ru/code.tsv + patches/ -> apktool b -> zipalign -> apksigner
+# Пересобираются только те dex, где переведены строки в коде; остальные кладутся из стока как есть.
+# Нужны в PATH: apktool, zipalign, apksigner (Android build-tools), patch, unzip, python3
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -21,13 +21,25 @@ echo "== 1. Распаковка стока"
 # Приватных ресурсов android: GeelySettings не использует.
 rm -rf build/framework && mkdir -p build/framework   # чистый каталог: только встроенный фреймворк apktool
 rm -rf "$MOD"
-apktool d -f -s "$SRC" -o "$MOD" -p build/framework
+apktool d -f "$SRC" -o "$MOD" -p build/framework
 grep -E 'versionName' "$MOD/apktool.yml" || true
 
 echo "== 2. Перевод (ru/*.xml)"
 python3 tools/ru_settings.py apply "$MOD"
 
-echo "== 3. Патчи разметки"
+echo "== 3. Тексты в коде (ru/code.tsv)"
+python3 tools/ru_code.py apply "$MOD" | tee build/code.log
+# нетронутые smali-каталоги не пересобираем: вместо них исходный dex из стока
+for d in "$MOD"/smali*; do
+  n=$(basename "$d")
+  grep -qx "CHANGED $n" build/code.log && continue
+  dex=$( [ "$n" = smali ] && echo classes.dex || echo "${n#smali_}.dex" )
+  rm -rf "$d"
+  unzip -p "$SRC" "$dex" > "$MOD/$dex"
+done
+echo "   пересобираются: $(grep '^CHANGED' build/code.log | cut -d' ' -f2 | tr '\n' ' ')"
+
+echo "== 4. Патчи разметки"
 fail=0
 for p in patches/*.patch; do
   if patch -d "$MOD" -p1 -N --fuzz=3 -r - < "$p"; then
@@ -38,7 +50,7 @@ for p in patches/*.patch; do
 done
 [ "$fail" = 0 ] || exit 1
 
-echo "== 4. Сборка и подпись"
+echo "== 5. Сборка и подпись"
 apktool b -f "$MOD" -o build/geelysettings_unsigned.apk -p build/framework
 zipalign -p -f 4 build/geelysettings_unsigned.apk build/geelysettings_align.apk
 apksigner sign --key "$KEY" --cert "$CERT" --out "$OUT" build/geelysettings_align.apk

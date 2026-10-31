@@ -19,6 +19,11 @@ adb pull "$DST" "$BK"
 echo "   сохранён: $BK  (откат — см. README)"
 
 echo "== 3. Заливка"
+# dex изменён — старый предкомпилированный oat от стока больше не подходит
+if adb shell "[ -d /system/app/GeelySettings/oat ]"; then
+  adb pull /system/app/GeelySettings/oat "${BK%.apk}_oat" >/dev/null && echo "   oat сохранён: ${BK%.apk}_oat"
+  adb shell rm -rf /system/app/GeelySettings/oat
+fi
 adb push "$APK" "$DST"
 adb shell chmod 644 "$DST"
 adb shell chown root:root "$DST"
