@@ -1,0 +1,14 @@
+--- a/res/layout/ota_frag.xml
++++ b/res/layout/ota_frag.xml
+@@ -4,9 +4,9 @@
+     <androidx.core.widget.NestedScrollView android:id="@id/scrollView" android:layout_width="wrap_content" android:layout_height="match_parent" android:layout_marginTop="40.0dp" app:layout_constraintLeft_toLeftOf="parent" app:layout_constraintTop_toTopOf="parent" style="@style/CommonScrollUiStyle">
+         <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="match_parent">
+             <LinearLayout android:orientation="vertical" android:id="@id/current_version_ll" android:background="@drawable/ota_item_shape" android:padding="24.0dp" android:layout_width="640.0dp" android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+-                <TextView android:textSize="@dimen/tip2_sp_24" android:textColor="@color/ota_version" android:id="@id/current_ota_version_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="当前系统版本" />
++                <TextView android:textSize="@dimen/tip2_sp_24" android:textColor="@color/ota_version" android:id="@id/current_ota_version_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Текущая версия" />
+                 <TextView android:textSize="@dimen/tip2_sp_64" android:textColor="@color/ota_text_color_two" android:id="@id/ota_current_version" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/tip2_dp_4" />
+-                <TextView android:textSize="24.0sp" android:textColor="@color/ota_btn_text" android:gravity="center" android:id="@id/ota_log" android:background="@drawable/ota_log_btn_shape" android:layout_width="592.0dp" android:layout_height="64.0dp" android:layout_marginTop="40.0dp" android:text="升级日志" />
++                <TextView android:textSize="24.0sp" android:textColor="@color/ota_btn_text" android:gravity="center" android:id="@id/ota_log" android:background="@drawable/ota_log_btn_shape" android:layout_width="592.0dp" android:layout_height="64.0dp" android:layout_marginTop="40.0dp" android:text="Журнал обновлений" />
+             </LinearLayout>
+             <LinearLayout android:orientation="vertical" android:id="@id/update_version_ll" android:background="@drawable/ota_item_shape" android:padding="24.0dp" android:visibility="gone" android:layout_width="640.0dp" android:layout_height="wrap_content" android:layout_marginTop="16.0dp" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@id/current_version_ll">
+                 <TextView android:textSize="@dimen/tip2_sp_24" android:textColor="@color/ota_version" android:id="@id/update_ota_version_or_time_set" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ota_had_new_version_to_upgrade" />
