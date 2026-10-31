@@ -118,3 +118,100 @@
     invoke-virtual {v3, v1, v7}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
     return-void
 .end method
+
+# ---- целевой язык (SharedPreferences "lang"/"target", по умолчанию ru-RU; "off" = не следить)
+
+# "ru_RU" / "ru-ru" -> "ru-RU"
+.method public static norm(Ljava/lang/String;)Ljava/lang/String;
+    .registers 3
+    const/16 v0, 0x5f
+    const/16 v1, 0x2d
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    move-result-object v0
+    invoke-static {v0}, Ljava/util/Locale;->forLanguageTag(Ljava/lang/String;)Ljava/util/Locale;
+    move-result-object v0
+    invoke-virtual {v0}, Ljava/util/Locale;->toLanguageTag()Ljava/lang/String;
+    move-result-object v0
+    return-object v0
+.end method
+
+# основной (первый) язык системы
+.method public static current()Ljava/lang/String;
+    .registers 2
+    invoke-static {}, Lru/avasoff/Lang;->am()Ljava/lang/Object;
+    move-result-object v0
+    invoke-static {v0}, Lru/avasoff/Lang;->config(Ljava/lang/Object;)Landroid/content/res/Configuration;
+    move-result-object v0
+    invoke-virtual {v0}, Landroid/content/res/Configuration;->getLocales()Landroid/os/LocaleList;
+    move-result-object v0
+    const/4 v1, 0x0
+    invoke-virtual {v0, v1}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
+    move-result-object v0
+    invoke-virtual {v0}, Ljava/util/Locale;->toLanguageTag()Ljava/lang/String;
+    move-result-object v0
+    return-object v0
+.end method
+
+.method static prefs(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    .registers 3
+    const-string v0, "lang"
+    const/4 v1, 0x0
+    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    move-result-object v0
+    return-object v0
+.end method
+
+.method public static wanted(Landroid/content/Context;)Ljava/lang/String;
+    .registers 4
+    invoke-static {p0}, Lru/avasoff/Lang;->prefs(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v0
+    const-string v1, "target"
+    const-string v2, "ru-RU"
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v0
+    return-object v0
+.end method
+
+.method public static setWanted(Landroid/content/Context;Ljava/lang/String;)V
+    .registers 4
+    invoke-static {p0}, Lru/avasoff/Lang;->prefs(Landroid/content/Context;)Landroid/content/SharedPreferences;
+    move-result-object v0
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    move-result-object v0
+    const-string v1, "target"
+    invoke-interface {v0, v1, p1}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    move-result-object v0
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->commit()Z
+    return-void
+.end method
+
+# вызывается из AvasService раз в 2 с: если язык не тот — вернуть
+.method public static enforce(Landroid/content/Context;)V
+    .registers 5
+    invoke-static {p0}, Lru/avasoff/Lang;->wanted(Landroid/content/Context;)Ljava/lang/String;
+    move-result-object v0
+    const-string v1, "off"
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v1
+    if-nez v1, :ret
+    invoke-static {}, Lru/avasoff/Lang;->current()Ljava/lang/String;
+    move-result-object v1
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    move-result v2
+    if-nez v2, :ret
+    invoke-static {v0}, Lru/avasoff/Lang;->set(Ljava/lang/String;)V
+    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "locale was "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, " -> switched to "
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v2
+    const-string v3, "AvasOff"
+    invoke-static {v3, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    :ret
+    return-void
+.end method

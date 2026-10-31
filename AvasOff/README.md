@@ -11,6 +11,7 @@ AudioManager.setParameters("avas_switch=off")   // в логе: adev_set_paramet
 
 **AvasOff** — маленькое приложение без иконки:
 - `AvasService` — фоновый сервис, раз в 2 с читает `avas_switch` и, если `on`, ставит `off`;
+  заодно проверяет язык системы и возвращает целевой (по умолчанию `ru-RU`), если машина сама переключилась на `zh-CN`;
 - `BootReceiver` — запускает сервис на `BOOT_COMPLETED` / `USER_PRESENT` / обновлении пакета;
 - `Main` — CLI для `app_process` (через `AudioSystem` по reflection): `get | on | off | lang [<tag>]`;
 - `Lang` / `LangReceiver` — смена системного языка (см. ниже).
@@ -32,15 +33,22 @@ ActivityManagerNative.getDefault().updateConfiguration(cfg)
 меняется только `persist.sys.locale` (`zh-CN` → `ru-RU`), его пишет сам system_server,
 поэтому язык переживает перезагрузку. `Lang` делает то же самое.
 
+Машина при этом иногда сама возвращает `zh-CN`, поэтому `AvasService` раз в 2 с сверяет
+язык с целевым и при расхождении переключает обратно (в логе `locale was zh-CN -> switched to ru-RU`).
+Целевой язык — `ru-RU` по умолчанию, меняется broadcast'ом (он же сразу переключает язык).
+
 ```bash
-# через root (app_process)
+# через root (app_process) — разово; целевой язык сервиса не меняет,
+# так что при включённом слежении сервис вернёт целевой через ~2 с
 CP='CLASSPATH=$(pm path ru.avasoff|cut -d: -f2)'
 adb shell su 0 sh -c "$CP app_process /system/bin ru.avasoff.Main lang"         # показать
 adb shell su 0 sh -c "$CP app_process /system/bin ru.avasoff.Main lang ru-RU"   # русский
 #   en-US — английский, zh-CN — китайский
 
 # без root: broadcast в приложение (у adb shell есть CHANGE_CONFIGURATION)
+# — переключает сразу И делает язык целевым, сервис будет его держать
 adb shell am broadcast -n ru.avasoff/.LangReceiver -a ru.avasoff.SET_LOCALE --es locale ru-RU
+adb shell am broadcast -n ru.avasoff/.LangReceiver -a ru.avasoff.SET_LOCALE --es locale off  # не следить
 adb logcat -s AvasOff     # "locale -> ru-RU"
 ```
 

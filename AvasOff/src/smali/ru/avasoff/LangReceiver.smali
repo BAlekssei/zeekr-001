@@ -2,6 +2,8 @@
 .super Landroid/content/BroadcastReceiver;
 
 # am broadcast -n ru.avasoff/.LangReceiver -a ru.avasoff.SET_LOCALE --es locale ru-RU
+#   переключает язык сразу и запоминает его как целевой (AvasService будет его держать);
+#   --es locale off — перестать следить за языком (текущий не меняется)
 
 .method public constructor <init>()V
     .registers 1
@@ -22,7 +24,20 @@
 
     :has
     :try_start
+    const-string v2, "off"
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v3
+    if-eqz v3, :apply
+    invoke-static {p1, v2}, Lru/avasoff/Lang;->setWanted(Landroid/content/Context;Ljava/lang/String;)V
+    const-string v3, "locale enforcement off"
+    invoke-static {v0, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    return-void
+
+    :apply
+    invoke-static {v1}, Lru/avasoff/Lang;->norm(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
     invoke-static {v1}, Lru/avasoff/Lang;->set(Ljava/lang/String;)V
+    invoke-static {p1, v1}, Lru/avasoff/Lang;->setWanted(Landroid/content/Context;Ljava/lang/String;)V
     new-instance v2, Ljava/lang/StringBuilder;
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
     const-string v3, "locale -> "

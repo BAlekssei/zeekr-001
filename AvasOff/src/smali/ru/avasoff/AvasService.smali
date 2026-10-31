@@ -48,11 +48,11 @@
     const-string v1, "avas_switch"
     invoke-virtual {v0, v1}, Landroid/media/AudioManager;->getParameters(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v1
-    if-eqz v1, :sleep
+    if-eqz v1, :lang
     const-string v2, "avas_switch=on"
     invoke-virtual {v1, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v2
-    if-eqz v2, :sleep
+    if-eqz v2, :lang
     const-string v2, "avas_switch=off"
     invoke-virtual {v0, v2}, Landroid/media/AudioManager;->setParameters(Ljava/lang/String;)V
     const-string v2, "AvasOff"
@@ -60,14 +60,30 @@
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     :try_end
     .catch Ljava/lang/Throwable; {:try_start .. :try_end} :catch
+
+    # язык системы: вернуть целевой, если машина переключила сама
+    :lang
+    :try_start_1
+    invoke-static {p0}, Lru/avasoff/Lang;->enforce(Landroid/content/Context;)V
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_lang
+
     :sleep
     const-wide/16 v2, 0x7d0
     invoke-static {v2, v3}, Landroid/os/SystemClock;->sleep(J)V
     goto :loop
+
     :catch
     move-exception v0
     const-string v1, "AvasOff"
     const-string v2, "poll failed"
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    goto :lang
+
+    :catch_lang
+    move-exception v0
+    const-string v1, "AvasOff"
+    const-string v2, "locale enforce failed"
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     goto :sleep
 .end method
