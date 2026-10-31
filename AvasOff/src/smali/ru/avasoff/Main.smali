@@ -1,7 +1,7 @@
 .class public Lru/avasoff/Main;
 .super Ljava/lang/Object;
 
-# CLI for app_process: get | on | off
+# CLI for app_process: get | on | off | lang [<tag>]
 
 .method static call(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
     .registers 7
@@ -32,6 +32,25 @@
     aget-object v0, p0, v1
     :go
     sget-object v1, Ljava/lang/System;->out:Ljava/io/PrintStream;
+
+    # lang [<tag>] — показать / сменить системный язык
+    const-string v2, "lang"
+    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v2
+    if-eqz v2, :avas
+    array-length v2, p0
+    const/4 v3, 0x2
+    if-lt v2, v3, :langget
+    const/4 v3, 0x1
+    aget-object v3, p0, v3
+    invoke-static {v3}, Lru/avasoff/Lang;->set(Ljava/lang/String;)V
+    :langget
+    invoke-static {}, Lru/avasoff/Lang;->get()Ljava/lang/String;
+    move-result-object v2
+    invoke-virtual {v1, v2}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+    return-void
+
+    :avas
     const-string v2, "get"
     invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     move-result v2

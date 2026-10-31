@@ -1,4 +1,4 @@
-# AvasOff — отключение звука «НЛО» (AVAS) при каждом запуске
+# AvasOff — отключение звука «НЛО» (AVAS) при каждом запуске + смена языка системы
 
 Zeekr 001 при каждом запуске заново включает внешний звук предупреждения пешеходов
 (AVAS, 低速行人提示音). Кнопка в лаунчере выключает его только до следующего старта.
@@ -12,10 +12,37 @@ AudioManager.setParameters("avas_switch=off")   // в логе: adev_set_paramet
 **AvasOff** — маленькое приложение без иконки:
 - `AvasService` — фоновый сервис, раз в 2 с читает `avas_switch` и, если `on`, ставит `off`;
 - `BootReceiver` — запускает сервис на `BOOT_COMPLETED` / `USER_PRESENT` / обновлении пакета;
-- `Main` — CLI для `app_process` (через `AudioSystem` по reflection): `get | on | off`.
+- `Main` — CLI для `app_process` (через `AudioSystem` по reflection): `get | on | off | lang [<tag>]`;
+- `Lang` / `LangReceiver` — смена системного языка (см. ниже).
 
 `targetSdk 25` — чтобы на Android 9 фоновый сервис жил без уведомления.
 Пока сервис работает, включить AVAS кнопкой нельзя (сразу выключится).
+
+## Смена языка (как в zSupport)
+
+zSupport (`com.zsupport`, sharedUserId `android.uid.system`) при выборе «Русский» делает ровно одно:
+
+```
+cfg = ActivityManagerNative.getDefault().getConfiguration()
+cfg.locale = ru_RU; cfg.userSetLocale = true
+ActivityManagerNative.getDefault().updateConfiguration(cfg)
+```
+
+Больше ничего (ни Ecarx-API, ни settings) — проверено декомпиляцией и diff'ом до/после:
+меняется только `persist.sys.locale` (`zh-CN` → `ru-RU`), его пишет сам system_server,
+поэтому язык переживает перезагрузку. `Lang` делает то же самое.
+
+```bash
+# через root (app_process)
+CP='CLASSPATH=$(pm path ru.avasoff|cut -d: -f2)'
+adb shell su 0 sh -c "$CP app_process /system/bin ru.avasoff.Main lang"         # показать
+adb shell su 0 sh -c "$CP app_process /system/bin ru.avasoff.Main lang ru-RU"   # русский
+#   en-US — английский, zh-CN — китайский
+
+# без root: broadcast в приложение (у adb shell есть CHANGE_CONFIGURATION)
+adb shell am broadcast -n ru.avasoff/.LangReceiver -a ru.avasoff.SET_LOCALE --es locale ru-RU
+adb logcat -s AvasOff     # "locale -> ru-RU"
+```
 
 ## Структура
 
