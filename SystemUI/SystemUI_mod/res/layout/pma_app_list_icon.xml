@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <FrameLayout android:layout_width="130.0px" android:layout_height="224.0px" android:layout_centerHorizontal="true" />
     <FrameLayout android:id="@id/app_icon_background" android:layout_width="130.0px" android:layout_height="224.0px" android:layout_centerHorizontal="true">
-        <TextView android:textSize="24.0px" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center|top" android:id="@id/tv_app_delete" android:background="@drawable/pma_app_delete_background" android:visibility="invisible" android:layout_width="100.0px" android:layout_height="48.0px" android:text="卸载" />
+        <TextView android:textSize="24.0px" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center|top" android:id="@id/tv_app_delete" android:background="@drawable/pma_app_delete_background" android:visibility="invisible" android:layout_width="100.0px" android:layout_height="48.0px" android:text="Удалить" />
         <FrameLayout android:layout_width="130.0px" android:layout_height="130.0px" android:layout_marginTop="47.0px" android:layout_centerHorizontal="true">
             <ImageView android:layout_gravity="center" android:id="@id/img_app_icon" android:layout_width="104.0px" android:layout_height="104.0px" />
             <ImageView android:layout_gravity="center" android:id="@id/img_prepare_download" android:visibility="gone" android:layout_width="104.0px" android:layout_height="104.0px" android:src="@drawable/pma_prepare_download" android:scaleType="center" />

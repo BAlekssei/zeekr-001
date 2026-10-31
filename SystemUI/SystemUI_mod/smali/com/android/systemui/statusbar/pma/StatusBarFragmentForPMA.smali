@@ -1412,11 +1412,11 @@
     invoke-static {v0, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 2156
-    const-string/jumbo v0, "\u7528\u8f66\u4e60\u60ef1"
+    const-string/jumbo v0, "\u041f\u0440\u043e\u0444\u0438\u043b\u044c 1"
 
-    const-string/jumbo v3, "\u7528\u8f66\u4e60\u60ef2"
+    const-string/jumbo v3, "\u041f\u0440\u043e\u0444\u0438\u043b\u044c 2"
 
-    const-string/jumbo v4, "\u7528\u8f66\u4e60\u60ef3"
+    const-string/jumbo v4, "\u041f\u0440\u043e\u0444\u0438\u043b\u044c 3"
 
     filled-new-array {v0, v3, v4}, [Ljava/lang/String;
 

@@ -80,7 +80,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v3, "\u5378\u8f7d"
+    const-string/jumbo v3, "\u0423\u0434\u0430\u043b\u0438\u0442\u044c"
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -94,7 +94,7 @@
 
     move-result-object v0
 
-    const-string/jumbo v3, "\u79fb\u9664"
+    const-string/jumbo v3, "\u0423\u0431\u0440\u0430\u0442\u044c"
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 

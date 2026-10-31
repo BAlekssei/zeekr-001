@@ -1394,7 +1394,7 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/UserCenterPopupWindow;->mText:Landroid/widget/TextView;
 
-    const-string/jumbo v2, "\u5df2\u5207\u6362\u5230\u7528\u8f66\u4e60\u60ef3"
+    const-string/jumbo v2, "\u0412\u043a\u043b\u044e\u0447\u0451\u043d \u043f\u0440\u043e\u0444\u0438\u043b\u044c 3"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -1404,7 +1404,7 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/UserCenterPopupWindow;->mText:Landroid/widget/TextView;
 
-    const-string/jumbo v2, "\u5df2\u5207\u6362\u5230\u7528\u8f66\u4e60\u60ef2"
+    const-string/jumbo v2, "\u0412\u043a\u043b\u044e\u0447\u0451\u043d \u043f\u0440\u043e\u0444\u0438\u043b\u044c 2"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -1415,7 +1415,7 @@
     :pswitch_2
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/UserCenterPopupWindow;->mText:Landroid/widget/TextView;
 
-    const-string/jumbo v2, "\u5df2\u5207\u6362\u5230\u7528\u8f66\u4e60\u60ef1"
+    const-string/jumbo v2, "\u0412\u043a\u043b\u044e\u0447\u0451\u043d \u043f\u0440\u043e\u0444\u0438\u043b\u044c 1"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -3587,7 +3587,7 @@
     .line 710
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/UserCenterPopupWindow;->currentUserName:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u672a\u767b\u5f55"
+    const-string/jumbo v1, "\u0412\u0445\u043e\u0434 \u043d\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 

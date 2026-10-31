@@ -576,7 +576,7 @@
     .line 180
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/WirelessChargingPopupWindow;->tvWirelessCharge:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u624b\u673a\u65e0\u6cd5\u5145\u7535"
+    const-string/jumbo v1, "\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u043d\u0435 \u0437\u0430\u0440\u044f\u0436\u0430\u0435\u0442\u0441\u044f"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -586,7 +586,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/WirelessChargingPopupWindow;->tvWirelessCharge:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u7535\u6d41\u5f02\u5e38\uff0c\u505c\u6b62\u5145\u7535"
+    const-string/jumbo v1, "\u041e\u0448\u0438\u0431\u043a\u0430 \u0442\u043e\u043a\u0430, \u0437\u0430\u0440\u044f\u0434\u043a\u0430 \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u0430"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -597,7 +597,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/WirelessChargingPopupWindow;->tvWirelessCharge:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u7535\u538b\u5f02\u5e38\uff0c\u505c\u6b62\u5145\u7535"
+    const-string/jumbo v1, "\u041e\u0448\u0438\u0431\u043a\u0430 \u043d\u0430\u043f\u0440\u044f\u0436\u0435\u043d\u0438\u044f, \u0437\u0430\u0440\u044f\u0434\u043a\u0430 \u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u0430"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -608,7 +608,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/WirelessChargingPopupWindow;->tvWirelessCharge:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u5145\u7535\u677f\u4e0a\u5b58\u5728NFC\u5361\u7247\u7b49\u7269\u54c1"
+    const-string/jumbo v1, "\u041d\u0430 \u043f\u0430\u043d\u0435\u043b\u0438 \u043f\u043e\u0441\u0442\u043e\u0440\u043e\u043d\u043d\u0438\u0439 \u043f\u0440\u0435\u0434\u043c\u0435\u0442 (NFC-\u043a\u0430\u0440\u0442\u0430 \u0438 \u0442.\u043f.)"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -619,7 +619,7 @@
     :pswitch_3
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/WirelessChargingPopupWindow;->tvWirelessCharge:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u624b\u673a\u5145\u7535\u4e2d"
+    const-string/jumbo v1, "\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0437\u0430\u0440\u044f\u0436\u0430\u0435\u0442\u0441\u044f"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -630,7 +630,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/WirelessChargingPopupWindow;->tvWirelessCharge:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u8bf7\u79fb\u8d70\u5145\u7535\u677f\u4e0a\u7684\u5361\u7247\uff0c\u786c\u5e01\u7b49\u7269\u54c1"
+    const-string/jumbo v1, "\u0423\u0431\u0435\u0440\u0438\u0442\u0435 \u0441 \u043f\u0430\u043d\u0435\u043b\u0438 \u043a\u0430\u0440\u0442\u044b, \u043c\u043e\u043d\u0435\u0442\u044b \u0438 \u0434\u0440\u0443\u0433\u0438\u0435 \u043f\u0440\u0435\u0434\u043c\u0435\u0442\u044b"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -641,7 +641,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/WirelessChargingPopupWindow;->tvWirelessCharge:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u624b\u673a\u5145\u7535\u5b8c\u6210"
+    const-string/jumbo v1, "\u0422\u0435\u043b\u0435\u0444\u043e\u043d \u0437\u0430\u0440\u044f\u0436\u0435\u043d"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -652,7 +652,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/WirelessChargingPopupWindow;->tvWirelessCharge:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u624b\u673a\u6216\u5145\u7535\u677f\u8fc7\u70ed\uff0c\u8bf7\u79fb\u9664\u624b\u673a"
+    const-string/jumbo v1, "\u041f\u0435\u0440\u0435\u0433\u0440\u0435\u0432 \u0442\u0435\u043b\u0435\u0444\u043e\u043d\u0430 \u0438\u043b\u0438 \u043f\u0430\u043d\u0435\u043b\u0438, \u0443\u0431\u0435\u0440\u0438\u0442\u0435 \u0442\u0435\u043b\u0435\u0444\u043e\u043d"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 

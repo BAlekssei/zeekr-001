@@ -3905,7 +3905,7 @@
     .line 1022
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/applist/AppItemView;->appName:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u6b63\u5728\u5b89\u88c5..."
+    const-string/jumbo v1, "\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430..."
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -3945,7 +3945,7 @@
     .line 1014
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/applist/AppItemView;->appName:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u51c6\u5907\u5b89\u88c5..."
+    const-string/jumbo v1, "\u041f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0430 \u043a \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0435..."
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -4049,7 +4049,7 @@
     .line 1008
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/applist/AppItemView;->appName:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u4e0b\u8f7d\u5931\u8d25"
+    const-string/jumbo v1, "\u041e\u0448\u0438\u0431\u043a\u0430 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -4104,7 +4104,7 @@
     .line 960
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/applist/AppItemView;->appName:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u51c6\u5907\u5b89\u88c5..."
+    const-string/jumbo v1, "\u041f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0430 \u043a \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0435..."
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -4195,7 +4195,7 @@
     .line 945
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/applist/AppItemView;->appName:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u5df2\u6682\u505c"
+    const-string/jumbo v1, "\u041f\u0430\u0443\u0437\u0430"
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -4294,7 +4294,7 @@
     .line 930
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/applist/AppItemView;->appName:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u6b63\u5728\u4e0b\u8f7d..."
+    const-string/jumbo v1, "\u0417\u0430\u0433\u0440\u0443\u0437\u043a\u0430..."
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -4394,7 +4394,7 @@
     .line 906
     iget-object v0, p0, Lcom/android/systemui/statusbar/pma/applist/AppItemView;->appName:Landroid/widget/TextView;
 
-    const-string/jumbo v1, "\u51c6\u5907\u4e0b\u8f7d..."
+    const-string/jumbo v1, "\u041f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0430 \u043a \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0435..."
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 

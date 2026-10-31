@@ -805,7 +805,7 @@
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v2, "\u5de5\u4f5c\u4e2d"
+    const-string/jumbo v2, "\u0420\u0430\u0431\u043e\u0442\u0430\u0435\u0442"
 
     :goto_0
     move-object v1, v2
@@ -850,7 +850,7 @@
     goto :goto_3
 
     :cond_4
-    const-string/jumbo v2, "\u672a\u5de5\u4f5c"
+    const-string/jumbo v2, "\u041d\u0435 \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442"
 
     :goto_3
     move-object v1, v2
