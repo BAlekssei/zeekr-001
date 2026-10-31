@@ -73,21 +73,24 @@ update.sh                    перенос на новую прошивку
 ## Установка
 
 ```bash
-./install.sh      # root, remount, бэкап GeelySettings_backup_<дата>.apk, push, reboot
+./install.sh      # root, remount, бэкап, push в /data/local/tmp + md5, замена в /system, reboot
 ```
 
+APK сначала заливается во `/data/local/tmp` и сверяется по md5. Затем приложение
+останавливается, и только после этого файл копируется в `/system`. Запущенное приложение держит
+удалённый старый APK открытым, и пока процесс жив, его ~128 МБ не освобождаются: прямой
+`adb push` поверх падает с `No space left on device` и оставляет в `/system` недописанный файл.
+Если места всё равно не хватит, скрипт остановится до перезагрузки и подскажет команду.
+
 Код (dex) изменён, поэтому `install.sh` удаляет предкомпилированный `/system/app/GeelySettings/oat`
-от стока (копия — `GeelySettings_backup_<дата>_oat/`). Без него приложение компилируется заново
+от стока (копия — `GeelySettings_oat_<дата>/`). Без него приложение компилируется заново
 при первом запуске — первый старт может быть чуть дольше.
 
-Откат на сток (или на бэкап):
+Откат на сток (или на бэкап) — тем же скриптом:
 
 ```bash
-adb root && adb remount
-adb push GeelySettings_original.apk /system/app/GeelySettings/GeelySettings.apk
-adb shell chmod 644 /system/app/GeelySettings/GeelySettings.apk
-adb push GeelySettings_backup_<дата>_oat /system/app/GeelySettings/oat   # если сохранялся
-adb reboot
+./install.sh GeelySettings_original.apk
+./install.sh GeelySettings_backup_<дата>.apk
 ```
 
 ## Новая прошивка
