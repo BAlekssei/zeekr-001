@@ -75,7 +75,7 @@
     .line 661
     .local v0, "selectText":Ljava/lang/String;
     :try_start_0
-    const-string/jumbo v1, "\u5e94\u7528\u4e2d\u5fc3"
+    const-string/jumbo v1, "\u041f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -309,7 +309,7 @@
     .line 630
     .local v0, "selectText":Ljava/lang/String;
     :try_start_0
-    const-string/jumbo v1, "\u5e94\u7528\u4e2d\u5fc3"
+    const-string/jumbo v1, "\u041f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

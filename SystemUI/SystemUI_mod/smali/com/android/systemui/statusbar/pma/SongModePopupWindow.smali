@@ -1046,7 +1046,7 @@
     if-ne v0, v1, :cond_0
 
     .line 320
-    const-string/jumbo v0, "\u81f3\u5c11\u4fdd\u7559\u4e00\u4e2a\u97f3\u533a"
+    const-string/jumbo v0, "\u041e\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0445\u043e\u0442\u044f \u0431\u044b \u043e\u0434\u043d\u0443 \u0437\u043e\u043d\u0443"
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/pma/SongModePopupWindow;->showToast(Ljava/lang/String;)V
 
@@ -1121,7 +1121,7 @@
     if-ne v0, v1, :cond_3
 
     .line 304
-    const-string/jumbo v0, "\u81f3\u5c11\u4fdd\u7559\u4e00\u4e2a\u97f3\u533a"
+    const-string/jumbo v0, "\u041e\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0445\u043e\u0442\u044f \u0431\u044b \u043e\u0434\u043d\u0443 \u0437\u043e\u043d\u0443"
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/pma/SongModePopupWindow;->showToast(Ljava/lang/String;)V
 
@@ -1196,7 +1196,7 @@
     if-ne v0, v1, :cond_6
 
     .line 288
-    const-string/jumbo v0, "\u81f3\u5c11\u4fdd\u7559\u4e00\u4e2a\u97f3\u533a"
+    const-string/jumbo v0, "\u041e\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0445\u043e\u0442\u044f \u0431\u044b \u043e\u0434\u043d\u0443 \u0437\u043e\u043d\u0443"
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/pma/SongModePopupWindow;->showToast(Ljava/lang/String;)V
 
@@ -1271,7 +1271,7 @@
     if-ne v0, v1, :cond_9
 
     .line 272
-    const-string/jumbo v0, "\u81f3\u5c11\u4fdd\u7559\u4e00\u4e2a\u97f3\u533a"
+    const-string/jumbo v0, "\u041e\u0441\u0442\u0430\u0432\u044c\u0442\u0435 \u0445\u043e\u0442\u044f \u0431\u044b \u043e\u0434\u043d\u0443 \u0437\u043e\u043d\u0443"
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/pma/SongModePopupWindow;->showToast(Ljava/lang/String;)V
 

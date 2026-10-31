@@ -161,7 +161,7 @@
     if-ne p2, v2, :cond_4
 
     .line 1216
-    const-string/jumbo v2, "\u4e3a\u4e86\u60a8\u7684\u884c\u8f66\u5b89\u5168\uff0c\u8bf7\u5728\u505c\u8f66\u9a7b\u8f66\u7684\u5b89\u5168\u73af\u5883\u4e2d\u8fd0\u884c\u5a31\u4e50\u5e94\u7528"
+    const-string/jumbo v2, "\u0412 \u0446\u0435\u043b\u044f\u0445 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0441\u0442\u0438 \u0437\u0430\u043f\u0443\u0441\u043a\u0430\u0439\u0442\u0435 \u0440\u0430\u0437\u0432\u043b\u0435\u043a\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u0435 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f \u0442\u043e\u043b\u044c\u043a\u043e \u043d\u0430 \u0441\u0442\u043e\u044f\u043d\u043a\u0435"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -174,7 +174,7 @@
     if-ne p2, v2, :cond_5
 
     .line 1218
-    const-string/jumbo v2, "\u6b63\u5728\u5b89\u88c5\u5e94\u7528\uff0c\u8bf7\u7a0d\u540e"
+    const-string/jumbo v2, "\u0418\u0434\u0451\u0442 \u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f, \u043f\u043e\u0434\u043e\u0436\u0434\u0438\u0442\u0435"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -186,7 +186,7 @@
     if-ne p2, v2, :cond_6
 
     .line 1220
-    const-string/jumbo v2, "\u6b63\u5728\u66f4\u65b0\u5e94\u7528\uff0c\u8bf7\u7a0d\u540e"
+    const-string/jumbo v2, "\u0418\u0434\u0451\u0442 \u043e\u0431\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u044f, \u043f\u043e\u0434\u043e\u0436\u0434\u0438\u0442\u0435"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -197,7 +197,7 @@
     if-ne p2, v2, :cond_7
 
     .line 1222
-    const-string/jumbo v2, "\u7cfb\u7edfOTA\u5347\u7ea7\u81ea\u5e26\u5e94\u7528\uff0c\u4e0d\u53ef\u6682\u505c"
+    const-string/jumbo v2, "\u0421\u0438\u0441\u0442\u0435\u043c\u043d\u043e\u0435 \u043f\u0440\u0438\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043e\u0431\u043d\u043e\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u043f\u043e OTA, \u043f\u0430\u0443\u0437\u0430 \u043d\u0435\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u0430"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -208,7 +208,7 @@
     if-ne p2, v2, :cond_8
 
     .line 1224
-    const-string/jumbo v2, "\u62b1\u6b49\uff0c\u6682\u65f6\u65e0\u6cd5\u4e0b\u8f7d"
+    const-string/jumbo v2, "\u0418\u0437\u0432\u0438\u043d\u0438\u0442\u0435, \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0430 \u0441\u0435\u0439\u0447\u0430\u0441 \u043d\u0435\u0434\u043e\u0441\u0442\u0443\u043f\u043d\u0430"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -219,7 +219,7 @@
     if-ne p2, v2, :cond_9
 
     .line 1226
-    const-string v2, "AVM\u8fd0\u884c\u4e2d\uff0c\u76f8\u673a\u4e0e\u6d41\u5a92\u4f53\u4e0d\u53ef\u7528"
+    const-string v2, "\u0420\u0430\u0431\u043e\u0442\u0430\u0435\u0442 \u043a\u0440\u0443\u0433\u043e\u0432\u043e\u0439 \u043e\u0431\u0437\u043e\u0440: \u043a\u0430\u043c\u0435\u0440\u0430 \u0438 \u0441\u0442\u0440\u0438\u043c\u0438\u043d\u0433 \u043d\u0435\u0434\u043e\u0441\u0442\u0443\u043f\u043d\u044b"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 

@@ -1,8 +1,10 @@
-# SystemUI (Zeekr 001, PMA)
+# SystemUI — русификация статус-бара и календаря
 
-Текущая база: **PMA_V6.2.0.00** (`smile_gvmq-userdebug 9 PQ1A.190105.004 528`).
+Прошивка **5.6d** (внутренняя версия PMA_V6.2.0.00, `smile_gvmq-userdebug 9 PQ1A.190105.004 528`).
 
-Доработки (лежат отдельными патчами в `patches/`):
+## Что изменено
+
+Доработки лежат отдельными патчами в `patches/` и накладываются на стоковый APK:
 
 | Патч | Что делает |
 |---|---|
@@ -11,42 +13,65 @@
 | 03-DateAndClockLayoutForPMA.smali | дата в статус-баре по-русски: месяцы, дни недели Пн…Вс, без иероглифов |
 | 04-pma_calender.xml | русская шапка дней недели, неделя с понедельника, лунный календарь скрыт |
 | 05-pma_status_bar.xml | «Режим отладки» вместо `调试模式` |
+| 06-ru-pma | остальные тексты PMA, зашитые в разметку и код: караоке, режим охраны, магазин приложений, беспроводная зарядка, качество воздуха, сценарии, громкость, тосты; дни недели и подписи виджетов дока в `values-ru` |
 
-Файлы:
-- `SystemUI_original.apk` — стоковый APK текущей прошивки
-- `SystemUI_mod/` — распаковка apktool с наложенными патчами
-- `systemui_patched_final.apk` — готовый, подписан platform-ключом
-- `port.sh` — перенос патчей на новую прошивку
+`06` сгенерирован скриптом `tools/ru_pma.py` (словарь китайский → русский). Править перевод — там:
+`python3 tools/ru_pma.py <чистый сток + 01–05>` и заново снять diff.
 
-## Перенос на новую прошивку
+## Структура
 
-```bash
-adb root
-adb pull /system/priv-app/SystemUI/SystemUI.apk
-adb pull /system/framework/framework-res.apk   # обязательно: без него apktool портит ссылки @android:
-APKTOOL_JAR=apktool.jar SIGNER_JAR=uber-apk-signer.jar ./port.sh SystemUI.apk framework-res.apk
+```
+SystemUI_original.apk       стоковый SystemUI текущей прошивки
+SystemUI_mod/               apktool-проект: сток + patches/
+patches/                    доработки (unified diff)
+tools/ru_pma.py             генератор патча 06 (словарь перевода)
+systemui_patched_final.apk  готовый APK, подписан platform-ключом
+build.sh                    сборка: apktool -> zipalign -> apksigner
+install.sh                  установка по adb (с бэкапом текущего SystemUI)
+update.sh                   перенос патчей на новую прошивку
 ```
 
-Если патч не накладывается, скрипт остановится; этот файл переносится вручную.
+Ключи и `framework-res.apk` машины — в `../platform`.
 
-## Сборка из SystemUI_mod вручную
+Нужны в PATH: `apktool` (3.x), `zipalign`, `apksigner` (Android build-tools), `patch`.
+
+## Сборка
 
 ```bash
-apktool if framework-res.apk          # фреймворк машины
-apktool b SystemUI_mod/ -o systemui_patched.apk
-zipalign -p -f 4 systemui_patched.apk systemui_patched_align.apk
-apksigner sign --key platform.pk8 --cert platform.x509.pem --out systemui_patched_final.apk systemui_patched_align.apk
+./build.sh        # -> systemui_patched_final.apk
 ```
 
 ## Установка
 
 ```bash
-adb root
-adb remount
-adb push systemui_patched_final.apk /system/priv-app/SystemUI/SystemUI.apk
+./install.sh      # root, remount, бэкап SystemUI_backup_<дата>.apk, push, reboot
+```
+
+Откат на сток (или на бэкап):
+
+```bash
+adb root && adb remount
+adb push SystemUI_original.apk /system/priv-app/SystemUI/SystemUI.apk
 adb shell chmod 644 /system/priv-app/SystemUI/SystemUI.apk
-adb shell chown root:root /system/priv-app/SystemUI/SystemUI.apk
 adb reboot
 ```
 
-Обновление прошивки (OTA) затирает SystemUI стоковым — после обновления запустите `port.sh` заново.
+## Новая прошивка
+
+Обновление прошивки затирает SystemUI стоковым. Подключиться к машине и:
+
+```bash
+./update.sh                  # скачает SystemUI.apk и framework-res.apk, наложит патчи, соберёт
+./update.sh SystemUI.apk     # или из готового файла
+./install.sh
+```
+
+Если патч не наложился, скрипт остановится — правка переносится вручную в `build/SystemUI_new`.
+`framework-res.apk` обязателен: без него apktool неверно разворачивает ссылки `@android:`
+и сборка падает на приватных ресурсах.
+
+## Что оставлено на китайском намеренно
+
+- логи и события аналитики (`track*`, sensorsdata) — на экран не выводятся;
+- уровни загрязнения 优/良/轻度污染… в `Pm25*PopupWindow` — это сравнение со строкой, которую присылает машина;
+- метки приложений дока по умолчанию в `PullDockDataUtils` — по ним идёт сопоставление.

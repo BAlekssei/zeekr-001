@@ -111,14 +111,14 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/SceneModePopupWindow;->tvSceneMode:Landroid/widget/TextView;
 
-    const-string/jumbo v2, "\u4f11\u61a9\u6a21\u5f0f\u5df2\u6fc0\u6d3b"
+    const-string/jumbo v2, "\u0420\u0435\u0436\u0438\u043c \u043e\u0442\u0434\u044b\u0445\u0430 \u0432\u043a\u043b\u044e\u0447\u0451\u043d"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 125
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/SceneModePopupWindow;->btn1:Landroid/widget/Button;
 
-    const-string/jumbo v2, "\u8fd4\u56de\u4f11\u61a9\u6a21\u5f0f"
+    const-string/jumbo v2, "\u0412\u0435\u0440\u043d\u0443\u0442\u044c\u0441\u044f \u0432 \u0440\u0435\u0436\u0438\u043c \u043e\u0442\u0434\u044b\u0445\u0430"
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
@@ -141,14 +141,14 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/SceneModePopupWindow;->tvSceneMode:Landroid/widget/TextView;
 
-    const-string/jumbo v2, "\u6d17\u8f66\u6a21\u5f0f\u5df2\u6fc0\u6d3b"
+    const-string/jumbo v2, "\u0420\u0435\u0436\u0438\u043c \u043c\u043e\u0439\u043a\u0438 \u0432\u043a\u043b\u044e\u0447\u0451\u043d"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 119
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/SceneModePopupWindow;->btn1:Landroid/widget/Button;
 
-    const-string/jumbo v2, "\u8fd4\u56de\u6d17\u8f66\u6a21\u5f0f"
+    const-string/jumbo v2, "\u0412\u0435\u0440\u043d\u0443\u0442\u044c\u0441\u044f \u0432 \u0440\u0435\u0436\u0438\u043c \u043c\u043e\u0439\u043a\u0438"
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
@@ -167,14 +167,14 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/SceneModePopupWindow;->tvSceneMode:Landroid/widget/TextView;
 
-    const-string/jumbo v2, "\u9732\u8425\u6a21\u5f0f\u5df2\u6fc0\u6d3b"
+    const-string/jumbo v2, "\u0420\u0435\u0436\u0438\u043c \u043a\u0435\u043c\u043f\u0438\u043d\u0433\u0430 \u0432\u043a\u043b\u044e\u0447\u0451\u043d"
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     .line 131
     iget-object v1, p0, Lcom/android/systemui/statusbar/pma/SceneModePopupWindow;->btn1:Landroid/widget/Button;
 
-    const-string/jumbo v2, "\u8fd4\u56de\u9732\u8425\u6a21\u5f0f"
+    const-string/jumbo v2, "\u0412\u0435\u0440\u043d\u0443\u0442\u044c\u0441\u044f \u0432 \u0440\u0435\u0436\u0438\u043c \u043a\u0435\u043c\u043f\u0438\u043d\u0433\u0430"
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 

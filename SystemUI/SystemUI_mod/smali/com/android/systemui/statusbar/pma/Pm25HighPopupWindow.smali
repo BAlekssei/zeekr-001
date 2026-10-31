@@ -1265,7 +1265,7 @@
     goto :goto_0
 
     :cond_1
-    const-string/jumbo v2, "\u5de5\u4f5c\u4e2d"
+    const-string/jumbo v2, "\u0420\u0430\u0431\u043e\u0442\u0430\u0435\u0442"
 
     :goto_0
     move-object v1, v2
@@ -1310,7 +1310,7 @@
     goto :goto_3
 
     :cond_4
-    const-string/jumbo v2, "\u672a\u5de5\u4f5c"
+    const-string/jumbo v2, "\u041d\u0435 \u0440\u0430\u0431\u043e\u0442\u0430\u0435\u0442"
 
     :goto_3
     move-object v1, v2
@@ -1369,34 +1369,34 @@
     packed-switch v1, :pswitch_data_0
 
     .line 416
-    const-string/jumbo v0, "\u672a\u83b7\u53d6\u6570\u636e"
+    const-string/jumbo v0, "\u041d\u0435\u0442 \u0434\u0430\u043d\u043d\u044b\u0445"
 
     goto :goto_0
 
     .line 413
     :pswitch_0
-    const-string/jumbo v0, "\u9ad8"
+    const-string/jumbo v0, "\u0412\u044b\u0441\u043e\u043a\u0438\u0439"
 
     .line 414
     goto :goto_0
 
     .line 410
     :pswitch_1
-    const-string/jumbo v0, "\u8f83\u9ad8"
+    const-string/jumbo v0, "\u041f\u043e\u0432\u044b\u0448\u0435\u043d\u043d\u044b\u0439"
 
     .line 411
     goto :goto_0
 
     .line 407
     :pswitch_2
-    const-string/jumbo v0, "\u9002\u4e2d"
+    const-string/jumbo v0, "\u0421\u0440\u0435\u0434\u043d\u0438\u0439"
 
     .line 408
     goto :goto_0
 
     .line 404
     :pswitch_3
-    const-string/jumbo v0, "\u4f4e"
+    const-string/jumbo v0, "\u041d\u0438\u0437\u043a\u0438\u0439"
 
     .line 405
     nop
@@ -1408,7 +1408,7 @@
     if-eqz v1, :cond_0
 
     .line 420
-    const-string/jumbo v0, "\u81ea\u52a8\u6362\u6c14\u4e2d"
+    const-string/jumbo v0, "\u0410\u0432\u0442\u043e\u043f\u0440\u043e\u0432\u0435\u0442\u0440\u0438\u0432\u0430\u043d\u0438\u0435"
 
     .line 422
     :cond_0

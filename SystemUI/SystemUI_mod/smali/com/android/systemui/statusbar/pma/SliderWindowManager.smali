@@ -6485,7 +6485,7 @@
 
     if-nez p1, :cond_0
 
-    const-string/jumbo v1, "\u540c\u6b65"
+    const-string/jumbo v1, "\u0421\u0438\u043d\u0445\u0440."
 
     goto :goto_0
 
@@ -6500,7 +6500,7 @@
 
     if-nez p1, :cond_1
 
-    const-string/jumbo v1, "\u5168\u90e8\u9759\u97f3"
+    const-string/jumbo v1, "\u0411\u0435\u0437 \u0437\u0432\u0443\u043a\u0430"
 
     goto :goto_1
 
@@ -6515,7 +6515,7 @@
 
     if-nez p1, :cond_2
 
-    const-string/jumbo v1, "\u5173\u95ed"
+    const-string/jumbo v1, "\u0412\u044b\u043a\u043b"
 
     goto :goto_2
 

@@ -2034,7 +2034,7 @@
     :goto_2
     iget-object v2, p0, Lcom/android/systemui/statusbar/pma/VolumeSeekBarView;->volumeType:Landroid/widget/TextView;
 
-    const-string/jumbo v3, "\u8bed\u97f3\u64ad\u62a5"
+    const-string/jumbo v3, "\u0413\u043e\u043b\u043e\u0441\u043e\u0432\u043e\u0439 \u0430\u0441\u0441\u0438\u0441\u0442\u0435\u043d\u0442"
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -2136,7 +2136,7 @@
     :goto_3
     iget-object v2, p0, Lcom/android/systemui/statusbar/pma/VolumeSeekBarView;->volumeType:Landroid/widget/TextView;
 
-    const-string/jumbo v3, "\u5bfc\u822a\u58f0\u97f3"
+    const-string/jumbo v3, "\u041d\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044f"
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -2238,7 +2238,7 @@
     :goto_4
     iget-object v2, p0, Lcom/android/systemui/statusbar/pma/VolumeSeekBarView;->volumeType:Landroid/widget/TextView;
 
-    const-string/jumbo v3, "\u8f66\u5916\u58f0\u97f3"
+    const-string/jumbo v3, "\u0412\u043d\u0435\u0448\u043d\u0438\u0439 \u0437\u0432\u0443\u043a"
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -2340,7 +2340,7 @@
     :goto_5
     iget-object v2, p0, Lcom/android/systemui/statusbar/pma/VolumeSeekBarView;->volumeType:Landroid/widget/TextView;
 
-    const-string/jumbo v3, "\u591a\u5a92\u4f53"
+    const-string/jumbo v3, "\u041c\u0443\u043b\u044c\u0442\u0438\u043c\u0435\u0434\u0438\u0430"
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
@@ -2442,7 +2442,7 @@
     :goto_6
     iget-object v2, p0, Lcom/android/systemui/statusbar/pma/VolumeSeekBarView;->volumeType:Landroid/widget/TextView;
 
-    const-string/jumbo v3, "\u901a\u8bdd\u58f0\u97f3"
+    const-string/jumbo v3, "\u0422\u0435\u043b\u0435\u0444\u043e\u043d"
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
