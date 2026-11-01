@@ -1,0 +1,11 @@
+--- a/smali_classes2/ecarx/xsf/mediacenter/meidiapart/MediaPartDao.smali
++++ b/smali_classes2/ecarx/xsf/mediacenter/meidiapart/MediaPartDao.smali
+@@ -1030,7 +1030,7 @@
+ 
+     if-eqz v9, :cond_8
+ 
+-    const-string v9, "\u6536\u97f3\u673a"
++    const-string v9, "\u0420\u0430\u0434\u0438\u043e"
+ 
+     .line 588
+     invoke-virtual {v7, v9}, Lcom/zeekr/sdk/mediacenter/bean/MediaAppInfo;->setName(Ljava/lang/String;)V

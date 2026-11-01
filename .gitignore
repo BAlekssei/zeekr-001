@@ -2,3 +2,7 @@
 # сборка XCLauncher3
 XCLauncher3/ya_widget/build/
 *.idsig
+
+# сборка MediaCenter / ZeekrCoreService
+MediaCenter/yandex_cluster/build/
+ZeekrCoreService/mediacenter_self/build/

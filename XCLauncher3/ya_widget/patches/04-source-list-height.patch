@@ -1,0 +1,56 @@
+--- a/smali_classes2/com/zeekr/mediawidget/ui/SoundSourceView.smali
++++ b/smali_classes2/com/zeekr/mediawidget/ui/SoundSourceView.smali
+@@ -607,7 +607,7 @@
+ .end method
+ 
+ .method private setSourceListHeight(Ljava/util/List;)V
+-    .locals 3
++    .locals 6
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+@@ -719,26 +719,31 @@
+ 
+     .line 51
+     :cond_1
++    # высота по числу строк: n * высота строки + отступы (в стоке фиксирована под 5 строк)
+     invoke-virtual {p0}, Landroid/view/View;->getResources()Landroid/content/res/Resources;
+ 
+-    .line 52
+-    .line 53
+-    .line 54
+-    move-result-object p1
++    move-result-object v3
+ 
+-    .line 55
+     sget v0, Lcom/zeekr/mediawidget/R$dimen;->media_sourcelist_height_min:I
+ 
+-    .line 56
+-    .line 57
+-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
++    invoke-virtual {v3, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+ 
+-    .line 58
+-    .line 59
+-    .line 60
+-    move-result p1
++    move-result v4
++
++    sget v0, Lcom/zeekr/mediawidget/R$dimen;->media_source_item_height:I
++
++    invoke-virtual {v3, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
++
++    move-result v0
++
++    mul-int/lit8 v2, v0, 0x5
++
++    sub-int/2addr v4, v2
++
++    mul-int/2addr v0, p1
++
++    add-int p1, v0, v4
+ 
+-    .line 61
+     :goto_0
+     iget-object v0, p0, Lcom/zeekr/mediawidget/ui/SoundSourceView;->soundSourcerRecy:Lcom/zeekr/mediawidget/ui/view/OverScrollRecyclerView;
+ 

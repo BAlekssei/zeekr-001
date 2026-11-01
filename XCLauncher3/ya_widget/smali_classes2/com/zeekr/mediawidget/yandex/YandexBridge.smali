@@ -648,3 +648,63 @@
     :cond_0
     return-void
 .end method
+
+# Копия списка источников без строки QQ Music: вместо неё в медиацентре есть настоящий источник Яндекс Музыка.
+.method public static dropQq(Ljava/util/List;)Ljava/util/List;
+    .locals 5
+
+    if-nez p0, :cond_go
+
+    return-object p0
+
+    :cond_go
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    :try_start_0
+    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_loop
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_end
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v2, v1
+
+    check-cast v2, Lcom/zeekr/sdk/mediacenter/bean/MediaAppInfo;
+
+    invoke-virtual {v2}, Lcom/zeekr/sdk/mediacenter/bean/MediaAppInfo;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v4, "com.zeekr.media.qq"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_next
+
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_next
+    goto :goto_loop
+
+    :cond_end
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    return-object v3
+
+    :catch_0
+    return-object p0
+.end method

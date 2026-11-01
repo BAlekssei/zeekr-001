@@ -1,0 +1,30 @@
+--- a/smali_classes2/ecarx/xsf/mediacenter/meidiapart/MediaPartDao.smali
++++ b/smali_classes2/ecarx/xsf/mediacenter/meidiapart/MediaPartDao.smali
+@@ -356,6 +356,27 @@
+     .end annotation
+ 
+     .line 661
++    # QQ Music и «极享» (com.zeekr.media) отключены, вместо них Яндекс Музыка: в список источников их не добавляем
++    const-string v0, "com.zeekr.media.qq"
++
++    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++
++    move-result v0
++
++    if-nez v0, :cond_ya_drop
++
++    const-string v0, "com.zeekr.media"
++
++    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++
++    move-result v0
++
++    if-eqz v0, :cond_ya_keep
++
++    :cond_ya_drop
++    return-void
++
++    :cond_ya_keep
+     invoke-static {p2}, Lecarx/xsf/mediacenter/vr/semantics/AppFeatureHelper;->isMovieApp(Ljava/lang/String;)Z
+ 
+     move-result v0

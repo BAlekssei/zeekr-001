@@ -1,0 +1,24 @@
+--- a/smali_classes2/com/zeekr/mediawidget/ui/SoundSourceView.smali
++++ b/smali_classes2/com/zeekr/mediawidget/ui/SoundSourceView.smali
+@@ -1033,6 +1033,10 @@
+         }
+     .end annotation
+ 
++    invoke-static {p1}, Lcom/zeekr/mediawidget/yandex/YandexBridge;->dropQq(Ljava/util/List;)Ljava/util/List;
++
++    move-result-object p1
++
+     .line 1
+     iget-object v0, p0, Lcom/zeekr/mediawidget/ui/SoundSourceView;->soundsourceAdapter:Lcom/zeekr/mediawidget/ui/adapter/SoundsourceAdapter;
+ 
+--- a/smali_classes2/com/zeekr/mediawidget/ui/adapter/SoundsourceAdapter.smali
++++ b/smali_classes2/com/zeekr/mediawidget/ui/adapter/SoundsourceAdapter.smali
+@@ -926,7 +926,7 @@
+ 
+     move-result-object v5
+ 
+-    const-string v6, "com.zeekr.media.qq"
++    const-string v6, "ru.yandex.music"
+ 
+     invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+ 

@@ -1,0 +1,31 @@
+--- a/smali_classes2/com/zeekr/mediacenter/mediasession/OverseaMediaCenter.smali	2026-11-01 23:01:26.535604867 +0300
++++ b/smali_classes2/com/zeekr/mediacenter/mediasession/OverseaMediaCenter.smali	2026-11-01 23:01:28.048542789 +0300
+@@ -820,6 +820,28 @@
+     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+ 
+     :cond_4
++    # Яндекс Музыка как штатный онлайн-источник
++    sget-object p1, Lcom/zeekr/mediacenter/mediasession/wrappers/YandexBrowser;->YANDEX:Landroid/content/ComponentName;
++
++    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
++
++    move-result-object p1
++
++    invoke-static {p1}, Lcom/zeekr/mediacenter/common/SystemUtils;->checkHasApp(Ljava/lang/String;)Z
++
++    move-result p1
++
++    if-eqz p1, :cond_ya_skip
++
++    iget-object p1, p0, Lcom/zeekr/mediacenter/mediasession/OverseaMediaCenter;->mediaBrowserWrappers:Ljava/util/ArrayList;
++
++    new-instance v0, Lcom/zeekr/mediacenter/mediasession/wrappers/YandexBrowser;
++
++    invoke-direct {v0}, Lcom/zeekr/mediacenter/mediasession/wrappers/YandexBrowser;-><init>()V
++
++    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
++
++    :cond_ya_skip
+     const/4 p1, 0x0
+ 
+     move v0, p1

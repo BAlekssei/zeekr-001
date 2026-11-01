@@ -1,0 +1,24 @@
+--- a/smali/com/zeekr/coreservice/manager/SignatureVerificationManager.smali	2026-11-01 23:29:18.295820683 +0300
++++ b/smali/com/zeekr/coreservice/manager/SignatureVerificationManager.smali	2026-11-01 23:29:18.458386140 +0300
+@@ -395,6 +395,21 @@
+ 
+     move-result-object p1
+ 
++    # медиацентр может пользоваться модулем mediacenter у самого себя:
++    # через него Яндекс Музыка подключается к медиацентру как штатный источник
++    const-string v1, "com.zeekr.mediacenter"
++
++    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++
++    move-result v1
++
++    if-eqz v1, :cond_mc_skip
++
++    const-string v1, "mediacenter"
++
++    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
++
++    :cond_mc_skip
+     .line 85
+     new-instance v1, Ljava/lang/StringBuilder;
+ 
