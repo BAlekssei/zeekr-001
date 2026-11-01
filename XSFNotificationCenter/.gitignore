@@ -1,0 +1,4 @@
+build/
+notif_unpacked/
+*.idsig
+*.bak
