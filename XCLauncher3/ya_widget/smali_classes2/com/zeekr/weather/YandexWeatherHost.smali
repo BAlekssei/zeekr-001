@@ -118,6 +118,9 @@
     move-result-object v6
     invoke-virtual {v3, p0, v5, v6}, Landroid/appwidget/AppWidgetHost;->createView(Landroid/content/Context;ILandroid/appwidget/AppWidgetProviderInfo;)Landroid/appwidget/AppWidgetHostView;
     move-result-object v6
+    # AppWidgetHostView сам добавляет стандартный отступ виджета (≈8dp) — убираем, чтобы заполнить карточку 1:1
+    const/4 v7, 0x0
+    invoke-virtual {v6, v7, v7, v7, v7}, Landroid/view/View;->setPadding(IIII)V
     const-string v7, "ya_weather"
     invoke-virtual {p1, v7}, Landroid/view/View;->findViewWithTag(Ljava/lang/Object;)Landroid/view/View;
     move-result-object v8
