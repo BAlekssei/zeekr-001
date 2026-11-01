@@ -1,0 +1,24 @@
+--- a/smali_classes2/com/zeekr/weather/WeatherFragment.smali	2026-11-01 22:05:35.935900652 +0300
++++ b/smali_classes2/com/zeekr/weather/WeatherFragment.smali	2026-11-01 22:05:35.951835690 +0300
+@@ -2619,7 +2619,7 @@
+ .end method
+ 
+ .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
+-    .locals 0
++    .locals 1
+     .param p1    # Landroid/view/LayoutInflater;
+         .annotation build Lorg/jetbrains/annotations/NotNull;
+         .end annotation
+@@ -2670,6 +2670,12 @@
+     .line 17
+     .line 18
+     .line 19
++    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
++
++    move-result-object v0
++
++    invoke-static {v0, p1}, Lcom/zeekr/weather/YandexWeatherHost;->attach(Landroid/content/Context;Landroid/view/ViewGroup;)V
++
+     return-object p1
+ .end method
+ 

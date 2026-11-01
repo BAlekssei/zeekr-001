@@ -1,0 +1,4 @@
+
+# сборка XCLauncher3
+XCLauncher3/ya_widget/build/
+*.idsig
