@@ -14,6 +14,7 @@
 | 04-pma_calender.xml | русская шапка дней недели, неделя с понедельника, лунный календарь скрыт |
 | 05-pma_status_bar.xml | «Режим отладки» вместо `调试模式` |
 | 06-ru-pma | остальные тексты PMA, зашитые в разметку и код: караоке, режим охраны, магазин приложений, беспроводная зарядка, качество воздуха, сценарии, громкость, тосты; дни недели и подписи виджетов дока в `values-ru` |
+| 07-yandex-note.patch | нота в нижней панели запускает **Яндекс Музыку** вместо QQ Music (см. ниже) |
 
 `06` сгенерирован скриптом `tools/ru_pma.py` (словарь китайский → русский). Править перевод — там:
 `python3 tools/ru_pma.py <чистый сток + 01–05>` и заново снять diff.
@@ -55,6 +56,18 @@ adb push SystemUI_original.apk /system/priv-app/SystemUI/SystemUI.apk
 adb shell chmod 644 /system/priv-app/SystemUI/SystemUI.apk
 adb reboot
 ```
+
+## Нота в нижней панели → Яндекс Музыка
+
+Нижняя панель с температурой и иконками — это SystemUI (`NavigationBarControllerForPMA`), а не лаунчер.
+Нажатие на ноту вызывает `startMedia(pkg, activityName, ...)` с пакетом QQ Music (`com.zeekr.media.qq`).
+Патч `07-yandex-note.patch` в начале `startMedia` подменяет пакет на `ru.yandex.music`,
+активити — на `ru.yandex.music.main.MainScreenActivity`; остальная логика запуска (стек, флаги) не тронута.
+
+Приложение просто открывается, воспроизведение не стартует. Карточка медиа с кнопками ⏮ ▶ ⏭ — в лаунчере,
+см. `../XCLauncher3/README.md`.
+
+Установка — как обычно (`./install.sh` ставит `systemui_patched_final.apk` и перезагружает машину).
 
 ## Новая прошивка
 

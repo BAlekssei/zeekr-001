@@ -1,0 +1,26 @@
+diff -u
+index 4ea63900..d04f13cf 100644
+--- a/smali/com/android/systemui/statusbar/pma/NavigationBarControllerForPMA.smali
++++ b/smali/com/android/systemui/statusbar/pma/NavigationBarControllerForPMA.smali
+@@ -2395,6 +2395,21 @@
+     .param p2, "activityName"    # Ljava/lang/String;
+     .param p3, "isFromNavi"    # Ljava/lang/Boolean;
+ 
++    # Яндекс Музыка вместо QQ Music по нажатию на ноту в доке
++    const-string v0, "com.zeekr.media.qq"
++
++    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
++
++    move-result v0
++
++    if-eqz v0, :cond_ya_skip
++
++    const-string p1, "ru.yandex.music"
++
++    const-string p2, "ru.yandex.music.main.MainScreenActivity"
++
++    :cond_ya_skip
++
+     .line 156
+     :try_start_0
+     new-instance v0, Landroid/content/ComponentName;
