@@ -7,14 +7,12 @@
 
 | Файл | Что это |
 |---|---|
-| `XCLauncher3_original_3.0.2747.apk` | **стоковый** лаунчер, снятый с машины (прошивка 5.6d, `3.0.2747+20260616`). База для `ya_widget` |
-| `XCLauncher3_original_5.6d.apk` | стоковый лаунчер прошивки 5.6 (`3.0.2745+20260203`) — база для `mod_final` |
-| `XCLauncher3_mod_final.apk` | готовая сборка на базе 5.6: перевод части текста, навигатор Яндекс.Карты в карточке, погода. **Исходников в репозитории нет** — файл единственная копия |
-| `XCLauncher3_ya_widget.apk` | готовая сборка на базе `3.0.2747`: Яндекс Музыка вместо QQ Music в карточке медиа (см. ниже) |
+| `XCLauncher3_original_3.0.2747.apk` | лаунчер, снятый с машины перед правкой (прошивка 5.6d, `3.0.2747+20260616`): уже с Яндекс.Навигатором на карте. База для `ya_widget` |
+| `XCLauncher3_ya_widget.apk` | **наша сборка** на базе `3.0.2747`: Яндекс Музыка вместо QQ Music в карточке медиа (см. ниже) |
 | `ya_widget/` | исходники этой сборки: патч, новые классы, `build.sh` |
 
-> `mod_final` и `ya_widget` сделаны на разных базах: `ya_widget` **не** включает перевод и Яндекс.Карты из `mod_final`.
-> Ставить `mod_final` поверх `3.0.2747` — это понижение версии (`adb install -d`).
+Более старые сборки (`mod_final` на базе `3.0.2745`, стоковый лаунчер 5.6) убраны из рабочего дерева,
+но остались в истории git (коммит `4ee8bd86`): `git show 4ee8bd86:XCLauncher3/XCLauncher3_mod_final.apk`.
 
 ## Яндекс Музыка в карточке медиа (`ya_widget`)
 
@@ -71,20 +69,3 @@ adb install -r -g XCLauncher3_ya_widget.apk       # та же версия и п
 После установки лаунчер перезапускается, 3D-вид машины грузится около минуты.
 
 Нота в **нижней панели** — это не лаунчер, а SystemUI; она переделана отдельно (см. `../SystemUI/README.md`).
-
-## `mod_final` (на базе 5.6)
-
-Установка (из старой заметки автора):
-
-```bash
-adb root && adb remount
-adb install -r -d -g XCLauncher3_mod_final.apk
-```
-
-Сборка велась так (исходный проект `check_mod-nav+wether/` в репозиторий не попал):
-
-```bash
-apktool b check_mod-nav+wether/ -o XCLauncher3_mod.apk
-zipalign -p -f 4 XCLauncher3_mod.apk XCLauncher3_mod_align.apk
-apksigner sign --key ../platform/platform.pk8 --cert ../platform/platform.x509.pem --out XCLauncher3_mod_final.apk XCLauncher3_mod_align.apk
-```
