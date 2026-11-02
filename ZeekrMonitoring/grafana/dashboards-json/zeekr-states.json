@@ -1,0 +1,422 @@
+{
+ "uid": "zeekr-states",
+ "title": "Zeekr — Состояния",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "1m",
+ "time": {
+  "from": "now-3d",
+  "to": "now"
+ },
+ "templating": {
+  "list": []
+ },
+ "panels": [
+  {
+   "type": "stat",
+   "title": "Текущее состояние",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 5,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "((sum(last_over_time(zeekr_speed[2m]) >= bool 1) default 0) + 2 * (sum(last_over_time(zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"}[2m]) > bool 0.5) default 0))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "text",
+        "value": null
+       }
+      ]
+     },
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "0": {
+         "text": "Стоянка",
+         "color": "#5794F2",
+         "index": 0
+        },
+        "1": {
+         "text": "Движение",
+         "color": "#73BF69",
+         "index": 1
+        },
+        "2": {
+         "text": "Зарядка",
+         "color": "#FADE2A",
+         "index": 2
+        },
+        "3": {
+         "text": "Движение+зарядка?",
+         "color": "#F2495C",
+         "index": 3
+        }
+       }
+      }
+     ]
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 1
+  },
+  {
+   "type": "stat",
+   "title": "Последняя смена состояния",
+   "gridPos": {
+    "x": 5,
+    "y": 0,
+    "w": 7,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "time() - max_over_time(timestamp(((sum(last_over_time(zeekr_speed[2m]) >= bool 1) default 0) + 2 * (sum(last_over_time(zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"}[2m]) > bool 0.5) default 0)) != (((sum(last_over_time(zeekr_speed[2m]) >= bool 1) default 0) + 2 * (sum(last_over_time(zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"}[2m]) > bool 0.5) default 0)) offset 2m))[7d:1m])",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "s",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "description": "Время с последнего изменения состояния (шаг 1 мин).",
+   "id": 2
+  },
+  {
+   "type": "stat",
+   "title": "Стоянка за период, %",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "avg_over_time((((sum(last_over_time(zeekr_speed[2m]) >= bool 1) default 0) + 2 * (sum(last_over_time(zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"}[2m]) > bool 0.5) default 0)) == bool 0)[$__range:1m]) * 100",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "decimals": 1
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 3
+  },
+  {
+   "type": "stat",
+   "title": "В движении за период, %",
+   "gridPos": {
+    "x": 18,
+    "y": 0,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "avg_over_time((((sum(last_over_time(zeekr_speed[2m]) >= bool 1) default 0) + 2 * (sum(last_over_time(zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"}[2m]) > bool 0.5) default 0)) == bool 1)[$__range:1m]) * 100",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "decimals": 1
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 4
+  },
+  {
+   "type": "state-timeline",
+   "title": "Состояния",
+   "gridPos": {
+    "x": 0,
+    "y": 4,
+    "w": 24,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "((sum(last_over_time(zeekr_speed[2m]) >= bool 1) default 0) + 2 * (sum(last_over_time(zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"}[2m]) > bool 0.5) default 0))",
+     "legendFormat": "состояние",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "custom": {
+      "fillOpacity": 70,
+      "lineWidth": 0
+     },
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "0": {
+         "text": "Стоянка",
+         "color": "#5794F2",
+         "index": 0
+        },
+        "1": {
+         "text": "Движение",
+         "color": "#73BF69",
+         "index": 1
+        },
+        "2": {
+         "text": "Зарядка",
+         "color": "#FADE2A",
+         "index": 2
+        },
+        "3": {
+         "text": "Движение+зарядка?",
+         "color": "#F2495C",
+         "index": 3
+        }
+       }
+      }
+     ]
+    },
+    "overrides": []
+   },
+   "options": {
+    "mergeValues": true,
+    "showValue": "auto",
+    "rowHeight": 0.8,
+    "legend": {
+     "showLegend": true,
+     "displayMode": "list",
+     "placement": "bottom"
+    }
+   },
+   "id": 5
+  },
+  {
+   "type": "timeseries",
+   "title": "Скорость",
+   "gridPos": {
+    "x": 0,
+    "y": 12,
+    "w": 12,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "zeekr_speed",
+     "legendFormat": "скорость",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 10,
+      "spanNulls": 600000,
+      "showPoints": "never"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 6
+  },
+  {
+   "type": "timeseries",
+   "title": "SOC",
+   "gridPos": {
+    "x": 12,
+    "y": 12,
+    "w": 12,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "zeekr_soc_percent",
+     "legendFormat": "SOC, %",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "min": 0,
+     "max": 100,
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 10,
+      "spanNulls": 600000,
+      "showPoints": "never"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 7
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}

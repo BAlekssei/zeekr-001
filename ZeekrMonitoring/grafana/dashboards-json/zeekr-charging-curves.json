@@ -1,0 +1,345 @@
+{
+ "uid": "zeekr-charging-curves",
+ "title": "Zeekr — Кривые зарядки",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "1m",
+ "time": {
+  "from": "now-24h",
+  "to": "now"
+ },
+ "templating": {
+  "list": []
+ },
+ "panels": [
+  {
+   "type": "xychart",
+   "title": "Кривая зарядки (мощность от SOC)",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 14,
+    "h": 11
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "(zeekr_prop{name=\"ID_CHARGING_WORK_VOLTAGE\",area=\"1\"} * ignoring(name) zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"} / 1000)",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "format": "table"
+    },
+    {
+     "expr": "zeekr_soc_percent",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": []
+   },
+   "options": {
+    "mapping": "manual",
+    "series": [
+     {
+      "x": "Value #B",
+      "y": "Value #A",
+      "pointSize": {
+       "fixed": 5
+      },
+      "name": "кВт"
+     }
+    ]
+   },
+   "description": "Точки за выбранный период. Выберите период одной зарядки, чтобы увидеть чистую кривую.",
+   "transformations": [
+    {
+     "id": "joinByField",
+     "options": {
+      "byField": "Time",
+      "mode": "outer"
+     }
+    }
+   ],
+   "id": 1
+  },
+  {
+   "type": "table",
+   "title": "Макс. мощность по зарядкам",
+   "gridPos": {
+    "x": 14,
+    "y": 0,
+    "w": 10,
+    "h": 11
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "(last_over_time(zeekr_charge_start_ts[$__range])) * 1000",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_max_power_kw[$__range])",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_dc[$__range])",
+     "legendFormat": "",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #A"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Старт"
+       },
+       {
+        "id": "unit",
+        "value": "dateTimeAsLocal"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #B"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Макс. кВт"
+       },
+       {
+        "id": "unit",
+        "value": "kwatt"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #C"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "DC"
+       },
+       {
+        "id": "unit",
+        "value": "none"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "showHeader": true,
+    "cellHeight": "sm"
+   },
+   "transformations": [
+    {
+     "id": "filterFieldsByName",
+     "options": {
+      "exclude": {
+       "names": [
+        "Time"
+       ]
+      }
+     }
+    },
+    {
+     "id": "merge",
+     "options": {}
+    },
+    {
+     "id": "organize",
+     "options": {
+      "excludeByName": {
+       "Time": true,
+       "car": true,
+       "id": true
+      },
+      "indexByName": {
+       "Value #A": 0,
+       "Value #B": 1,
+       "Value #C": 2
+      }
+     }
+    },
+    {
+     "id": "sortBy",
+     "options": {
+      "fields": {},
+      "sort": [
+       {
+        "field": "Value #A",
+        "desc": true
+       }
+      ]
+     }
+    }
+   ],
+   "id": 2
+  },
+  {
+   "type": "timeseries",
+   "title": "Мощность и SOC",
+   "gridPos": {
+    "x": 0,
+    "y": 11,
+    "w": 24,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "(zeekr_prop{name=\"ID_CHARGING_WORK_VOLTAGE\",area=\"1\"} * ignoring(name) zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"} / 1000)",
+     "legendFormat": "кВт",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_soc_percent",
+     "legendFormat": "SOC, %",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 10,
+      "spanNulls": 600000,
+      "showPoints": "never"
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "SOC, %"
+      },
+      "properties": [
+       {
+        "id": "custom.axisPlacement",
+        "value": "right"
+       },
+       {
+        "id": "unit",
+        "value": "percent"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "кВт"
+      },
+      "properties": [
+       {
+        "id": "unit",
+        "value": "kwatt"
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 3
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}

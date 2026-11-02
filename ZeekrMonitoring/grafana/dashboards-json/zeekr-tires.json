@@ -1,0 +1,536 @@
+{
+ "uid": "zeekr-tires",
+ "title": "Zeekr — Давление в шинах",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "1m",
+ "time": {
+  "from": "now-7d",
+  "to": "now"
+ },
+ "templating": {
+  "list": []
+ },
+ "panels": [
+  {
+   "type": "gauge",
+   "title": "Текущее давление, кПа",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 7
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_tire_pressure_kpa{pos=\"fl\"}[1h])",
+     "legendFormat": "передняя левая",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_pressure_kpa{pos=\"fr\"}[1h])",
+     "legendFormat": "передняя правая",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_pressure_kpa{pos=\"rl\"}[1h])",
+     "legendFormat": "задняя левая",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_pressure_kpa{pos=\"rr\"}[1h])",
+     "legendFormat": "задняя правая",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "pressurekpa",
+     "min": 150,
+     "max": 300,
+     "decimals": 0,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "red",
+        "value": null
+       },
+       {
+        "color": "orange",
+        "value": 200
+       },
+       {
+        "color": "green",
+        "value": 220
+       },
+       {
+        "color": "orange",
+        "value": 270
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "showThresholdMarkers": true
+   },
+   "id": 1
+  },
+  {
+   "type": "gauge",
+   "title": "Температура шин, °C",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 7
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_tire_temp_c{pos=\"fl\"}[1h])",
+     "legendFormat": "передняя левая",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_temp_c{pos=\"fr\"}[1h])",
+     "legendFormat": "передняя правая",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_temp_c{pos=\"rl\"}[1h])",
+     "legendFormat": "задняя левая",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_temp_c{pos=\"rr\"}[1h])",
+     "legendFormat": "задняя правая",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "celsius",
+     "min": -20,
+     "max": 80,
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "showThresholdMarkers": true
+   },
+   "id": 2
+  },
+  {
+   "type": "table",
+   "title": "Давление за выбранный период",
+   "gridPos": {
+    "x": 0,
+    "y": 7,
+    "w": 24,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "min_over_time(zeekr_tire_pressure_kpa[$__range])",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "avg_over_time(zeekr_tire_pressure_kpa[$__range])",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "max_over_time(zeekr_tire_pressure_kpa[$__range])",
+     "legendFormat": "",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_temp_c[$__range])",
+     "legendFormat": "",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #A"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "мин, кПа"
+       },
+       {
+        "id": "unit",
+        "value": "pressurekpa"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #B"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "сред, кПа"
+       },
+       {
+        "id": "unit",
+        "value": "pressurekpa"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #C"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "макс, кПа"
+       },
+       {
+        "id": "unit",
+        "value": "pressurekpa"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #D"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "темп., °C"
+       },
+       {
+        "id": "unit",
+        "value": "celsius"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "pos"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "колесо"
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "showHeader": true
+   },
+   "transformations": [
+    {
+     "id": "merge",
+     "options": {}
+    },
+    {
+     "id": "organize",
+     "options": {
+      "excludeByName": {
+       "Time": true,
+       "car": true
+      },
+      "indexByName": {
+       "pos": 0,
+       "Value #A": 1,
+       "Value #B": 2,
+       "Value #C": 3,
+       "Value #D": 4
+      }
+     }
+    }
+   ],
+   "id": 3
+  },
+  {
+   "type": "timeseries",
+   "title": "Давление",
+   "gridPos": {
+    "x": 0,
+    "y": 13,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "zeekr_tire_pressure_kpa{pos=\"fl\"}",
+     "legendFormat": "передняя левая",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_tire_pressure_kpa{pos=\"fr\"}",
+     "legendFormat": "передняя правая",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_tire_pressure_kpa{pos=\"rl\"}",
+     "legendFormat": "задняя левая",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_tire_pressure_kpa{pos=\"rr\"}",
+     "legendFormat": "задняя правая",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "pressurekpa",
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 10,
+      "spanNulls": 600000,
+      "showPoints": "never"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 4
+  },
+  {
+   "type": "timeseries",
+   "title": "Температура",
+   "gridPos": {
+    "x": 12,
+    "y": 13,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "zeekr_tire_temp_c{pos=\"fl\"}",
+     "legendFormat": "передняя левая",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_tire_temp_c{pos=\"fr\"}",
+     "legendFormat": "передняя правая",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_tire_temp_c{pos=\"rl\"}",
+     "legendFormat": "задняя левая",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_tire_temp_c{pos=\"rr\"}",
+     "legendFormat": "задняя правая",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "celsius",
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 10,
+      "spanNulls": 600000,
+      "showPoints": "never"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 5
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}

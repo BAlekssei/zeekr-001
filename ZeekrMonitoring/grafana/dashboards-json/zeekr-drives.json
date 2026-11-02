@@ -1,0 +1,530 @@
+{
+ "uid": "zeekr-drives",
+ "title": "Zeekr — Поездки",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "1m",
+ "time": {
+  "from": "now-30d",
+  "to": "now"
+ },
+ "templating": {
+  "list": [
+   {
+    "type": "textbox",
+    "name": "battery_capacity",
+    "label": "Ёмкость батареи, кВт·ч",
+    "query": "100",
+    "current": {
+     "selected": false,
+     "text": "100",
+     "value": "100"
+    },
+    "options": [
+     {
+      "selected": true,
+      "text": "100",
+      "value": "100"
+     }
+    ],
+    "hide": 0
+   },
+   {
+    "type": "textbox",
+    "name": "min_dist",
+    "label": "Мин. дистанция поездки, км",
+    "query": "1",
+    "current": {
+     "selected": false,
+     "text": "1",
+     "value": "1"
+    },
+    "options": [
+     {
+      "selected": true,
+      "text": "1",
+      "value": "1"
+     }
+    ],
+    "hide": 0
+   }
+  ]
+ },
+ "panels": [
+  {
+   "type": "table",
+   "title": "Поездки",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 20
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "((last_over_time(zeekr_drive_start_ts[$__range])) * 1000) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "((last_over_time(zeekr_drive_end_ts[$__range])) * 1000) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_drive_duration_s[$__range])) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_drive_distance_km[$__range])) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_drive_avg_speed_kmh[$__range])) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "E",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_drive_max_speed_kmh[$__range])) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "F",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_drive_soc_start[$__range])) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "G",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_drive_soc_end[$__range])) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "H",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "((last_over_time(zeekr_drive_soc_start[$__range]) - last_over_time(zeekr_drive_soc_end[$__range])) / 100 * $battery_capacity) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "I",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "((last_over_time(zeekr_drive_soc_start[$__range]) - last_over_time(zeekr_drive_soc_end[$__range])) / 100 * $battery_capacity * 1000 / (last_over_time(zeekr_drive_distance_km[$__range]))) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "J",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_drive_outside_temp_c[$__range])) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "K",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_drive_odometer_end_km[$__range])) and on(id) (last_over_time(zeekr_drive_distance_km[$__range]) >= $min_dist)",
+     "legendFormat": "",
+     "refId": "L",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #A"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Старт"
+       },
+       {
+        "id": "unit",
+        "value": "dateTimeAsLocal"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #B"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Финиш"
+       },
+       {
+        "id": "unit",
+        "value": "dateTimeAsLocal"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #C"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Длительность"
+       },
+       {
+        "id": "unit",
+        "value": "s"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #D"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Дистанция"
+       },
+       {
+        "id": "unit",
+        "value": "lengthkm"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #E"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Средняя"
+       },
+       {
+        "id": "unit",
+        "value": "velocitykmh"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #F"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Макс."
+       },
+       {
+        "id": "unit",
+        "value": "velocitykmh"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #G"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "SOC старт"
+       },
+       {
+        "id": "unit",
+        "value": "percent"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #H"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "SOC финиш"
+       },
+       {
+        "id": "unit",
+        "value": "percent"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #I"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Энергия, кВт·ч"
+       },
+       {
+        "id": "unit",
+        "value": "kwatth"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #J"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Расход, Вт·ч/км"
+       },
+       {
+        "id": "unit",
+        "value": "none"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #K"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Снаружи"
+       },
+       {
+        "id": "unit",
+        "value": "celsius"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #L"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Одометр"
+       },
+       {
+        "id": "unit",
+        "value": "lengthkm"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "showHeader": true,
+    "cellHeight": "sm"
+   },
+   "description": "Поездки определяет sessionizer по скорости ≥ 1 км/ч, пауза > 5 мин завершает поездку. Показаны поездки, закончившиеся в выбранном периоде.",
+   "transformations": [
+    {
+     "id": "filterFieldsByName",
+     "options": {
+      "exclude": {
+       "names": [
+        "Time"
+       ]
+      }
+     }
+    },
+    {
+     "id": "merge",
+     "options": {}
+    },
+    {
+     "id": "organize",
+     "options": {
+      "excludeByName": {
+       "Time": true,
+       "car": true,
+       "id": true
+      },
+      "indexByName": {
+       "Value #A": 0,
+       "Value #B": 1,
+       "Value #C": 2,
+       "Value #D": 3,
+       "Value #E": 4,
+       "Value #F": 5,
+       "Value #G": 6,
+       "Value #H": 7,
+       "Value #I": 8,
+       "Value #J": 9,
+       "Value #K": 10,
+       "Value #L": 11
+      }
+     }
+    },
+    {
+     "id": "sortBy",
+     "options": {
+      "fields": {},
+      "sort": [
+       {
+        "field": "Value #A",
+        "desc": true
+       }
+      ]
+     }
+    }
+   ],
+   "id": 1
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}

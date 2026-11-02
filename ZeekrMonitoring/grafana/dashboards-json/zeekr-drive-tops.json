@@ -1,0 +1,645 @@
+{
+ "uid": "zeekr-drive-tops",
+ "title": "Zeekr — Топы поездок",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "1m",
+ "time": {
+  "from": "now-1y",
+  "to": "now"
+ },
+ "templating": {
+  "list": [
+   {
+    "type": "textbox",
+    "name": "min_dist",
+    "label": "Мин. дистанция поездки, км",
+    "query": "1",
+    "current": {
+     "selected": false,
+     "text": "1",
+     "value": "1"
+    },
+    "options": [
+     {
+      "selected": true,
+      "text": "1",
+      "value": "1"
+     }
+    ],
+    "hide": 0
+   }
+  ]
+ },
+ "panels": [
+  {
+   "type": "table",
+   "title": "Самые длинные поездки",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 12,
+    "h": 9
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "(last_over_time(zeekr_drive_start_ts[$__range])) * 1000",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_drive_distance_km[$__range])",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_drive_duration_s[$__range])",
+     "legendFormat": "",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_drive_avg_speed_kmh[$__range])",
+     "legendFormat": "",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #A"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Старт"
+       },
+       {
+        "id": "unit",
+        "value": "dateTimeAsLocal"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #B"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Дистанция"
+       },
+       {
+        "id": "unit",
+        "value": "lengthkm"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #C"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Время"
+       },
+       {
+        "id": "unit",
+        "value": "s"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #D"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Средняя"
+       },
+       {
+        "id": "unit",
+        "value": "velocitykmh"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "showHeader": true,
+    "cellHeight": "sm"
+   },
+   "transformations": [
+    {
+     "id": "filterFieldsByName",
+     "options": {
+      "exclude": {
+       "names": [
+        "Time"
+       ]
+      }
+     }
+    },
+    {
+     "id": "merge",
+     "options": {}
+    },
+    {
+     "id": "organize",
+     "options": {
+      "excludeByName": {
+       "Time": true,
+       "car": true,
+       "id": true
+      },
+      "indexByName": {
+       "Value #A": 0,
+       "Value #B": 1,
+       "Value #C": 2,
+       "Value #D": 3
+      }
+     }
+    },
+    {
+     "id": "sortBy",
+     "options": {
+      "fields": {},
+      "sort": [
+       {
+        "field": "Value #B",
+        "desc": true
+       }
+      ]
+     }
+    },
+    {
+     "id": "limit",
+     "options": {
+      "limitField": 10
+     }
+    }
+   ],
+   "id": 1
+  },
+  {
+   "type": "text",
+   "title": "Info",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 9
+   },
+   "options": {
+    "mode": "markdown",
+    "content": "Поездки определяет `sessionizer` (скорость ≥ 1 км/ч, пауза > 5 мин). «Макс. пробег между зарядками» из оригинала не воспроизведён: он требует связки поездок и зарядок по времени."
+   },
+   "id": 2
+  },
+  {
+   "type": "timeseries",
+   "title": "Расстояние по месяцам",
+   "gridPos": {
+    "x": 0,
+    "y": 9,
+    "w": 12,
+    "h": 7
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(sum_over_time(zeekr_drive_distance_km[30d]))",
+     "legendFormat": "км за 30 дн.",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 60,
+      "spanNulls": false,
+      "showPoints": "never",
+      "drawStyle": "bars"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "interval": "30d",
+   "id": 3
+  },
+  {
+   "type": "timeseries",
+   "title": "Расстояние по годам",
+   "gridPos": {
+    "x": 12,
+    "y": 9,
+    "w": 12,
+    "h": 7
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(sum_over_time(zeekr_drive_distance_km[365d]))",
+     "legendFormat": "км за 365 дн.",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 60,
+      "spanNulls": false,
+      "showPoints": "never",
+      "drawStyle": "bars"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "interval": "365d",
+   "id": 4
+  },
+  {
+   "type": "stat",
+   "title": "Медианная поездка",
+   "gridPos": {
+    "x": 0,
+    "y": 16,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "quantile(0.5, last_over_time(zeekr_drive_distance_km[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "decimals": 1
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 5
+  },
+  {
+   "type": "stat",
+   "title": "Медиана за день",
+   "gridPos": {
+    "x": 6,
+    "y": 16,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "quantile_over_time(0.5, (sum(sum_over_time(zeekr_drive_distance_km[1d])))[$__range:1d])",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "decimals": 1
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 6
+  },
+  {
+   "type": "stat",
+   "title": "Прогноз на месяц",
+   "gridPos": {
+    "x": 12,
+    "y": 16,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(sum_over_time(zeekr_drive_distance_km[$__range])) / ($__range_s / 86400) * 30",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 7
+  },
+  {
+   "type": "stat",
+   "title": "Прогноз на год",
+   "gridPos": {
+    "x": 18,
+    "y": 16,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(sum_over_time(zeekr_drive_distance_km[$__range])) / ($__range_s / 86400) * 365",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 8
+  },
+  {
+   "type": "stat",
+   "title": "Средняя скорость поездок",
+   "gridPos": {
+    "x": 0,
+    "y": 20,
+    "w": 12,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "avg(last_over_time(zeekr_drive_avg_speed_kmh[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "velocitykmh",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 9
+  },
+  {
+   "type": "stat",
+   "title": "Средняя скорость в движении",
+   "gridPos": {
+    "x": 12,
+    "y": 20,
+    "w": 12,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "avg(last_over_time(zeekr_drive_moving_speed_kmh[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "velocitykmh",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 10
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}

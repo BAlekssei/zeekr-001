@@ -1,0 +1,393 @@
+{
+ "uid": "zeekr-locations",
+ "title": "Zeekr — Места",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "1m",
+ "time": {
+  "from": "now-90d",
+  "to": "now"
+ },
+ "templating": {
+  "list": []
+ },
+ "panels": [
+  {
+   "type": "geomap",
+   "title": "Трек за период",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 16,
+    "h": 14
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "zeekr_gps_lat",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "format": "table"
+    },
+    {
+     "expr": "zeekr_gps_lon",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": []
+   },
+   "options": {
+    "view": {
+     "id": "fit",
+     "lat": 55.75,
+     "lon": 37.62,
+     "zoom": 10
+    },
+    "basemap": {
+     "type": "default",
+     "name": "Basemap"
+    },
+    "layers": [
+     {
+      "type": "markers",
+      "name": "Точки",
+      "config": {
+       "showLegend": false,
+       "style": {
+        "size": {
+         "fixed": 4
+        },
+        "color": {
+         "fixed": "dark-green"
+        },
+        "opacity": 0.6
+       }
+      },
+      "location": {
+       "mode": "coords",
+       "latitude": "Value #A",
+       "longitude": "Value #B"
+      }
+     }
+    ]
+   },
+   "description": "Нужны метрики zeekr_gps_*: GPS читается из LocationManager, точка пишется, если координата свежее 30 с.",
+   "transformations": [
+    {
+     "id": "merge",
+     "options": {}
+    }
+   ],
+   "id": 1
+  },
+  {
+   "type": "stat",
+   "title": "Поездок",
+   "gridPos": {
+    "x": 16,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "count(last_over_time(zeekr_drive_start_ts[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 2
+  },
+  {
+   "type": "stat",
+   "title": "Зарядок",
+   "gridPos": {
+    "x": 20,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "count(last_over_time(zeekr_charge_start_ts[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 3
+  },
+  {
+   "type": "table",
+   "title": "Места зарядок (координаты)",
+   "gridPos": {
+    "x": 16,
+    "y": 4,
+    "w": 8,
+    "h": 10
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "(last_over_time(zeekr_charge_start_ts[$__range])) * 1000",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_lat[$__range])",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_lon[$__range])",
+     "legendFormat": "",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #A"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Когда"
+       },
+       {
+        "id": "unit",
+        "value": "dateTimeAsLocal"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #B"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Широта"
+       },
+       {
+        "id": "unit",
+        "value": "none"
+       },
+       {
+        "id": "decimals",
+        "value": 5
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #C"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Долгота"
+       },
+       {
+        "id": "unit",
+        "value": "none"
+       },
+       {
+        "id": "decimals",
+        "value": 5
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "showHeader": true,
+    "cellHeight": "sm"
+   },
+   "transformations": [
+    {
+     "id": "filterFieldsByName",
+     "options": {
+      "exclude": {
+       "names": [
+        "Time"
+       ]
+      }
+     }
+    },
+    {
+     "id": "merge",
+     "options": {}
+    },
+    {
+     "id": "organize",
+     "options": {
+      "excludeByName": {
+       "Time": true,
+       "car": true,
+       "id": true
+      },
+      "indexByName": {
+       "Value #A": 0,
+       "Value #B": 1,
+       "Value #C": 2
+      }
+     }
+    },
+    {
+     "id": "sortBy",
+     "options": {
+      "fields": {},
+      "sort": [
+       {
+        "field": "Value #A",
+        "desc": true
+       }
+      ]
+     }
+    },
+    {
+     "id": "limit",
+     "options": {
+      "limitField": 20
+     }
+    }
+   ],
+   "id": 4
+  },
+  {
+   "type": "text",
+   "title": "Заметка",
+   "gridPos": {
+    "x": 0,
+    "y": 14,
+    "w": 24,
+    "h": 3
+   },
+   "options": {
+    "mode": "markdown",
+    "content": "В оригинале адреса, города и страны берутся из геокодера TeslaMate; здесь только координаты. Обратное геокодирование можно добавить в sessionizer отдельно."
+   },
+   "id": 5
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}

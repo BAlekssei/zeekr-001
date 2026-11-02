@@ -1,0 +1,888 @@
+{
+ "uid": "zeekr-overview",
+ "title": "Zeekr — Обзор",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "30s",
+ "time": {
+  "from": "now-24h",
+  "to": "now"
+ },
+ "templating": {
+  "list": []
+ },
+ "panels": [
+  {
+   "type": "gauge",
+   "title": "Заряд батареи",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 4,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_soc_percent[1h])",
+     "legendFormat": "SOC",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "min": 0,
+     "max": 100,
+     "decimals": 1,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "red",
+        "value": null
+       },
+       {
+        "color": "orange",
+        "value": 20
+       },
+       {
+        "color": "green",
+        "value": 40
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "showThresholdMarkers": true
+   },
+   "id": 1
+  },
+  {
+   "type": "gauge",
+   "title": "Напряжение зарядки (AC)",
+   "gridPos": {
+    "x": 4,
+    "y": 0,
+    "w": 4,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_prop{name=\"ID_CHARGING_WORK_VOLTAGE\",area=\"1\"}[1h])",
+     "legendFormat": "В",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "volt",
+     "min": 0,
+     "max": 260,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "green",
+        "value": null
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "showThresholdMarkers": true
+   },
+   "id": 2
+  },
+  {
+   "type": "gauge",
+   "title": "Мощность зарядки (AC), кВт",
+   "gridPos": {
+    "x": 8,
+    "y": 0,
+    "w": 4,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "((zeekr_prop{name=\"ID_CHARGING_WORK_VOLTAGE\",area=\"1\"} * ignoring(name) zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"} / 1000)) or vector(0)",
+     "legendFormat": "кВт",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "kwatt",
+     "min": 0,
+     "max": 22,
+     "decimals": 1,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "green",
+        "value": null
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "showThresholdMarkers": true
+   },
+   "id": 3
+  },
+  {
+   "type": "geomap",
+   "title": "Положение",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 12,
+    "h": 12
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_gps_lat[1d])",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_gps_lon[1d])",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": []
+   },
+   "options": {
+    "view": {
+     "id": "coords",
+     "lat": 55.75,
+     "lon": 37.62,
+     "zoom": 12
+    },
+    "basemap": {
+     "type": "default",
+     "name": "Basemap"
+    },
+    "controls": {
+     "showZoom": true,
+     "mouseWheelZoom": true
+    },
+    "layers": [
+     {
+      "type": "markers",
+      "name": "Авто",
+      "config": {
+       "showLegend": false,
+       "style": {
+        "size": {
+         "fixed": 8,
+         "min": 2,
+         "max": 15
+        },
+        "color": {
+         "fixed": "dark-green"
+        },
+        "opacity": 0.8
+       }
+      },
+      "location": {
+       "mode": "coords",
+       "latitude": "Value #A",
+       "longitude": "Value #B"
+      }
+     }
+    ]
+   },
+   "description": "Нужен GPS: метрики zeekr_gps_lat/lon появляются, когда у ГУ есть свежая координата.",
+   "transformations": [
+    {
+     "id": "merge",
+     "options": {}
+    }
+   ],
+   "id": 4
+  },
+  {
+   "type": "timeseries",
+   "title": "Уровень заряда и запас хода",
+   "gridPos": {
+    "x": 0,
+    "y": 6,
+    "w": 12,
+    "h": 6
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "zeekr_soc_percent",
+     "legendFormat": "SOC, %",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_range_km",
+     "legendFormat": "запас хода, км",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 8,
+      "spanNulls": 600000,
+      "showPoints": "never"
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "запас хода, км"
+      },
+      "properties": [
+       {
+        "id": "custom.axisPlacement",
+        "value": "right"
+       },
+       {
+        "id": "unit",
+        "value": "lengthkm"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "SOC, %"
+      },
+      "properties": [
+       {
+        "id": "unit",
+        "value": "percent"
+       },
+       {
+        "id": "min",
+        "value": 0
+       },
+       {
+        "id": "max",
+        "value": 100
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 5
+  },
+  {
+   "type": "stat",
+   "title": "Запас хода",
+   "gridPos": {
+    "x": 0,
+    "y": 12,
+    "w": 4,
+    "h": 3
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_range_km[1h])",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "red",
+        "value": null
+       },
+       {
+        "color": "orange",
+        "value": 100
+       },
+       {
+        "color": "green",
+        "value": 200
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 6
+  },
+  {
+   "type": "stat",
+   "title": "Одометр",
+   "gridPos": {
+    "x": 4,
+    "y": 12,
+    "w": 4,
+    "h": 3
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_odometer_km[1h])",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "decimals": 0,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "text",
+        "value": null
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 7
+  },
+  {
+   "type": "stat",
+   "title": "Снаружи",
+   "gridPos": {
+    "x": 8,
+    "y": 12,
+    "w": 2,
+    "h": 3
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_outside_temp_c[1h])",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "celsius",
+     "decimals": 1,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "blue",
+        "value": null
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 8
+  },
+  {
+   "type": "stat",
+   "title": "В салоне",
+   "gridPos": {
+    "x": 10,
+    "y": 12,
+    "w": 2,
+    "h": 3
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_inside_temp_c[1h])",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "celsius",
+     "decimals": 1,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "blue",
+        "value": null
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 9
+  },
+  {
+   "type": "gauge",
+   "title": "Давление в шинах, кПа",
+   "gridPos": {
+    "x": 12,
+    "y": 12,
+    "w": 12,
+    "h": 5
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "last_over_time(zeekr_tire_pressure_kpa{pos=\"fl\"}[1h])",
+     "legendFormat": "передняя левая",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_pressure_kpa{pos=\"fr\"}[1h])",
+     "legendFormat": "передняя правая",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_pressure_kpa{pos=\"rl\"}[1h])",
+     "legendFormat": "задняя левая",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "last_over_time(zeekr_tire_pressure_kpa{pos=\"rr\"}[1h])",
+     "legendFormat": "задняя правая",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "pressurekpa",
+     "min": 150,
+     "max": 300,
+     "decimals": 0,
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "red",
+        "value": null
+       },
+       {
+        "color": "orange",
+        "value": 200
+       },
+       {
+        "color": "green",
+        "value": 220
+       },
+       {
+        "color": "orange",
+        "value": 270
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "showThresholdMarkers": true
+   },
+   "id": 10
+  },
+  {
+   "type": "timeseries",
+   "title": "Подробности зарядки",
+   "gridPos": {
+    "x": 0,
+    "y": 15,
+    "w": 12,
+    "h": 7
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "zeekr_prop{name=\"ID_CHARGING_WORK_VOLTAGE\",area=\"1\"}",
+     "legendFormat": "напряжение, В",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"}",
+     "legendFormat": "ток, А",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "(zeekr_prop{name=\"ID_CHARGING_WORK_VOLTAGE\",area=\"1\"} * ignoring(name) zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"} / 1000)",
+     "legendFormat": "мощность, кВт",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 10,
+      "spanNulls": 600000,
+      "showPoints": "never"
+     }
+    },
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "напряжение, В"
+      },
+      "properties": [
+       {
+        "id": "unit",
+        "value": "volt"
+       },
+       {
+        "id": "custom.axisPlacement",
+        "value": "right"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "ток, А"
+      },
+      "properties": [
+       {
+        "id": "unit",
+        "value": "amp"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "мощность, кВт"
+      },
+      "properties": [
+       {
+        "id": "unit",
+        "value": "kwatt"
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 11
+  },
+  {
+   "type": "state-timeline",
+   "title": "Состояния",
+   "gridPos": {
+    "x": 12,
+    "y": 17,
+    "w": 12,
+    "h": 5
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "((sum(last_over_time(zeekr_speed[2m]) >= bool 1) default 0) + 2 * (sum(last_over_time(zeekr_prop{name=\"ID_CHARGING_WORK_CURRENT\",area=\"1\"}[2m]) > bool 0.5) default 0))",
+     "legendFormat": "состояние",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "custom": {
+      "fillOpacity": 70,
+      "lineWidth": 0
+     },
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "0": {
+         "text": "Стоянка",
+         "color": "#5794F2",
+         "index": 0
+        },
+        "1": {
+         "text": "Движение",
+         "color": "#73BF69",
+         "index": 1
+        },
+        "2": {
+         "text": "Зарядка",
+         "color": "#FADE2A",
+         "index": 2
+        },
+        "3": {
+         "text": "Движение+зарядка?",
+         "color": "#F2495C",
+         "index": 3
+        }
+       }
+      }
+     ]
+    },
+    "overrides": []
+   },
+   "options": {
+    "mergeValues": true,
+    "showValue": "never",
+    "rowHeight": 0.8,
+    "legend": {
+     "showLegend": true,
+     "displayMode": "list",
+     "placement": "bottom"
+    }
+   },
+   "description": "Стоянка / движение / зарядка выводятся из скорости и тока AC-зарядки; пропуск = нет данных (ГУ спит или нет связи, буфер догрузится позже).",
+   "id": 12
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}

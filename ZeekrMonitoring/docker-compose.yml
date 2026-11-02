@@ -1,0 +1,52 @@
+# VictoriaMetrics (хранилище, принимает точки с исходными метками времени) + Grafana.
+# Порты на хосте: 8300 — VictoriaMetrics, 8301 — Grafana.
+services:
+  victoria:
+    image: victoriametrics/victoria-metrics:latest
+    restart: unless-stopped
+    command:
+      - -storageDataPath=/storage
+      - -retentionPeriod=5y
+      - -httpListenAddr=:8428
+      # данные приходят пачками после обрывов связи — старые метки времени допустимы
+      - -search.latencyOffset=0s
+      # sessionizer каждые 5 минут переписывает те же точки (тот же ряд и время) — без дедупликации
+      # sum_over_time по сессиям посчитал бы их многократно
+      - -dedup.minScrapeInterval=1s
+    ports:
+      - "${BIND_IP:-192.168.200.7}:8300:8428"
+    volumes:
+      - ./vm-data:/storage
+
+  sessionizer:
+    image: python:3.12-alpine
+    restart: unless-stopped
+    depends_on: [victoria]
+    environment:
+      VM_URL: http://victoria:8428
+      CAPACITY_KWH: ${CAPACITY_KWH:-100}   # ёмкость для оценки «добавлено» по приросту SOC
+      SPEED_TO_KMH: "1"                    # множитель zeekr_speed -> км/ч (проверить в первой поездке)
+    volumes:
+      - ./sessionizer/sessionizer.py:/app/sessionizer.py:ro
+    command: ["python", "-u", "/app/sessionizer.py"]
+
+  grafana:
+    image: grafana/grafana:latest
+    restart: unless-stopped
+    depends_on: [victoria]
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:?задайте GRAFANA_PASSWORD в .env}
+      GF_USERS_DEFAULT_THEME: dark
+      GF_DATE_FORMATS_DEFAULT_TIMEZONE: Europe/Moscow
+    ports:
+      - "${BIND_IP:-192.168.200.7}:8301:3000"
+    volumes:
+      - ./grafana-data:/var/lib/grafana
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./grafana/dashboards.yml:/etc/grafana/provisioning/dashboards/dashboards.yml:ro
+      - ./grafana/dashboards-json:/var/lib/grafana/dashboards:ro
+
+#volumes:
+#  vm-data:
+#  grafana-data:

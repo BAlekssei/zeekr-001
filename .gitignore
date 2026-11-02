@@ -6,3 +6,5 @@ XCLauncher3/ya_widget/build/
 # сборка MediaCenter / ZeekrCoreService
 MediaCenter/yandex_cluster/build/
 ZeekrCoreService/mediacenter_self/build/
+
+*.txt

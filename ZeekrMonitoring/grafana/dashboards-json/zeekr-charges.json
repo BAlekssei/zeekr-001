@@ -1,0 +1,733 @@
+{
+ "uid": "zeekr-charges",
+ "title": "Zeekr — Зарядки",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "1m",
+ "time": {
+  "from": "now-30d",
+  "to": "now"
+ },
+ "templating": {
+  "list": [
+   {
+    "type": "textbox",
+    "name": "battery_capacity",
+    "label": "Ёмкость батареи, кВт·ч",
+    "query": "100",
+    "current": {
+     "selected": false,
+     "text": "100",
+     "value": "100"
+    },
+    "options": [
+     {
+      "selected": true,
+      "text": "100",
+      "value": "100"
+     }
+    ],
+    "hide": 0
+   },
+   {
+    "type": "textbox",
+    "name": "ac_price",
+    "label": "Тариф AC, ₽/кВт·ч",
+    "query": "6.5",
+    "current": {
+     "selected": false,
+     "text": "6.5",
+     "value": "6.5"
+    },
+    "options": [
+     {
+      "selected": true,
+      "text": "6.5",
+      "value": "6.5"
+     }
+    ],
+    "hide": 0
+   },
+   {
+    "type": "textbox",
+    "name": "dc_price",
+    "label": "Тариф DC, ₽/кВт·ч",
+    "query": "20",
+    "current": {
+     "selected": false,
+     "text": "20",
+     "value": "20"
+    },
+    "options": [
+     {
+      "selected": true,
+      "text": "20",
+      "value": "20"
+     }
+    ],
+    "hide": 0
+   }
+  ]
+ },
+ "panels": [
+  {
+   "type": "stat",
+   "title": "Добавлено",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 6,
+    "h": 3
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(last_over_time(zeekr_charge_energy_added_kwh[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "kwatth",
+     "decimals": 1
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 1
+  },
+  {
+   "type": "stat",
+   "title": "Из сети",
+   "gridPos": {
+    "x": 6,
+    "y": 0,
+    "w": 6,
+    "h": 3
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(last_over_time(zeekr_charge_energy_used_kwh[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "kwatth",
+     "decimals": 1
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 2
+  },
+  {
+   "type": "stat",
+   "title": "Стоимость (оценка)",
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 6,
+    "h": 3
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(last_over_time(zeekr_charge_energy_added_kwh[$__range]) * (1 - last_over_time(zeekr_charge_dc[$__range])) * $ac_price + last_over_time(zeekr_charge_energy_added_kwh[$__range]) * last_over_time(zeekr_charge_dc[$__range]) * $dc_price)",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "currencyRUB",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 3
+  },
+  {
+   "type": "stat",
+   "title": "Зарядок",
+   "gridPos": {
+    "x": 18,
+    "y": 0,
+    "w": 6,
+    "h": 3
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "count(last_over_time(zeekr_charge_start_ts[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 4
+  },
+  {
+   "type": "table",
+   "title": "Зарядки",
+   "gridPos": {
+    "x": 0,
+    "y": 3,
+    "w": 24,
+    "h": 18
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "(last_over_time(zeekr_charge_start_ts[$__range])) * 1000",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "(last_over_time(zeekr_charge_end_ts[$__range])) * 1000",
+     "legendFormat": "",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_duration_s[$__range])",
+     "legendFormat": "",
+     "refId": "C",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_dc[$__range])",
+     "legendFormat": "",
+     "refId": "D",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_soc_start[$__range])",
+     "legendFormat": "",
+     "refId": "E",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_soc_end[$__range])",
+     "legendFormat": "",
+     "refId": "F",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_energy_added_kwh[$__range])",
+     "legendFormat": "",
+     "refId": "G",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_energy_used_kwh[$__range])",
+     "legendFormat": "",
+     "refId": "H",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_max_power_kw[$__range])",
+     "legendFormat": "",
+     "refId": "I",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_avg_power_kw[$__range])",
+     "legendFormat": "",
+     "refId": "J",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_energy_added_kwh[$__range]) * (1 - last_over_time(zeekr_charge_dc[$__range])) * $ac_price + last_over_time(zeekr_charge_energy_added_kwh[$__range]) * last_over_time(zeekr_charge_dc[$__range]) * $dc_price",
+     "legendFormat": "",
+     "refId": "K",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    },
+    {
+     "expr": "last_over_time(zeekr_charge_outside_temp_c[$__range])",
+     "legendFormat": "",
+     "refId": "L",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false,
+     "format": "table"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {},
+    "overrides": [
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #A"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Старт"
+       },
+       {
+        "id": "unit",
+        "value": "dateTimeAsLocal"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #B"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Финиш"
+       },
+       {
+        "id": "unit",
+        "value": "dateTimeAsLocal"
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #C"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Длительность"
+       },
+       {
+        "id": "unit",
+        "value": "s"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #D"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "DC (1) / AC (0)"
+       },
+       {
+        "id": "unit",
+        "value": "none"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #E"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "SOC старт"
+       },
+       {
+        "id": "unit",
+        "value": "percent"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #F"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "SOC финиш"
+       },
+       {
+        "id": "unit",
+        "value": "percent"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #G"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Добавлено, кВт·ч"
+       },
+       {
+        "id": "unit",
+        "value": "kwatth"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #H"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Из сети, кВт·ч"
+       },
+       {
+        "id": "unit",
+        "value": "kwatth"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #I"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Макс. мощность"
+       },
+       {
+        "id": "unit",
+        "value": "kwatt"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #J"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Средняя"
+       },
+       {
+        "id": "unit",
+        "value": "kwatt"
+       },
+       {
+        "id": "decimals",
+        "value": 1
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #K"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Стоимость (оценка), ₽"
+       },
+       {
+        "id": "unit",
+        "value": "currencyRUB"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     },
+     {
+      "matcher": {
+       "id": "byName",
+       "options": "Value #L"
+      },
+      "properties": [
+       {
+        "id": "displayName",
+        "value": "Снаружи"
+       },
+       {
+        "id": "unit",
+        "value": "celsius"
+       },
+       {
+        "id": "decimals",
+        "value": 0
+       }
+      ]
+     }
+    ]
+   },
+   "options": {
+    "showHeader": true,
+    "cellHeight": "sm"
+   },
+   "description": "Энергия «добавлено» считается по приросту SOC × ёмкость (переменная battery_capacity), «из сети» — интегрирование U×I по AC. Стоимость — оценка по тарифам из переменных.",
+   "transformations": [
+    {
+     "id": "filterFieldsByName",
+     "options": {
+      "exclude": {
+       "names": [
+        "Time"
+       ]
+      }
+     }
+    },
+    {
+     "id": "merge",
+     "options": {}
+    },
+    {
+     "id": "organize",
+     "options": {
+      "excludeByName": {
+       "Time": true,
+       "car": true,
+       "id": true
+      },
+      "indexByName": {
+       "Value #A": 0,
+       "Value #B": 1,
+       "Value #C": 2,
+       "Value #D": 3,
+       "Value #E": 4,
+       "Value #F": 5,
+       "Value #G": 6,
+       "Value #H": 7,
+       "Value #I": 8,
+       "Value #J": 9,
+       "Value #K": 10,
+       "Value #L": 11
+      }
+     }
+    },
+    {
+     "id": "sortBy",
+     "options": {
+      "fields": {},
+      "sort": [
+       {
+        "field": "Value #A",
+        "desc": true
+       }
+      ]
+     }
+    }
+   ],
+   "id": 5
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}

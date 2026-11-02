@@ -1,0 +1,658 @@
+{
+ "uid": "zeekr-charging-costs",
+ "title": "Zeekr — Стоимость зарядок",
+ "tags": [
+  "zeekr"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "editable": true,
+ "refresh": "1m",
+ "time": {
+  "from": "now-1y",
+  "to": "now"
+ },
+ "templating": {
+  "list": [
+   {
+    "type": "textbox",
+    "name": "ac_price",
+    "label": "Тариф AC, ₽/кВт·ч",
+    "query": "6.5",
+    "current": {
+     "selected": false,
+     "text": "6.5",
+     "value": "6.5"
+    },
+    "options": [
+     {
+      "selected": true,
+      "text": "6.5",
+      "value": "6.5"
+     }
+    ],
+    "hide": 0
+   },
+   {
+    "type": "textbox",
+    "name": "dc_price",
+    "label": "Тариф DC, ₽/кВт·ч",
+    "query": "20",
+    "current": {
+     "selected": false,
+     "text": "20",
+     "value": "20"
+    },
+    "options": [
+     {
+      "selected": true,
+      "text": "20",
+      "value": "20"
+     }
+    ],
+    "hide": 0
+   }
+  ]
+ },
+ "panels": [
+  {
+   "type": "text",
+   "title": "Период",
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 2
+   },
+   "options": {
+    "mode": "markdown",
+    "content": "Статистика за выбранный период. Тарифы задаются переменными `ac_price` и `dc_price`; «стоимость» — оценка, реальные платежи авто не передаёт."
+   },
+   "id": 1
+  },
+  {
+   "type": "stat",
+   "title": "Общая стоимость",
+   "gridPos": {
+    "x": 0,
+    "y": 2,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum((last_over_time(zeekr_charge_energy_added_kwh[$__range]) * (1 - last_over_time(zeekr_charge_dc[$__range])) * $ac_price + last_over_time(zeekr_charge_energy_added_kwh[$__range]) * last_over_time(zeekr_charge_dc[$__range]) * $dc_price))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "currencyRUB",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 2
+  },
+  {
+   "type": "stat",
+   "title": "Пройдено",
+   "gridPos": {
+    "x": 4,
+    "y": 2,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(sum_over_time(zeekr_drive_distance_km[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "lengthkm",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 3
+  },
+  {
+   "type": "stat",
+   "title": "Зарядок",
+   "gridPos": {
+    "x": 8,
+    "y": 2,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "count(last_over_time(zeekr_charge_start_ts[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 4
+  },
+  {
+   "type": "stat",
+   "title": "Из сети",
+   "gridPos": {
+    "x": 12,
+    "y": 2,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(last_over_time(zeekr_charge_energy_used_kwh[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "kwatth",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 5
+  },
+  {
+   "type": "stat",
+   "title": "Добавлено",
+   "gridPos": {
+    "x": 16,
+    "y": 2,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(last_over_time(zeekr_charge_energy_added_kwh[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "kwatth",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 6
+  },
+  {
+   "type": "stat",
+   "title": "КПД зарядки (оценка)",
+   "gridPos": {
+    "x": 20,
+    "y": 2,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(last_over_time(zeekr_charge_energy_added_kwh[$__range])) / sum(last_over_time(zeekr_charge_energy_used_kwh[$__range])) * 100",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "description": "Отношение добавленной (SOC×ёмкость) к полученной из сети (U×I); верно только для AC и при правильной ёмкости.",
+   "id": 7
+  },
+  {
+   "type": "stat",
+   "title": "Стоимость на 100 км",
+   "gridPos": {
+    "x": 0,
+    "y": 6,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum((last_over_time(zeekr_charge_energy_added_kwh[$__range]) * (1 - last_over_time(zeekr_charge_dc[$__range])) * $ac_price + last_over_time(zeekr_charge_energy_added_kwh[$__range]) * last_over_time(zeekr_charge_dc[$__range]) * $dc_price)) / (sum(sum_over_time(zeekr_drive_distance_km[$__range]))) * 100",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "currencyRUB",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 8
+  },
+  {
+   "type": "stat",
+   "title": "Средняя цена кВт·ч",
+   "gridPos": {
+    "x": 6,
+    "y": 6,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum((last_over_time(zeekr_charge_energy_added_kwh[$__range]) * (1 - last_over_time(zeekr_charge_dc[$__range])) * $ac_price + last_over_time(zeekr_charge_energy_added_kwh[$__range]) * last_over_time(zeekr_charge_dc[$__range]) * $dc_price)) / sum(last_over_time(zeekr_charge_energy_added_kwh[$__range]))",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "currencyRUB",
+     "decimals": 1
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 9
+  },
+  {
+   "type": "stat",
+   "title": "Стоимость AC",
+   "gridPos": {
+    "x": 12,
+    "y": 6,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(last_over_time(zeekr_charge_energy_added_kwh[$__range]) * (1 - last_over_time(zeekr_charge_dc[$__range])) * $ac_price)",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "currencyRUB",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 10
+  },
+  {
+   "type": "stat",
+   "title": "Стоимость DC",
+   "gridPos": {
+    "x": 18,
+    "y": 6,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(last_over_time(zeekr_charge_energy_added_kwh[$__range]) * last_over_time(zeekr_charge_dc[$__range]) * $dc_price)",
+     "legendFormat": "",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     },
+     "instant": true,
+     "range": false
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "currencyRUB",
+     "decimals": 0
+    },
+    "overrides": []
+   },
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none"
+   },
+   "id": 11
+  },
+  {
+   "type": "timeseries",
+   "title": "Добавлено по месяцам",
+   "gridPos": {
+    "x": 0,
+    "y": 10,
+    "w": 12,
+    "h": 7
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(sum_over_time(zeekr_charge_energy_added_kwh[30d]))",
+     "legendFormat": "кВт·ч за 30 дн.",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "kwatth",
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 60,
+      "spanNulls": false,
+      "showPoints": "never",
+      "drawStyle": "bars"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "interval": "30d",
+   "id": 12
+  },
+  {
+   "type": "timeseries",
+   "title": "Энергия по месяцам",
+   "gridPos": {
+    "x": 12,
+    "y": 10,
+    "w": 12,
+    "h": 7
+   },
+   "datasource": {
+    "type": "prometheus",
+    "uid": "vm"
+   },
+   "targets": [
+    {
+     "expr": "sum(sum_over_time(zeekr_charge_energy_added_kwh[30d]))",
+     "legendFormat": "добавлено",
+     "refId": "A",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    },
+    {
+     "expr": "sum(sum_over_time(zeekr_charge_energy_used_kwh[30d]))",
+     "legendFormat": "из сети",
+     "refId": "B",
+     "datasource": {
+      "type": "prometheus",
+      "uid": "vm"
+     }
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "kwatth",
+     "custom": {
+      "lineWidth": 1,
+      "fillOpacity": 60,
+      "spanNulls": false,
+      "showPoints": "never",
+      "drawStyle": "bars"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "interval": "30d",
+   "id": 13
+  }
+ ],
+ "links": [
+  {
+   "type": "dashboards",
+   "tags": [
+    "zeekr"
+   ],
+   "asDropdown": true,
+   "title": "Zeekr",
+   "includeVars": false,
+   "keepTime": true
+  }
+ ],
+ "annotations": {
+  "list": []
+ }
+}
