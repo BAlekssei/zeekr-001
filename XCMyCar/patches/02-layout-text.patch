@@ -1,0 +1,52 @@
+--- a/res/layout/layout_widget.xml
++++ b/res/layout/layout_widget.xml
+@@ -9,7 +9,7 @@
+                 <TextView android:textSize="@dimen/sp_18" android:textStyle="bold" android:textColor="@color/widget_text" android:gravity="center" android:id="@id/total_mileage_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/widget_drive_score_km" />
+             </LinearLayout>
+             <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+-                <TextView android:textSize="@dimen/sp_20" android:textColor="@color/widget_text" android:layout_gravity="end" android:id="@id/trips_consumption_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_12" android:text="当前行程能耗" android:alpha="0.5" />
++                <TextView android:textSize="@dimen/sp_20" android:textColor="@color/widget_text" android:layout_gravity="end" android:id="@id/trips_consumption_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dp_12" android:text="@string/current_trip_energy_usage" android:alpha="0.5" />
+             </LinearLayout>
+         </LinearLayout>
+         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+--- a/res/layout/tab_item.xml
++++ b/res/layout/tab_item.xml
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <LinearLayout android:orientation="vertical" android:tag="layout/tab_item_0" android:layout_width="wrap_content" android:layout_height="match_parent"
+   xmlns:android="http://schemas.android.com/apk/res/android">
+-    <TextView android:textSize="@dimen/sp_28" android:textColor="@color/service_text_clor_main" android:gravity="center" android:id="@id/tv_title" android:background="#00ffff00" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="文字标签" />
++    <TextView android:textSize="@dimen/sp_28" android:textColor="@color/service_text_clor_main" android:gravity="center" android:id="@id/tv_title" android:background="#00ffff00" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Вкладка" />
+ </LinearLayout>
+--- a/res/layout/zeekr_dialog_web_scroll_layout.xml
++++ b/res/layout/zeekr_dialog_web_scroll_layout.xml
+@@ -8,6 +8,6 @@
+     </com.zeekr.component.rebound.ZeekrReboundRefreshLayout>
+     <View android:id="@id/web_loading_bg" android:background="?dialogColorBackground" android:visibility="visible" android:layout_width="match_parent" android:layout_height="match_parent" />
+     <com.zeekr.lottie.ZeekrLoadingInfiniteView android:layout_gravity="center" android:id="@id/web_loading" android:layout_width="100.0dp" android:layout_height="100.0dp" />
+-    <TextView android:textAppearance="?textAppearanceBodyMedium" android:textColor="@color/primary_60" android:layout_gravity="center" android:id="@id/web_loading_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="80.0dp" android:text="加载中.." />
++    <TextView android:textAppearance="?textAppearanceBodyMedium" android:textColor="@color/primary_60" android:layout_gravity="center" android:id="@id/web_loading_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="80.0dp" android:text="@string/zeekr_loading" />
+     <com.zeekr.component.scroll.ZeekrScrollBar android:layout_gravity="end" android:id="@id/zeekr_dialog_scroll_bar" android:layout_width="3.0dp" android:layout_height="320.0dp" android:layout_marginEnd="16.0dp" />
+ </merge>
+--- a/res/layout/zeekr_toggle_remove_button.xml
++++ b/res/layout/zeekr_toggle_remove_button.xml
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <merge
+   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+-    <com.zeekr.component.button.ZeekrToggleButton android:textAppearance="?textAppearanceBodySmall" android:id="@id/zeekr_toggle_button" android:layout_width="200.0dp" android:layout_height="48.0dp" android:text="主题" android:elevation="0.0dp" app:iconPadding="5.0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:zeekrManualInnerDrawable="true" style="@style/Widget.ZeekrButton.Toggle" />
++    <com.zeekr.component.button.ZeekrToggleButton android:textAppearance="?textAppearanceBodySmall" android:id="@id/zeekr_toggle_button" android:layout_width="200.0dp" android:layout_height="48.0dp" android:text="Тема" android:elevation="0.0dp" app:iconPadding="5.0dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent" app:zeekrManualInnerDrawable="true" style="@style/Widget.ZeekrButton.Toggle" />
+     <ImageView android:id="@id/close" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_remove" android:elevation="10.0dp" app:layout_constraintBottom_toTopOf="@id/zeekr_toggle_button" app:layout_constraintEnd_toEndOf="@id/zeekr_toggle_button" app:layout_constraintStart_toEndOf="@id/zeekr_toggle_button" app:layout_constraintTop_toTopOf="@id/zeekr_toggle_button" />
+ </merge>
+--- a/res/layout/zeekr_window_banner_item.xml
++++ b/res/layout/zeekr_window_banner_item.xml
+@@ -2,7 +2,7 @@
+ <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
+   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+     <ImageView android:id="@id/zeekr_window_banner_image" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="55.0dp" android:layout_marginTop="52.0dp" android:src="@drawable/ic_home" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+-    <TextView android:textSize="24.0dp" android:id="@id/zeekr_window_banner_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="48.0dp" android:text="标题" android:layout_marginStart="48.0dp" app:layout_constraintStart_toEndOf="@id/zeekr_window_banner_image" app:layout_constraintTop_toTopOf="parent" />
+-    <TextView android:textSize="20.0dp" android:id="@id/zeekr_window_banner_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_marginBottom="48.0dp" android:text="内容 内容 内容 内容 " app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="@id/zeekr_window_banner_title" app:layout_constraintTop_toBottomOf="@id/zeekr_window_banner_title" />
++    <TextView android:textSize="24.0dp" android:id="@id/zeekr_window_banner_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="48.0dp" android:text="Заголовок" android:layout_marginStart="48.0dp" app:layout_constraintStart_toEndOf="@id/zeekr_window_banner_image" app:layout_constraintTop_toTopOf="parent" />
++    <TextView android:textSize="20.0dp" android:id="@id/zeekr_window_banner_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dp" android:layout_marginBottom="48.0dp" android:text="Содержание" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="@id/zeekr_window_banner_title" app:layout_constraintTop_toBottomOf="@id/zeekr_window_banner_title" />
+     <ImageView android:id="@id/zeekr_window_banner_cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ic_banner_cancel" android:layout_marginStart="30.0dp" android:layout_marginEnd="53.72998dp" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@id/zeekr_window_banner_content" app:layout_constraintTop_toTopOf="parent" />
+ </androidx.constraintlayout.widget.ConstraintLayout>

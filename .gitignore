@@ -8,3 +8,7 @@ MediaCenter/yandex_cluster/build/
 ZeekrCoreService/mediacenter_self/build/
 
 *.txt
+
+XCMyCar/build/
+XCMyCar/backups/
+__pycache__/

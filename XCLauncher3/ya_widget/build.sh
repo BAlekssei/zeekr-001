@@ -3,9 +3,9 @@
 #
 #   ./build.sh [<стоковый XCLauncher3.apk>]     # по умолчанию ../XCLauncher3_original_3.0.2747.apk
 #
-# Меняется только classes2.dex (ресурсы и остальные dex — байт-в-байт из стока), поэтому
+# Меняется classes2.dex и строки карточки автомобиля в глобальном пуле resources.arsc, поэтому
 # framework-res.apk не нужен: полная пересборка ресурсов на этом APK падает в aapt2.
-# Нужны в PATH: apktool (3.x), patch, zip, zipalign, apksigner (Android build-tools).
+# Нужны в PATH: apktool (3.x), python3, patch, zip, zipalign, apksigner (Android build-tools).
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -31,6 +31,12 @@ echo "== 4. Подмена classes2.dex в стоковом APK"
 cp "$STOCK" build/base.apk
 ( cd build/src/build/apk && zip -q -u ../../../base.apk classes2.dex )
 zip -q -d build/base.apk 'META-INF/*'
+
+echo "== 4b. Русская карточка автомобиля (без пересборки ресурсов)"
+mkdir -p build/resources
+unzip -p "$STOCK" resources.arsc > build/resources-original.arsc
+python3 tools/ru_vehicle_card.py build/resources-original.arsc build/resources/resources.arsc
+( cd build/resources && zip -q -0 ../base.apk resources.arsc )
 
 echo "== 5. zipalign + подпись platform-ключом"
 zipalign -p -f 4 build/base.apk build/align.apk

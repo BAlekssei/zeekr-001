@@ -1,0 +1,38 @@
+--- a/smali_classes2/com/zeekrlife/myCar/common/minibar/view/WidgetTyreViewManager.smali
++++ b/smali_classes2/com/zeekrlife/myCar/common/minibar/view/WidgetTyreViewManager.smali
+@@ -81,7 +81,7 @@
+ 
+     move-result-object v2
+ 
+-    const-string v3, "\u5de6\u524d\u80ce"
++    const-string v3, "Передняя левая шина: "
+ 
+     invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+@@ -94,7 +94,7 @@
+ 
+     move-result-object v3
+ 
+-    const-string v4, "\u53f3\u524d\u80ce"
++    const-string v4, "Передняя правая шина: "
+ 
+     invoke-interface {v0, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+@@ -107,7 +107,7 @@
+ 
+     move-result-object v4
+ 
+-    const-string v5, "\u5de6\u540e\u80ce"
++    const-string v5, "Задняя левая шина: "
+ 
+     invoke-interface {v0, v4, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 
+@@ -120,7 +120,7 @@
+ 
+     move-result-object v5
+ 
+-    const-string v6, "\u53f3\u540e\u80ce"
++    const-string v6, "Задняя правая шина: "
+ 
+     invoke-interface {v0, v5, v6}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+ 

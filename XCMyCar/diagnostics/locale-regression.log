@@ -1,0 +1,8 @@
+XCMyCar_RU.apk: 1 file pushed. 1.3 MB/s (13441029 bytes in 10.203s)
+build/regression/dex/classes.dex: 1 file pushed. 0.2 MB/s (3988 bytes in 0.022s)
+PASS ru-RU
+PASS en-US
+PASS zh-CN
+PASS de-DE
+PASS ar-EG
+PASS 180 checks against APK classes

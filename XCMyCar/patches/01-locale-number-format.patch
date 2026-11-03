@@ -1,0 +1,51 @@
+--- a/smali/com/zeekrlife/myCar/common/TripHelper.smali
++++ b/smali/com/zeekrlife/myCar/common/TripHelper.smali
+@@ -2973,11 +2973,11 @@
+ 
+     .line 3
+     :cond_0
+-    new-instance v0, Ljava/text/DecimalFormat;
+-
+     const-string v1, "#.0"
+ 
+-    invoke-direct {v0, v1}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
++    invoke-static {v1}, Lcom/zeekrlife/myCar/common/NumberFormats;->create(Ljava/lang/String;)Ljava/text/DecimalFormat;
++
++    move-result-object v0
+ 
+     .line 4
+     invoke-virtual {v0, p1}, Ljava/text/DecimalFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+--- a/smali/com/zeekrlife/myCar/common/DistanceUtils.smali
++++ b/smali/com/zeekrlife/myCar/common/DistanceUtils.smali
+@@ -21,11 +21,11 @@
+     div-float/2addr p0, v0
+ 
+     .line 1
+-    new-instance v0, Ljava/text/DecimalFormat;
+-
+     const-string v1, "#.0"
+ 
+-    invoke-direct {v0, v1}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
++    invoke-static {v1}, Lcom/zeekrlife/myCar/common/NumberFormats;->create(Ljava/lang/String;)Ljava/text/DecimalFormat;
++
++    move-result-object v0
+ 
+     float-to-double v1, p0
+ 
+--- a/smali_classes2/com/zeekrlife/myCar/driving/TripRegister.smali
++++ b/smali_classes2/com/zeekrlife/myCar/driving/TripRegister.smali
+@@ -1389,11 +1389,11 @@
+     move-result v0
+ 
+     .line 15
+-    new-instance v3, Ljava/text/DecimalFormat;
+-
+     const-string v4, "#.0"
+ 
+-    invoke-direct {v3, v4}, Ljava/text/DecimalFormat;-><init>(Ljava/lang/String;)V
++    invoke-static {v4}, Lcom/zeekrlife/myCar/common/NumberFormats;->create(Ljava/lang/String;)Ljava/text/DecimalFormat;
++
++    move-result-object v3
+ 
+     float-to-double v7, v0
+ 
