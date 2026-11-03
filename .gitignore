@@ -8,7 +8,12 @@ MediaCenter/yandex_cluster/build/
 ZeekrCoreService/mediacenter_self/build/
 
 *.txt
+!3dLauncher/requirements.txt
 
 XCMyCar/build/
 XCMyCar/backups/
 __pycache__/
+3dLauncher/build/
+3dLauncher/backups/
+ZeekrKindMode/build/
+ZeekrKindMode/backups/

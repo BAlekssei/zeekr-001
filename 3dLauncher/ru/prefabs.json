@@ -1,0 +1,594 @@
+[
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/campmodewnd.bundle",
+    "id": -6471270530009989062,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "设置"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/campmodewnd.bundle",
+    "id": 348507647131123770,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "车内关灯"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/campmodewnd.bundle",
+    "id": 2676997373654204474,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "一键透气"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/campmodewnd.bundle",
+    "id": 4306605110026895418,
+    "class": "TextMeshProUGUI",
+    "size": 520,
+    "offset": 88,
+    "source": "退出露营模式"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/campmodewnd.bundle",
+    "id": 7715771372217696314,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "全车上锁"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/campmodewnd.bundle",
+    "id": 8911557944916246586,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "熄屏"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/carctrlwindow.bundle",
+    "id": -6123334146373581607,
+    "class": "TextMeshProUGUI",
+    "size": 504,
+    "offset": 88,
+    "source": "开"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/carctrlwindow.bundle",
+    "id": 2829940550505137369,
+    "class": "TextMeshProUGUI",
+    "size": 504,
+    "offset": 88,
+    "source": "关"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/carpaintwindow.bundle",
+    "id": -884349828942055254,
+    "class": "Text",
+    "size": 156,
+    "offset": 144,
+    "source": "赛道"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/carpaintwindow.bundle",
+    "id": 3323862327819647146,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "完成"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/carpaintwindow.bundle",
+    "id": 4605016840623831210,
+    "class": "Text",
+    "size": 156,
+    "offset": 144,
+    "source": "纯色"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -8014681283352789868,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "电流 (A)"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -7472229552871834476,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "停止充电"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -7316023065768559468,
+    "class": "TextMeshProUGUI",
+    "size": 520,
+    "offset": 88,
+    "source": "充电速度 (km/hr)"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -7186505187899409260,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "充至限值"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -7035186336647545708,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "每天"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -5636719274230809452,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "预约充电"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -4174897300192101228,
+    "class": "TextMeshProUGUI",
+    "size": 520,
+    "offset": 88,
+    "source": "充电功率 (kW)"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -3437567473912972140,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "剩余电量"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": -1443877651476644716,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "电压 (V)"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": 655390331802483860,
+    "class": "TextMeshProUGUI",
+    "size": 524,
+    "offset": 88,
+    "source": "极充中（直流）"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": 2987733696026901652,
+    "class": "TextMeshProUGUI",
+    "size": 524,
+    "offset": 88,
+    "source": "供电电量统计 (kWh)"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": 3599084492385483924,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "续航里程"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": 3614269684941061268,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "次日"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": 6602269788210920596,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "即将充满"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/chargewindow.bundle",
+    "id": 8826188915312491668,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "剩余时间"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/item/trunkicon.bundle",
+    "id": 1145400975644772055,
+    "class": "TextMeshProUGUI",
+    "size": 504,
+    "offset": 88,
+    "source": "关"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/item/trunkicon.bundle",
+    "id": 1690652388714104535,
+    "class": "TextMeshProUGUI",
+    "size": 504,
+    "offset": 88,
+    "source": "开"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/item/washcarmodeitem.bundle",
+    "id": 2880709093968775558,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/item/washcarmodeitem.bundle",
+    "id": 8917081508888119686,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "车门"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/modelistwnd.bundle",
+    "id": -8595898585627184203,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "洗车模式"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/modelistwnd.bundle",
+    "id": -6733439428784704587,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "露营模式"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/modelistwnd.bundle",
+    "id": 1026758036889187253,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "悬架调节"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/modelistwnd.bundle",
+    "id": 5224758568522199989,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "休憩模式"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/modelistwnd.bundle",
+    "id": 7303023185078891445,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "数字车衣"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/relaxmodewnd.bundle",
+    "id": -6985048905664952715,
+    "class": "TextMeshProUGUI",
+    "size": 520,
+    "offset": 88,
+    "source": "副驾一键休憩"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/relaxmodewnd.bundle",
+    "id": -3202171811605051787,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "熄屏"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/relaxmodewnd.bundle",
+    "id": 2489474074044008053,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "更多"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/relaxmodewnd.bundle",
+    "id": 8212013968565798517,
+    "class": "TextMeshProUGUI",
+    "size": 520,
+    "offset": 88,
+    "source": "主驾一键休憩"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/suspensionadjustwnd.bundle",
+    "id": -6621916842717891031,
+    "class": "TextMeshProUGUI",
+    "size": 504,
+    "offset": 88,
+    "source": "高"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/suspensionadjustwnd.bundle",
+    "id": -6408601711085242839,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "很低"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/suspensionadjustwnd.bundle",
+    "id": -6237136305372482007,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "标准"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/suspensionadjustwnd.bundle",
+    "id": -500441420314593751,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "很高"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/suspensionadjustwnd.bundle",
+    "id": 1906391360833041961,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "完成"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/suspensionadjustwnd.bundle",
+    "id": 7489535000117818921,
+    "class": "TextMeshProUGUI",
+    "size": 504,
+    "offset": 88,
+    "source": "低"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -8875651416392433359,
+    "class": "TextMeshProUGUI",
+    "size": 528,
+    "offset": 88,
+    "source": "接近解锁/远离上锁"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -8787327341309427407,
+    "class": "TextMeshProUGUI",
+    "size": 516,
+    "offset": 88,
+    "source": "N挡注意事项"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -7539725492373323471,
+    "class": "TextMeshProUGUI",
+    "size": 524,
+    "offset": 88,
+    "source": "洗车模式已就绪"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -7309278873572245199,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -6896598798771060431,
+    "class": "TextMeshProUGUI",
+    "size": 516,
+    "offset": 88,
+    "source": "无钥匙进入"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -6594844954923597519,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "后备箱"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -5867444155936374479,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "前备箱"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -5301396997108891343,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -4969422188445793999,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -4883096113691131599,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "车门"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -4566162861646708431,
+    "class": "TextMeshProUGUI",
+    "size": 516,
+    "offset": 88,
+    "source": "自动雨刮器"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -2912360152725421775,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -2898199070472109775,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -1550791851734630095,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -839350855978548943,
+    "class": "TextMeshProUGUI",
+    "size": 520,
+    "offset": 88,
+    "source": "退出洗车模式"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -798827313985191631,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "车外灯光"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -465188031955304143,
+    "class": "TextMeshProUGUI",
+    "size": 516,
+    "offset": 88,
+    "source": "障碍物报警"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -291378818896854735,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": -268901895546633935,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "自动驻车"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 300962914829435185,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 584481279530729777,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "屏幕清洁"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 1048663936395936049,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 3259421034345234737,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "充电口盖"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 3380377598703403313,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "空调模式"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 5464287671197073713,
+    "class": "TextMeshProUGUI",
+    "size": 508,
+    "offset": 88,
+    "source": "车窗"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 5476345356268306737,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 6870509657451102513,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 8141885608754250033,
+    "class": "TextMeshProUGUI",
+    "size": 516,
+    "offset": 88,
+    "source": "折叠后视镜"
+  },
+  {
+    "bundle": "assets/aa/Android/carctrlmodule_assets_carctrlmodule/ui/washcarmodwnd.bundle",
+    "id": 9073872917186511153,
+    "class": "TextMeshProUGUI",
+    "size": 512,
+    "offset": 88,
+    "source": "已关闭"
+  }
+]

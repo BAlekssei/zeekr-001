@@ -1,0 +1,337 @@
+[
+  {
+    "name": "cancel",
+    "source": "取消",
+    "ru": "Отмена"
+  },
+  {
+    "name": "car_skin_data",
+    "source": "数字车衣",
+    "ru": "Облик авто"
+  },
+  {
+    "name": "car_suspension_adjust",
+    "source": "悬架调节",
+    "ru": "Подвеска"
+  },
+  {
+    "name": "car_suspension_disable",
+    "source": "千斤顶模式已开启，无法使用悬架调节",
+    "ru": "Включён режим домкрата. Регулировка подвески недоступна"
+  },
+  {
+    "name": "close",
+    "source": "关闭",
+    "ru": "Закрыть"
+  },
+  {
+    "name": "copilot_seat",
+    "source": "副驾座椅",
+    "ru": "сиденье пассажира"
+  },
+  {
+    "name": "enter_wash_mode",
+    "source": "进入洗车模式",
+    "ru": "Включить режим мойки"
+  },
+  {
+    "name": "i_known",
+    "source": "知道了",
+    "ru": "Понятно"
+  },
+  {
+    "name": "main_driver_seat",
+    "source": "主驾座椅",
+    "ru": "сиденье водителя"
+  },
+  {
+    "name": "mode_switch_exit",
+    "source": "立即退出",
+    "ru": "Выйти"
+  },
+  {
+    "name": "mode_switch_open",
+    "source": "开启",
+    "ru": "Включить"
+  },
+  {
+    "name": "neutral_gear_tip_content",
+    "source": "1. 使用传送带洗车机请翻折后视镜，挂入N挡，人员请勿离车，离车时挡位会切换P挡。\n2. 自动驻车（Autohold）己关闭时，可挂入N挡。\n3. 自动驻车（Autohold）未关闭时，请先关闭自动驻车，再挂入 N挡。\n注：车辆P挡时，解开驾驶员安全带或深踩制动踏板，即可关闭自动驻车",
+    "ru": "1. На конвейерной мойке сложите зеркала и включите N. Не покидайте автомобиль: при выходе коробка переключится в P.\n2. Если Auto Hold выключен, можно включить N.\n3. Если Auto Hold включён, сначала выключите его, затем включите N.\nПримечание: в положении P отключить Auto Hold можно, отстегнув ремень водителя или сильно нажав на педаль тормоза."
+  },
+  {
+    "name": "neutral_gear_tip_title",
+    "source": "N挡注意事项",
+    "ru": "Нейтраль: важно"
+  },
+  {
+    "name": "pet_mode",
+    "source": "宠物模式",
+    "ru": "Режим питомца"
+  },
+  {
+    "name": "pet_mode_remind",
+    "source": "宠物模式",
+    "ru": "Режим питомца"
+  },
+  {
+    "name": "pet_remind_know",
+    "source": "知道了",
+    "ru": "Понятно"
+  },
+  {
+    "name": "pet_remind_not_airy_content",
+    "source": "自动开启空气外循环，爱宠畅快呼吸",
+    "ru": "Приток наружного воздуха включается автоматически, обеспечивая вентиляцию"
+  },
+  {
+    "name": "pet_remind_not_airy_title",
+    "source": "保证通风",
+    "ru": "Вентиляция"
+  },
+  {
+    "name": "pet_remind_not_careful_content",
+    "source": "门窗、车机屏幕和语音交互禁用",
+    "ru": "Управление дверями, окнами, экраном и голосовыми командами отключено"
+  },
+  {
+    "name": "pet_remind_not_careful_title",
+    "source": "防止误触",
+    "ru": "Защита от случайных нажатий"
+  },
+  {
+    "name": "pet_remind_not_exception_content",
+    "source": "低电量或退出宠物模式时通知车主\n并自动开窗通风",
+    "ru": "При низком заряде или выходе из режима владелец получит уведомление, а окна автоматически откроются для проветривания"
+  },
+  {
+    "name": "pet_remind_not_exception_title",
+    "source": "异常保护",
+    "ru": "Защита при сбое"
+  },
+  {
+    "name": "pet_remind_sub_title",
+    "source": "仅适用于动物，请勿将儿童独自留在车内",
+    "ru": "Только для животных. Не оставляйте детей одних в автомобиле"
+  },
+  {
+    "name": "pet_remind_temperature_content",
+    "source": "空调维持恒温，宠物自在舒适",
+    "ru": "Климат поддерживает постоянную температуру для комфорта питомца"
+  },
+  {
+    "name": "pet_remind_temperature_title",
+    "source": "维持温度",
+    "ru": "Постоянная температура"
+  },
+  {
+    "name": "rest_driver",
+    "source": "主驾",
+    "ru": "Водитель"
+  },
+  {
+    "name": "rest_mode_text",
+    "source": "主驾休憩模式开启时将调节主驾座椅设置，请谨慎操作",
+    "ru": "В режиме отдыха водителя положение его сиденья изменится. Будьте осторожны"
+  },
+  {
+    "name": "rest_passenger",
+    "source": "副驾",
+    "ru": "Пассажир"
+  },
+  {
+    "name": "rest_select_tips",
+    "source": "开启时将调节%1$s，请谨慎操作",
+    "ru": "При включении изменятся настройки (%1$s). Будьте осторожны"
+  },
+  {
+    "name": "row_front_seat",
+    "source": "主驾、副驾座椅",
+    "ru": "сиденья водителя и пассажира"
+  },
+  {
+    "name": "seat",
+    "source": "座椅",
+    "ru": "сиденье"
+  },
+  {
+    "name": "seat_adjustment_in_progress_please_waiting",
+    "source": "座椅调整中，请稍后",
+    "ru": "Сиденье перемещается. Подождите"
+  },
+  {
+    "name": "srl_content_empty",
+    "source": "未添加任何布局",
+    "ru": "Нет содержимого"
+  },
+  {
+    "name": "srl_footer_failed",
+    "source": "加载更多失败",
+    "ru": "Не удалось загрузить"
+  },
+  {
+    "name": "srl_footer_finish",
+    "source": "加载更多成功",
+    "ru": "Загрузка завершена"
+  },
+  {
+    "name": "srl_footer_loading",
+    "source": "正在加载更多",
+    "ru": "Загрузка…"
+  },
+  {
+    "name": "srl_footer_pulling",
+    "source": "上拉加载更多",
+    "ru": "Потяните вверх для загрузки"
+  },
+  {
+    "name": "srl_footer_refreshing",
+    "source": "等待加载更多",
+    "ru": "Ожидание загрузки"
+  },
+  {
+    "name": "srl_footer_release",
+    "source": "释放加载更多",
+    "ru": "Отпустите для загрузки"
+  },
+  {
+    "name": "srl_header_failed",
+    "source": "刷新失败",
+    "ru": "Не удалось обновить"
+  },
+  {
+    "name": "srl_header_finish",
+    "source": "刷新成功",
+    "ru": "Обновлено"
+  },
+  {
+    "name": "srl_header_loading",
+    "source": "等待加载",
+    "ru": "Ожидание загрузки"
+  },
+  {
+    "name": "srl_header_pulling",
+    "source": "下拉刷新",
+    "ru": "Потяните вниз для обновления"
+  },
+  {
+    "name": "srl_header_refreshing",
+    "source": "正在刷新",
+    "ru": "Обновление…"
+  },
+  {
+    "name": "srl_header_release",
+    "source": "释放刷新",
+    "ru": "Отпустите для обновления"
+  },
+  {
+    "name": "start",
+    "source": "开启",
+    "ru": "Включить"
+  },
+  {
+    "name": "wash_car_outside_exit_simple_txt",
+    "source": "实体钥匙或手机钥匙（蓝牙已连接）解锁车辆，洗车模式将退出",
+    "ru": "Отоприте автомобиль обычным ключом или ключом на телефоне с подключённым Bluetooth — режим мойки выключится"
+  },
+  {
+    "name": "wash_car_outside_exit_title",
+    "source": "车外退出方法",
+    "ru": "Как выйти снаружи"
+  },
+  {
+    "name": "wash_car_outside_exit_txt",
+    "source": "1. 实体钥匙或手机钥匙（蓝牙已连接）解锁车辆，洗车模式将退出\n2. 解锁状态长按6秒门把手电子锁开关，洗车模式将退出",
+    "ru": "1. Отоприте автомобиль обычным ключом или ключом на телефоне с подключённым Bluetooth — режим мойки выключится.\n2. Если автомобиль уже отперт, удерживайте кнопку электронного замка на дверной ручке 6 секунд — режим мойки выключится."
+  },
+  {
+    "name": "wash_exit_title",
+    "source": "退出提示",
+    "ru": "Выход из режима мойки"
+  },
+  {
+    "name": "wash_exit_txt",
+    "source": "洗车模式退出后，将关闭驻车舒享并恢复所有禁用功能",
+    "ru": "После выхода режим комфорта на стоянке выключится, а все отключённые функции восстановятся"
+  },
+  {
+    "name": "wash_mode_text",
+    "source": "洗车模式激活后，将开启驻车舒享，空调切为内循环，关闭所有车窗、后备箱、充电口盖；并禁用以下功能：无钥匙进入开关、充电口盖开关、自动雨刮器、障碍物报警、接近解锁/远离上锁。\n\n注：若车速大于15公里/小时，将自动退出洗车模式。\n\n自动洗车提示：请确保电量大于20%并且不要移动车辆，否则主驾人员离车后洗车模式会自动退出；使用传送带洗车机请翻折后视镜，挂入N挡，人员请勿离车，离车时挡位会切换P挡。",
+    "ru": "При включении режима мойки активируется комфорт на стоянке, климат переключится на рециркуляцию, закроются все окна, багажник и крышки зарядных портов. Отключатся бесключевой доступ, управление крышками зарядных портов, автоматические дворники, датчики препятствий, автоматическое отпирание при приближении и запирание при удалении.\n\nПри скорости выше 15 км/ч режим мойки выключится автоматически.\n\nДля автоматической мойки заряд должен быть выше 20%. Не перемещайте автомобиль, иначе после выхода водителя режим мойки автоматически выключится. На конвейерной мойке сложите зеркала и включите N. Не покидайте автомобиль: при выходе коробка переключится в P."
+  },
+  {
+    "name": "rest_mode",
+    "source": "Rest mode",
+    "ru": "Режим отдыха"
+  },
+  {
+    "name": "wash_mode",
+    "source": "Car wash mode",
+    "ru": "Режим мойки"
+  },
+  {
+    "name": "zeekr_back",
+    "source": "back",
+    "ru": "Назад"
+  },
+  {
+    "name": "zeekr_cancel",
+    "source": "cancel",
+    "ru": "Отмена"
+  },
+  {
+    "name": "zeekr_loading",
+    "source": "loading..",
+    "ru": "Загрузка…"
+  },
+  {
+    "name": "zeekr_ok",
+    "source": "ok",
+    "ru": "ОК"
+  },
+  {
+    "name": "zeekr_show_psw",
+    "source": "show password",
+    "ru": "Показать пароль"
+  },
+  {
+    "name": "xpopup_image_not_exist",
+    "source": "Image not exist",
+    "ru": "Изображение отсутствует"
+  },
+  {
+    "name": "xpopup_save",
+    "source": "save",
+    "ru": "Сохранить"
+  },
+  {
+    "name": "xpopup_saved_fail",
+    "source": "Image save failed",
+    "ru": "Не удалось сохранить изображение"
+  },
+  {
+    "name": "xpopup_saved_to_gallery",
+    "source": "Saved to album",
+    "ru": "Сохранено в альбом"
+  },
+  {
+    "name": "searchview_clear_text_content_description",
+    "source": "Clear text",
+    "ru": "Очистить текст"
+  },
+  {
+    "name": "searchview_navigation_content_description",
+    "source": "Back",
+    "ru": "Назад"
+  },
+  {
+    "name": "side_sheet_accessibility_pane_title",
+    "source": "Side Sheet",
+    "ru": "Боковая панель"
+  },
+  {
+    "name": "game_view_content_description",
+    "source": "game_view_content_description",
+    "ru": "3D-вид автомобиля"
+  }
+]

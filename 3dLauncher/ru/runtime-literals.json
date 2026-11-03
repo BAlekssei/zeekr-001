@@ -1,0 +1,37 @@
+{
+  "source_sha256": "8e18a538148da7dd1be208e49fec1a8abad9fe54e09d7710aaf45cd0ac66ce6b",
+  "strings": [
+    {
+      "index": 14123,
+      "source": "一键关窗",
+      "ru": "Закрыть окна"
+    },
+    {
+      "index": 14124,
+      "source": "一键透气",
+      "ru": "Проветрить"
+    },
+    {
+      "index": 14170,
+      "source": "全车上锁",
+      "ru": "Запереть авто"
+    },
+    {
+      "index": 14171,
+      "source": "全车解锁",
+      "ru": "Отпереть авто"
+    }
+  ],
+  "cache_overrides": [
+    {
+      "offset": 9975277,
+      "source": "露营模式",
+      "cached": "Лагерь"
+    },
+    {
+      "offset": 9975317,
+      "source": "露营模式",
+      "cached": "Лагерь"
+    }
+  ]
+}
