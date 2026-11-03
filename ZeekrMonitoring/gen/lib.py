@@ -135,7 +135,7 @@ def table(title, x, y, w, h, cols, base, sort=None, filt=None, limit=None, desc=
     # лежат только в метаданных, поэтому сначала labelsToFields делает их
     # колонками, а Time отбрасываем: у instant-запросов оно разное (±мс)
     tr = [{"id": "labelsToFields", "options": {}},
-          {"id": "filterFieldsByName", "options": {"exclude": {"names": ["Time"]}}},
+          {"id": "filterFieldsByName", "options": {"exclude": {"names": ["Time", "__name__"]}}},
           {"id": "merge", "options": {}},
           {"id": "organize", "options": {"excludeByName": {"Time": True, "car": True, "id": True, "__name__": True}, "indexByName": {"Value #" + chr(65 + i): i for i in range(len(cols))}}}]
     if sort is not None:

@@ -81,7 +81,7 @@ def tire_pressure():
         gauge("Температура шин, °C", 12, 0, 12, 7, [(LAST('zeekr_tire_temp_c{pos="%s"}' % k), n) for k, n in TIRES], "celsius", -20, 80, decimals=0),
         panel("table", "Давление за выбранный период", 0, 7, 24, 6, tg,
               overrides=[ov("Value #A", "мин, кПа", "pressurekpa", 0), ov("Value #B", "сред, кПа", "pressurekpa", 0), ov("Value #C", "макс, кПа", "pressurekpa", 0), ov("Value #D", "темп., °C", "celsius", 0), ov("pos", "колесо")],
-              transformations=[{"id": "merge", "options": {}}, {"id": "organize", "options": {"excludeByName": {"Time": True, "car": True}, "indexByName": {"pos": 0, "Value #A": 1, "Value #B": 2, "Value #C": 3, "Value #D": 4}}}],
+              transformations=[{"id": "labelsToFields", "options": {}}, {"id": "filterFieldsByName", "options": {"exclude": {"names": ["Time", "__name__"]}}}, {"id": "merge", "options": {}}, {"id": "organize", "options": {"excludeByName": {"Time": True, "car": True, "__name__": True}, "indexByName": {"pos": 0, "Value #A": 1, "Value #B": 2, "Value #C": 3, "Value #D": 4}}}],
               options={"showHeader": True}),
         ts("Давление", 0, 13, 12, 8, [('zeekr_tire_pressure_kpa{pos="%s"}' % k, n) for k, n in TIRES], "pressurekpa"),
         ts("Температура", 12, 13, 12, 8, [('zeekr_tire_temp_c{pos="%s"}' % k, n) for k, n in TIRES], "celsius"),

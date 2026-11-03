@@ -347,6 +347,21 @@
    },
    "transformations": [
     {
+     "id": "labelsToFields",
+     "options": {}
+    },
+    {
+     "id": "filterFieldsByName",
+     "options": {
+      "exclude": {
+       "names": [
+        "Time",
+        "__name__"
+       ]
+      }
+     }
+    },
+    {
      "id": "merge",
      "options": {}
     },
@@ -355,7 +370,8 @@
      "options": {
       "excludeByName": {
        "Time": true,
-       "car": true
+       "car": true,
+       "__name__": true
       },
       "indexByName": {
        "pos": 0,

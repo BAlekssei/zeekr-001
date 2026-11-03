@@ -662,11 +662,16 @@
    "description": "Энергия «добавлено» считается по приросту SOC × ёмкость (переменная battery_capacity), «из сети» — интегрирование U×I по AC. Стоимость — оценка по тарифам из переменных.",
    "transformations": [
     {
+     "id": "labelsToFields",
+     "options": {}
+    },
+    {
      "id": "filterFieldsByName",
      "options": {
       "exclude": {
        "names": [
-        "Time"
+        "Time",
+        "__name__"
        ]
       }
      }
@@ -681,7 +686,8 @@
       "excludeByName": {
        "Time": true,
        "car": true,
-       "id": true
+       "id": true,
+       "__name__": true
       },
       "indexByName": {
        "Value #A": 0,

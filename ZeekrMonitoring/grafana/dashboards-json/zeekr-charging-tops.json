@@ -353,11 +353,16 @@
    },
    "transformations": [
     {
+     "id": "labelsToFields",
+     "options": {}
+    },
+    {
      "id": "filterFieldsByName",
      "options": {
       "exclude": {
        "names": [
-        "Time"
+        "Time",
+        "__name__"
        ]
       }
      }
@@ -372,7 +377,8 @@
       "excludeByName": {
        "Time": true,
        "car": true,
-       "id": true
+       "id": true,
+       "__name__": true
       },
       "indexByName": {
        "Value #A": 0,
@@ -553,11 +559,16 @@
    },
    "transformations": [
     {
+     "id": "labelsToFields",
+     "options": {}
+    },
+    {
      "id": "filterFieldsByName",
      "options": {
       "exclude": {
        "names": [
-        "Time"
+        "Time",
+        "__name__"
        ]
       }
      }
@@ -572,7 +583,8 @@
       "excludeByName": {
        "Time": true,
        "car": true,
-       "id": true
+       "id": true,
+       "__name__": true
       },
       "indexByName": {
        "Value #A": 0,

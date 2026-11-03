@@ -46,6 +46,7 @@ public class ExportService extends Service {
     private HandlerThread ht, ut;
     private Handler h, uh;
     private Buffer buf;
+    private TripHistory history;
     private SharedPreferences prefs;
     private Object car, sensorMgr, settingMgr;
     private boolean connecting;
@@ -60,12 +61,18 @@ public class ExportService extends Service {
     private final Map<String, Double> last = new HashMap<>();
     private final Map<String, Long> lastTs = new HashMap<>();
     private double speed = 0; private boolean charging = false;
+    private double odometerKm, socPercent;
+    private double batteryCurrentA, batteryVoltageV, batteryCapacityAh;
+    private double tripEnergyKwh, tripDistanceKm, tripAvgConsumption;
+    private boolean haveOdometer, haveSoc, haveBatteryCurrent, haveBatteryVoltage, haveBatteryCapacity;
+    private boolean haveTripEnergy, haveTripDistance, haveTripAvg;
     private String uploadState = "none";
 
     @Override public void onCreate() {
         super.onCreate();
         prefs = getSharedPreferences("cfg", MODE_PRIVATE);
         buf = new Buffer(this);
+        history = new TripHistory(this);
         ht = new HandlerThread("collect"); ht.start(); h = new Handler(ht.getLooper());
         ut = new HandlerThread("upload"); ut.start(); uh = new Handler(ut.getLooper());
         NotificationManager nm = getSystemService(NotificationManager.class);
@@ -84,7 +91,9 @@ public class ExportService extends Service {
 
     @Override public IBinder onBind(Intent i) { return null; }
 
-    @Override public void onDestroy() { ht.quit(); ut.quit(); super.onDestroy(); }
+    @Override public void onDestroy() {
+        ht.quit(); ut.quit(); history.close(); buf.close(); super.onDestroy();
+    }
 
     // ---------------------------------------------------------------- car
 
@@ -179,6 +188,11 @@ public class ExportService extends Service {
             collectSensors(now);
             collectProps(now);
             collectLocation(now);
+            history.add(new ChargeStats.Sample(now, haveOdometer ? odometerKm : null, haveSoc ? socPercent : null,
+                    charging, haveBatteryCurrent ? batteryCurrentA : null, haveBatteryVoltage ? batteryVoltageV : null,
+                    haveBatteryCapacity ? batteryCapacityAh : null,
+                    haveTripEnergy ? tripEnergyKwh : null, haveTripDistance ? tripDistanceKm : null,
+                    haveTripAvg ? tripAvgConsumption : null));
             buf.addAll(out);
             boolean active = speed > 0 || charging;
             next = active ? ACTIVE_MS : IDLE_MS;
@@ -198,9 +212,12 @@ public class ExportService extends Service {
             for (int i = 0; i < fv.length; i++) emit("zeekr_sensor", "{name=\"" + name + "\",i=\"" + i + "\"}", f(fv[i]), now);
             for (int i = 0; i < iv.length; i++) emit("zeekr_sensor", "{name=\"" + name + "\",i=\"" + i + "\"}", iv[i], now);
             // удобные именованные метрики
-            if ("SENSOR_TYPE_BATTERY_LEVEL".equals(name) && fv.length > 0) emit("zeekr_soc_percent", "", f(fv[0]), now);
-            else if ("SENSOR_TYPE_YFVE_ENDURANCE_MILEAGE".equals(name) && iv.length > 0) emit("zeekr_range_km", "", iv[0], now);
-            else if ("SENSOR_TYPE_ODOMETER".equals(name) && iv.length > 0) emit("zeekr_odometer_km", "", iv[0], now);
+            if ("SENSOR_TYPE_BATTERY_LEVEL".equals(name) && fv.length > 0) {
+                socPercent = f(fv[0]); haveSoc = true; emit("zeekr_soc_percent", "", socPercent, now);
+            } else if ("SENSOR_TYPE_YFVE_ENDURANCE_MILEAGE".equals(name) && iv.length > 0) emit("zeekr_range_km", "", iv[0], now);
+            else if ("SENSOR_TYPE_ODOMETER".equals(name) && iv.length > 0) {
+                odometerKm = iv[0]; haveOdometer = true; emit("zeekr_odometer_km", "", odometerKm, now);
+            }
             else if ("SENSOR_TYPE_YFVE_OUTSIDE_TEMP".equals(name) && fv.length > 0) emit("zeekr_outside_temp_c", "", f(fv[0]), now);
             else if ("SENSOR_TYPE_YFVE_INSIDE_AIRTEMP".equals(name) && fv.length > 0) emit("zeekr_inside_temp_c", "", f(fv[0]), now);
             else if ("SENSOR_TYPE_YFVE_VEHICLE_SPEED".equals(name) && iv.length > 0) { speed = iv[0]; emit("zeekr_speed", "", iv[0], now); }
@@ -226,9 +243,41 @@ public class ExportService extends Service {
             String name = propNames.containsKey(p[0]) ? propNames.get(p[0]) : "0x" + Integer.toHexString(p[0]);
             emit("zeekr_prop", "{name=\"" + name + "\",area=\"" + p[1] + "\"}", v, now);
             if (("ID_CHARGING_PLUG_STATE_AC".equals(name) || "ID_CHARGING_PLUG_STATE_DC".equals(name)
-                || "ID_CHARGINT_ACTION_STATE".equals(name)) && v != 0) chg = true;
+                || "ID_CHARGINT_ACTION_STATE".equals(name)) && v >= 3) chg = true;
+            if ("ID_CHARGING_WORK_CURRENT".equals(name) && p[1] == 1 && v > 0.5) chg = true;
+            if ("ID_CHARGING_WORK_CURRENT".equals(name) && p[1] == 4) {
+                batteryCurrentA = -v;
+                haveBatteryCurrent = true;
+                emit("zeekr_battery_current_a", "", batteryCurrentA, now);
+            } else if ("ID_YFVE_NAVIMDL_HVBATTUDC_DATA".equals(name)) {
+                batteryVoltageV = v * 0.25;
+                haveBatteryVoltage = true;
+                emit("zeekr_battery_voltage_v", "", batteryVoltageV, now);
+            } else if ("ID_YFVE_NAVIMDL_HVBATTCAP_DATA".equals(name)) {
+                batteryCapacityAh = v * 0.1;
+                haveBatteryCapacity = true;
+                emit("zeekr_battery_capacity_ah", "", batteryCapacityAh, now);
+            } else if ("ID_TRIP_ELECONSUMPTION2".equals(name)) {
+                tripEnergyKwh = v * 0.1 - 100.0;
+                haveTripEnergy = true;
+                emit("zeekr_trip_energy_kwh", "", tripEnergyKwh, now);
+            } else if ("ID_TRIP_DISTANCE2".equals(name)) {
+                tripDistanceKm = v * 0.1;
+                haveTripDistance = true;
+                emit("zeekr_trip_distance_km", "", tripDistanceKm, now);
+            } else if ("ID_TRIP_DI_AVG_ENERGY2".equals(name)) {
+                tripAvgConsumption = v * 0.1;
+                haveTripAvg = true;
+                emit("zeekr_trip_avg_consumption_kwh_100km", "", tripAvgConsumption, now);
+            }
         }
         charging = chg;
+        if (haveBatteryCurrent && haveBatteryVoltage) {
+            emit("zeekr_battery_power_kw", "", batteryCurrentA * batteryVoltageV / 1000.0, now);
+        }
+        if (haveSoc && haveBatteryVoltage && haveBatteryCapacity) {
+            emit("zeekr_battery_energy_kwh", "", socPercent * batteryVoltageV * batteryCapacityAh / 100_000.0, now);
+        }
     }
 
     private void collectLocation(long now) {

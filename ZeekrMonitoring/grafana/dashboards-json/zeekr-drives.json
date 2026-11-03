@@ -459,11 +459,16 @@
    "description": "Поездки определяет sessionizer по скорости ≥ 1 км/ч, пауза > 5 мин завершает поездку. Показаны поездки, закончившиеся в выбранном периоде.",
    "transformations": [
     {
+     "id": "labelsToFields",
+     "options": {}
+    },
+    {
      "id": "filterFieldsByName",
      "options": {
       "exclude": {
        "names": [
-        "Time"
+        "Time",
+        "__name__"
        ]
       }
      }
@@ -478,7 +483,8 @@
       "excludeByName": {
        "Time": true,
        "car": true,
-       "id": true
+       "id": true,
+       "__name__": true
       },
       "indexByName": {
        "Value #A": 0,
